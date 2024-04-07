@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+import Layout from "../layout.astro";
+const sortedPosts = allPosts.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<Layout transition:name="hero">
+	<section
+		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto pt-[10vh] relative"
+	>
+		<h1 class="font-bold uppercase text-title">Blogs</h1>
+		{
+			sortedPosts.slice(0, 5).map((post) => (
+				<a
+					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85"
+					href={`/blog/${post.slug}/`}
+				>
+					<div class=" space-y-10 max-w-xl">
+						<h2 class=" font-bold text-4xl group-hover:underline">
+							{post.data.title}
+						</h2>
+						<p class=" text-xl group-hover:italic text-justify">
+							{post.data.description}
+						</p>
+					</div>
+
+					{post.data.image.url !== "" && (
+						<img
+							src={post.data.image.url}
+							alt={post.data.image.alt}
+							class=" size-44  object-cover rounded-3xl transition group-hover:sepia"
+						/>
+					)}
+				</a>
+			))
+		}
+	</section>
+</Layout>

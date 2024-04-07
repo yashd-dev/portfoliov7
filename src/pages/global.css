@@ -1,0 +1,47 @@
+.bg-build-white {
+	background-image: repeating-linear-gradient(
+			to right,
+			rgb(35, 31, 32),
+			rgb(35, 31, 32) 1px,
+			rgba(243, 214, 214, 0) 1px,
+			rgba(0, 0, 0, 0) 50px
+		),
+		repeating-linear-gradient(
+			rgb(35, 31, 32),
+			rgb(35, 31, 32) 1px,
+			rgba(0, 0, 0, 0) 1px,
+			rgba(0, 0, 0, 0) 50px
+		);
+	text-rendering: optimizeLegibility;
+}
+
+.text-title {
+	font-size: clamp(3rem, 8vw, 8rem);
+}
+/* Heading 2 */
+.text-title-2 {
+	font-size: clamp(2.5rem, 6vw, 6.5rem);
+}
+
+/* Heading 3 */
+.text-title-3 {
+	font-size: clamp(2rem, 5vw, 6rem);
+}
+
+/* Heading 4 */
+.text-title-4 {
+	font-size: clamp(1.5rem, 4vw, 5.5rem);
+}
+
+/* Paragraph Text */
+.text-paragraph {
+	font-size: clamp(1.2rem, 1.2vw, 4rem);
+}
+
+.text-body {
+	font-size: clamp(1.5rem, 1vw, 6rem);
+}
+
+.article {
+	@apply my-auto prose prose-invert prose-xl prose-zinc prose-headings:text-text prose-img:!max-h-[20rem] md:prose-img:!max-h-[15rem] prose-img:rounded-xl prose-img:shadow-2xl prose-img:object-cover;
+}

@@ -1,0 +1,177 @@
+---
+import Layout from "./layout.astro";
+import { Image } from "astro:assets";
+import black from "../assets/black..jpg";
+import white from "../assets/white.jpg";
+import logo from "../assets/logo.png";
+import pfe from "../assets/PFE-Logo.png";
+import hand from "../assets/RPS Screenshot.png";
+import chatapp from "../assets/chatapp.jpeg";
+import robot from "../assets/robot.svg";
+import aws from "../assets/aws.svg";
+
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const projects = [
+	{
+		name: "ACM Chronicles",
+		description:
+			"Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io.",
+		image: logo,
+		link: "https://mpstme.acm.org/newsletter/",
+	},
+	{
+		name: "ACM MPSTME Website",
+		description:
+			"Lead Developer for the ACM MPSTME Studen Chapter Website. The website is built using Astro and Tailwind CSS.",
+		image: logo,
+		link: "https://mpstme.acm.org",
+	},
+	{
+		name: "Rock Paper Scissors",
+		description:
+			"Rock Paper Scissors game built with OpenCV, Python and Mediapipe. The game is played with hand gestures.",
+		image: hand,
+		link: "https://github.com/yashd-dev/RPS-using-OpenCv",
+	},
+	{
+		name: "Programming For Eveyone",
+		description:
+			"ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS",
+		image: pfe,
+		link: "https://pfe.mpstme.hosting.acm.org/",
+	},
+
+	{
+		name: "Chat App",
+		description:
+			"A realtime chat app built with React, Firebase and Tailwind CSS. The app is currently discontinued",
+		image: chatapp,
+		link: "https://github.com/Amazing-ChatApp/",
+	},
+	{
+		name: "DevOps Pipeline",
+		description:
+			"Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
+		image: aws,
+		link: "",
+	},
+];
+---
+
+<Layout>
+	<section
+		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative"
+	>
+		<Image
+			class="md:absolute top-24 right-0 w-72 rotate-12 h-fit object-cover rounded-2xl border-4 border-peach"
+			src={black}
+			alt="black"
+		/>
+		<Image
+			class="md:absolute -mt-[12vh] md:mt-0 top-44 right-0 w-72 -rotate-12 h-fit object-cover rounded-2xl border-4 border-green"
+			src={white}
+			alt="white"
+		/>
+		<h1
+			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
+		>
+			Yash<br /> Deshpande
+		</h1>
+		<ul
+			class="flex flex-col md:flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
+		>
+			<li class="text-green">Student</li>
+			<li>Dev&lt;&gt;loper</li>
+			<li class="text-blue italic">I use Arch BTW</li>
+		</ul>
+		<section
+			class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-gray-300 text-justify"
+		>
+			<p>
+				Hello everyone, I'm Yash, a Student Developer who is proficient
+				at Frontend Web Development and knows a great deal about
+				Operating Systems! Currently, I am working on making a Github
+				AWS Pipeline for a college community backend, grinding leetcode
+				on the side. I am also building a community of Developers called
+				<a
+					href="https://neurotechh.live/"
+					class="text-green underline hover:no-underline hover:text-pink"
+					>NeuroTechh</a
+				>. These are the ones with actual progress thus worth
+				mentioning; I have a million more pending, stay tuned for that
+				:)
+			</p>
+		</section>
+		<h1
+			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
+		>
+			Projects
+		</h1>
+
+		<section
+			class="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10"
+		>
+			{
+				projects.map((project) => (
+					<a
+						href={project.link}
+						class={`w-full h-full py-10 rounded-2xl transition duration-300 p-4 hover:bg-card/85 flex flex-col justify-around hover:shadow-lg hover:border-transparent border-2 gap-5`}
+					>
+						<Image
+							src={project.image}
+							alt=""
+							class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
+						/>
+						<h1 class="font-bold uppercase text-2xl">
+							{project.name}
+						</h1>
+						<p class="text-lg text-justify">
+							{project.description}
+						</p>
+					</a>
+				))
+			}
+		</section>
+		<h1
+			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
+		>
+			Blogs
+		</h1>
+		<a
+			href="/blog/"
+			class="text-peach font-semibold text-body italic hover:underline"
+		>
+			Show all
+		</a>
+		{
+			sortedPosts.map((post) => (
+				<a
+					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85 hover:border-transparent hover:shadow-lg transition duration-300 gap-5"
+					href={`/blog/${post.slug}/`}
+				>
+					<div class=" space-y-10 max-w-xl">
+						<h2 class=" font-bold text-4xl group-hover:underline">
+							{post.data.title}
+						</h2>
+						<p class=" text-xl group-hover:italic text-justify">
+							{post.data.description}
+						</p>
+					</div>
+
+					{post.data.image.url !== "" && (
+						<img
+							src={post.data.image.url}
+							alt={post.data.image.alt}
+							class=" size-44  object-cover rounded-3xl transition group-hover:sepia"
+						/>
+					)}
+				</a>
+			))
+		}
+	</section></Layout
+>
