@@ -5,11 +5,43 @@ import clsx from "clsx";
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="title" content="Yash D's Portfolio" />
+		<meta
+			name="description"
+			content="A portfolio page of Yash Deshpande :)"
+		/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://yashd-dev.vercel.app/" />
+		<meta property="og:title" content="Yash D's Portfolio" />
+		<meta
+			property="og:description"
+			content="A portfolio page of Yash Deshpande :)"
+		/>
+		<meta property="og:image" content="https://yashd.tech/preview.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://yashd.tech/" />
+		<meta property="twitter:title" content="Yash D's Portfolio" />
+		<meta
+			property="twitter:description"
+			content="A portfolio page of Yash Deshpande :)"
+		/>
+		<meta
+			property="twitter:image"
+			content="https://yashd.tech/preview.png"
+		/>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="https://yashd.tech/favicon.ico"
+		/>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
 			rel="stylesheet"
@@ -31,7 +63,7 @@ import clsx from "clsx";
 					<i
 						data-lucide="home"
 						class={clsx(
-							"size-10 md:size-16 text-white rounded-2xl p-1 md:p-3 mx-auto absolute transition left-5  md:left-0 md:right-0 top-5 hover:bg-green hover:text-black",
+							"size-10 md:size-[4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute transition left-5  md:left-0 md:right-0 top-5 hover:bg-green hover:text-black",
 							{
 								"bg-green !text-black":
 									Astro.url.pathname === "/",
@@ -44,7 +76,7 @@ import clsx from "clsx";
 					<i
 						data-lucide="book-text"
 						class={clsx(
-							"size-10 md:size-16 text-white rounded-2xl p-1 md:p-3 mx-auto absolute right-5 md:left-0 md:right-0 top-5 md:bottom-5 md:top-auto transition hover:bg-green hover:text-black",
+							"size-10 md:size-[4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute right-5 md:left-0 md:right-0 top-5 md:bottom-5 md:top-auto transition hover:bg-green hover:text-black",
 							{
 								"bg-green !text-black":
 									Astro.url.pathname === "/blog/",

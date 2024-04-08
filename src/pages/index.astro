@@ -8,6 +8,7 @@ import pfe from "../assets/PFE-Logo.png";
 import hand from "../assets/RPS Screenshot.png";
 import chatapp from "../assets/chatapp.jpeg";
 import aws from "../assets/aws.svg";
+import Arrow from "../assets/arrow.svg?raw";
 
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
@@ -40,7 +41,7 @@ const projects = [
 	{
 		name: "Programming For Eveyone",
 		description:
-			"ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS",
+			"ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
 		image: pfe,
 		link: "https://pfe.mpstme.hosting.acm.org/",
 	},
@@ -48,7 +49,7 @@ const projects = [
 	{
 		name: "Chat App",
 		description:
-			"A realtime chat app built with React, Firebase and Tailwind CSS. The app is currently discontinued",
+			"A realtime chat app built with React, Firebase and Tailwind CSS. The app is currently discontinued.",
 		image: chatapp,
 		link: "https://github.com/Amazing-ChatApp/",
 	},
@@ -57,6 +58,7 @@ const projects = [
 		description:
 			"Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
 		image: aws,
+
 		link: "",
 	},
 ];
@@ -89,7 +91,7 @@ const projects = [
 			<li class="text-blue italic">I use Arch BTW</li>
 		</ul>
 		<section
-			class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-gray-300 text-justify"
+			class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-justify"
 		>
 			<p>
 				Hello everyone, I'm Yash, a Student Developer who is proficient
@@ -126,7 +128,7 @@ const projects = [
 							alt=""
 							class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
 						/>
-						<h1 class="font-bold uppercase text-2xl">
+						<h1 class="font-bold uppercase text-2xl fill">
 							{project.name}
 						</h1>
 						<p class="text-lg text-justify">
@@ -143,9 +145,10 @@ const projects = [
 		</h1>
 		<a
 			href="/blog/"
-			class="text-peach font-semibold text-body italic hover:underline"
+			class="text-green font-semibold text-body italic hover:underline"
 		>
-			Show all
+			Show all hehe
+			<Fragment set:html={Arrow} />
 		</a>
 		{
 			sortedPosts.map((post) => (

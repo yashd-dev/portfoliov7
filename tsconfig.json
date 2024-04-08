@@ -2,6 +2,6 @@
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
 		"outDir": "./dist", // Change the output directory to avoid overwriting the input file
-		"strictNullChecks": true,
+		"strictNullChecks": false
 	}
 }
