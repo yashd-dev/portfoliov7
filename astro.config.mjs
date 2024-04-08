@@ -1,6 +1,7 @@
 import { defineConfig, squooshImageService } from "astro/config";
-
 import tailwind from "@astrojs/tailwind";
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +10,6 @@ export default defineConfig({
 	markdown: {
 		shikiConfig: {
 			theme: "vitesse-black",
-
 			wrap: true,
 			// Add custom transformers: https://shiki.style/guide/transformers
 			// Find common transformers: https://shiki.style/packages/transformers
@@ -19,4 +19,10 @@ export default defineConfig({
 	image: {
 		service: squooshImageService(),
 	},
+	output: "server",
+	adapter: vercel({
+		imageService: true,
+		devImageService: "squoosh",
+		webAnalytics: { enabled: true },
+	}),
 });
