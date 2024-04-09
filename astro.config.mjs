@@ -22,7 +22,6 @@ export default defineConfig({
 	output: "server",
 	adapter: vercel({
 		imageService: true,
-		devImageService: "squoosh",
 		webAnalytics: { enabled: true },
 	}),
 });

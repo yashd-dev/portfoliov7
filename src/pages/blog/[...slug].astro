@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import Layout from "../layout.astro";
+import slugify from "slugify";
 
 const { slug } = Astro.params;
 if (slug === undefined) {
@@ -9,12 +10,23 @@ if (slug === undefined) {
 
 const entry = await getEntry("posts", slug);
 if (entry === undefined) {
-	return Astro.redirect("/404");
+	return Astro.redirect("/blog");
 }
 const { Content } = await entry.render();
+if (!entry.data.draft) {
+	return Astro.redirect("/blog");
+}
 ---
 
-<Layout>
+<Layout
+	title={entry.data.title}
+	imgurl=`https://yashd.tech/og/${slugify(entry.data.title, {
+			lower: true,
+			trim: true,
+			remove: undefined,
+		})}.png`
+	description="Blog page of Yash Deshpande :)"
+>
 	<article
 		class="article w-full flex flex-col justify-center mx-auto pt-[10vh]"
 	>

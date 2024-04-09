@@ -1,38 +1,29 @@
 ---
 import "./global.css";
 import clsx from "clsx";
+import SpeedInsights from "@vercel/speed-insights/astro";
+const { imgurl, title, description } = Astro.props;
+console.log(title, imgurl, description);
 ---
 
 <html lang="en">
 	<head>
-		<meta name="title" content="Yash D's Portfolio" />
-		<meta
-			name="description"
-			content="A portfolio page of Yash Deshpande :)"
-		/>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://yashd-dev.vercel.app/" />
-		<meta property="og:title" content="Yash D's Portfolio" />
-		<meta
-			property="og:description"
-			content="A portfolio page of Yash Deshpande :)"
-		/>
-		<meta property="og:image" content="https://yashd.tech/preview.png" />
+		<meta property="og:url" content="https://yashd.tech" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imgurl} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://yashd.tech/" />
-		<meta property="twitter:title" content="Yash D's Portfolio" />
-		<meta
-			property="twitter:description"
-			content="A portfolio page of Yash Deshpande :)"
-		/>
-		<meta
-			property="twitter:image"
-			content="https://yashd.tech/preview.png"
-		/>
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={imgurl} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<meta charset="UTF-8" />
@@ -52,6 +43,7 @@ import clsx from "clsx";
 	<body
 		class="bg-background text-text min-w-screen min-h-[100vh] bg-build-white md:overflow-clip pt-[10vh] md:pt-0 px-10 md:px-32"
 	>
+		<SpeedInsights />
 		<slot />
 
 		<nav

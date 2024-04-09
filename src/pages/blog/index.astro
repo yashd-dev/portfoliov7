@@ -2,13 +2,19 @@
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
 import Layout from "../layout.astro";
-const sortedPosts = allPosts.sort(
+
+let sortedPosts = allPosts.sort(
 	(a, b) =>
 		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
+sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
 ---
 
-<Layout transition:name="hero">
+<Layout
+	title="Yash D's Blogs"
+	imgurl="https://yashd.tech/preview.png"
+	description="Blog page of Yash Deshpande :)"
+>
 	<section
 		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto pt-[10vh] relative"
 	>
@@ -16,16 +22,14 @@ const sortedPosts = allPosts.sort(
 		{
 			sortedPosts.slice(0, 5).map((post) => (
 				<a
-					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85"
+					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85 hover:border-transparent"
 					href={`/blog/${post.slug}/`}
 				>
 					<div class=" space-y-10 max-w-xl">
-						<h2 class=" font-bold text-4xl group-hover:underline">
+						<h2 class=" font-bold text-4xl group-hover:underline group-hover:text-pink">
 							{post.data.title}
 						</h2>
-						<p class=" text-xl group-hover:italic text-justify">
-							{post.data.description}
-						</p>
+						<p class=" text-xl">{post.data.description}</p>
 					</div>
 
 					{post.data.image.url !== "" && (

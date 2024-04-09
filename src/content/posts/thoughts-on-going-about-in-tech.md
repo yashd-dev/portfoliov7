@@ -5,6 +5,7 @@ description: There are endless possibilities in the tech sphere, and it can ofte
 image: { url: "", alt: "Something Tech " }
 tags:
     - Personal
+draft: true
 ---
 
 ## Preface

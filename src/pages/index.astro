@@ -12,10 +12,11 @@ import Arrow from "../assets/arrow.svg?raw";
 
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
-const sortedPosts = allPosts.sort(
+let sortedPosts = allPosts.sort(
 	(a, b) =>
 		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
+sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
 const projects = [
 	{
 		name: "ACM Chronicles",
@@ -64,7 +65,11 @@ const projects = [
 ];
 ---
 
-<Layout>
+<Layout
+	imgurl="https://yashd.tech/preview.png"
+	title="Yash D's Portfolio"
+	description="A portfolio page of Yash Deshpande :)"
+>
 	<section
 		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative"
 	>
@@ -147,8 +152,7 @@ const projects = [
 			href="/blog/"
 			class="text-green font-semibold text-body italic hover:underline"
 		>
-			Show all hehe
-			<Fragment set:html={Arrow} />
+			Show all
 		</a>
 		{
 			sortedPosts.map((post) => (
