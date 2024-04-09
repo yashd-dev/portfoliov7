@@ -17,7 +17,7 @@
 		"@studio-freight/lenis": "^1.0.42",
 		"@vercel/analytics": "^1.2.2",
 		"@vercel/speed-insights": "^1.0.10",
-		"astro": "^4.5.16",
+		"astro": "link:@vercel/speed-insights/astro",
 		"clsx": "^2.1.0",
 		"gray-matter": "^4.0.3",
 		"lucide": "^0.365.0",
