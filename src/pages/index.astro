@@ -77,11 +77,15 @@ const projects = [
 			class="md:absolute top-24 right-0 w-72 rotate-12 h-fit object-cover rounded-2xl border-4 border-peach"
 			src={black}
 			alt="black"
+			height={300}
+			width={300}
 		/>
 		<Image
 			class="md:absolute -mt-[12vh] md:mt-0 top-44 right-0 w-72 -rotate-12 h-fit object-cover rounded-2xl border-4 border-green"
 			src={white}
 			alt="white"
+			height={300}
+			width={300}
 		/>
 		<h1
 			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
@@ -94,6 +98,28 @@ const projects = [
 			<li class="text-green">Student</li>
 			<li>Dev&lt;&gt;loper</li>
 			<li class="text-blue italic">I use Arch BTW</li>
+		</ul>
+		<ul
+			class="flex flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
+		>
+			<a
+				href="https://github.com/yashd-dev"
+				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+			>
+				<i data-lucide="github" class="size-8"></i></a
+			>
+			<a
+				href="https://www.linkedin.com/in/yash-deshpande-224431219/"
+				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+			>
+				<i data-lucide="linkedin" class="size-8"></i>
+			</a>
+			<a
+				href="mailto:yashdeshpande415@protonmail.com"
+				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+			>
+				<i data-lucide="mail" class="size-8"></i>
+			</a>
 		</ul>
 		<section
 			class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-justify"
@@ -155,29 +181,36 @@ const projects = [
 			Show all
 		</a>
 		{
-			sortedPosts.map((post) => (
+			sortedPosts.slice(0, 5).map((post) => (
 				<a
-					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85 hover:border-transparent hover:shadow-lg transition duration-300 gap-5"
+					class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-5xl group hover:bg-card/85 hover:border-transparent"
 					href={`/blog/${post.slug}/`}
 				>
 					<div class=" space-y-10 max-w-xl">
-						<h2 class=" font-bold text-4xl group-hover:underline">
+						<h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
 							{post.data.title}
 						</h2>
-						<p class=" text-xl group-hover:italic text-justify">
-							{post.data.description}
-						</p>
+
+						<p class=" text-xl">{post.data.description}</p>
+						<span class=" flex gap-4">
+							{[...new Set(post.data.tags)].map((taggie) => (
+								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
+									{" "}
+									{taggie}
+								</p>
+							))}
+						</span>
 					</div>
 
 					{post.data.image.url !== "" && (
 						<img
 							src={post.data.image.url}
 							alt={post.data.image.alt}
-							class=" size-44  object-cover rounded-3xl transition group-hover:sepia"
+							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
 						/>
 					)}
 				</a>
 			))
 		}
-	</section></Layout
->
+	</section>
+</Layout>

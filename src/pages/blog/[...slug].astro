@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import Layout from "../layout.astro";
 import slugify from "slugify";
+import { Image } from "astro:assets";
 
 const { slug } = Astro.params;
 if (slug === undefined) {
@@ -12,10 +13,15 @@ const entry = await getEntry("posts", slug);
 if (entry === undefined) {
 	return Astro.redirect("/blog");
 }
-const { Content } = await entry.render();
-if (!entry.data.draft) {
+const { Content, remarkPluginFrontmatter } = await entry.render();
+if (entry.data.draft == false) {
 	return Astro.redirect("/blog");
 }
+let options = {
+	lower: true,
+	trim: true,
+	remove: undefined as undefined,
+};
 ---
 
 <Layout
@@ -25,7 +31,7 @@ if (!entry.data.draft) {
 			trim: true,
 			remove: undefined,
 		})}.png`
-	description="Blog page of Yash Deshpande :)"
+	description={entry.data.description}
 >
 	<article
 		class="article w-full flex flex-col justify-center mx-auto pt-[10vh]"
@@ -43,10 +49,12 @@ if (!entry.data.draft) {
 			class="flex flex-col md:flex-row gap-x-10 gap-y-2 mx-auto items-center justify-center mt-8"
 		>
 			<span class="flex gap-2 items-center"
-				><img
-					class="w-8 aspect-square !rounded-full"
+				><Image
+					class="!w-8 aspect-square object-cover !rounded-full"
 					src="/images/white.jpg"
 					alt="Avatar for Yash D"
+					height={40}
+					width={40}
 				/>Yash Deshpande
 			</span>
 			<span
@@ -58,16 +66,17 @@ if (!entry.data.draft) {
 					})
 				}
 			</span>
+			<span> {remarkPluginFrontmatter.minutesRead}</span>
 		</h4>
 
 		<span
-			class="flex flex-row items-center justify-center gap-5 *:border *:px-2.5 *:py-1 *:rounded-2xl"
+			class="grid grid-cols-3 md:flex md:flex-col items-center justify-center gap-5 *:border *:px-2.5 *:py-1 *:rounded-2xl"
 		>
 			{
 				entry.data.tags.map((tag: string) => (
-					<span class=" transition hover:bg-green hover:text-background">
+					<a href=`/tags/${slugify(tag,options)}` class="!text-text !no-underline transition hover:!bg-green hover:!text-background ">
 						{tag}
-					</span>
+					</a>
 				))
 			}
 		</span>

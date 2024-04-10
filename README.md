@@ -13,10 +13,12 @@ The place where I will dump my projects and thoughts. Hopefully this would be th
 
 -   [ ] Search Box with fuzzy search
 -   [ ] Filter By Tags
--   [ ] Auto Generated OG Images with Satori
+-   [x] Auto Generated OG Images with Satori
 -   [ ] Social Share Buttons
 -   [ ] Like Button
--   [ ] Maybe Analytics
+-   [x] Maybe Analytics
 -   [ ] View Transitions API
--   [ ] 404 Page
--   [ ] Draft Property 
+-   [x] 404 Page
+-   [x] Draft Property
+-   [] Utils file to export Astro Content collection (DRY)
+-   [] Improve Code Quality

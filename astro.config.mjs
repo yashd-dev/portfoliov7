@@ -1,20 +1,30 @@
 import { defineConfig, squooshImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-
 import vercel from "@astrojs/vercel/serverless";
+import sitemap from "@astrojs/sitemap";
+import { remarkReadingTime } from "./remark-reading-time.mjs";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [tailwind()],
+	integrations: [tailwind(), sitemap()],
 	site: "https://yashd.tech/",
 	markdown: {
+		gfm: true,
 		shikiConfig: {
-			theme: "vitesse-black",
+			theme: "houston",
 			wrap: true,
-			// Add custom transformers: https://shiki.style/guide/transformers
-			// Find common transformers: https://shiki.style/packages/transformers
-			transformers: [],
 		},
+		remarkPlugins: [remarkReadingTime],
+		rehypePlugins: [
+			[
+				rehypeExternalLinks,
+				{
+					target: "_blank",
+					rel: ["nofollow", "noopener", "noreferrer"],
+				},
+			],
+		],
 	},
 	image: {
 		service: squooshImageService(),
@@ -22,6 +32,9 @@ export default defineConfig({
 	output: "server",
 	adapter: vercel({
 		imageService: true,
-		webAnalytics: { enabled: true },
+		webAnalytics: {
+			enabled: true,
+		},
 	}),
+	prefetch: true,
 });

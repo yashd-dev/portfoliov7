@@ -3,7 +3,6 @@ import "./global.css";
 import clsx from "clsx";
 import SpeedInsights from "@vercel/speed-insights/astro";
 const { imgurl, title, description } = Astro.props;
-console.log(title, imgurl, description);
 ---
 
 <html lang="en">
@@ -36,18 +35,19 @@ console.log(title, imgurl, description);
 		<link
 			href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
 			rel="stylesheet"
+			crossorigin
 		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>Yash D</title>
 	</head>
 	<body
-		class="bg-background text-text min-w-screen min-h-[100vh] bg-build-white md:overflow-clip pt-[10vh] md:pt-0 px-10 md:px-32"
+		class="bg-background text-text min-w-screen min-h-[100vh] bg-build-white md:overflow-clip pt-[12vh] md:pt-0 px-10 md:px-32"
 	>
 		<SpeedInsights />
 		<slot />
 
 		<nav
-			class="fixed w-[50vw] h-[9vh] md:h-[30vh] md:w-[15vh] rounded-2xl top-10 left-[20%] md:left-[1%] md:top-1/3 bg-card border-2 border-pink"
+			class="fixed w-[50vw] h-[12vh] md:h-[28vh] md:w-[11vh] rounded-2xl top-10 left-[20%] md:left-[1%] md:top-1/3 bg-card border-2 border-pink"
 			id="navbar"
 		>
 			<div class="relative w-full h-full">
@@ -55,7 +55,7 @@ console.log(title, imgurl, description);
 					<i
 						data-lucide="home"
 						class={clsx(
-							"size-10 md:size-[4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute transition left-5  md:left-0 md:right-0 top-5 hover:bg-green hover:text-black",
+							"size-10 md:size-[3.4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute transition left-5  md:left-0 md:right-0 top-[25%] md:top-5 hover:bg-green hover:text-black",
 							{
 								"bg-green !text-black":
 									Astro.url.pathname === "/",
@@ -68,10 +68,11 @@ console.log(title, imgurl, description);
 					<i
 						data-lucide="book-text"
 						class={clsx(
-							"size-10 md:size-[4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute right-5 md:left-0 md:right-0 top-5 md:bottom-5 md:top-auto transition hover:bg-green hover:text-black",
+							"size-10 md:size-[3.4vw] text-white rounded-2xl p-1 md:p-3 mx-auto absolute right-5 md:left-0 md:right-0 top-[25%] md:bottom-5 md:top-auto transition hover:bg-green hover:text-black",
 							{
 								"bg-green !text-black":
-									Astro.url.pathname === "/blog/",
+									Astro.url.pathname.startsWith("/blog/") ||
+									Astro.url.pathname.startsWith("/tags/"),
 							}
 						)}
 					>

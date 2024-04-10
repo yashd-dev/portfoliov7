@@ -1,13 +1,28 @@
 ---
 import { getCollection } from "astro:content";
+import slugify from "slugify";
+
+let options = {
+	lower: true,
+	trim: true,
+	remove: undefined as undefined,
+};
 const allPosts = await getCollection("posts");
 import Layout from "../layout.astro";
-
 let sortedPosts = allPosts.sort(
 	(a, b) =>
 		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
+
+let tags: string[] = [];
+
+sortedPosts.forEach((post) => {
+	const currentTags = post.data.tags || [];
+	tags.push(...currentTags);
+});
+
+tags = [...new Set(tags)];
 ---
 
 <Layout
@@ -16,27 +31,43 @@ sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
 	description="Blog page of Yash Deshpande :)"
 >
 	<section
-		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto pt-[10vh] relative"
+		class="w-full min-h-screen flex flex-col justify-center max-w-5xl gap-10 mx-auto pt-[10vh] relative"
 	>
 		<h1 class="font-bold uppercase text-title">Blogs</h1>
+
+		<h3 class="font-bold text-2xl">Tags</h3>
+								<span class=" flex gap-4">
+
+		{tags.map((tag => <a href=`/tags/${slugify(tag,options)}`  class=" p-3 rounded-md bg-pink w-fit text-black font-semibold transition hover:bg-pink/70">{tag}</a>))}
+								</span>
+
 		{
 			sortedPosts.slice(0, 5).map((post) => (
 				<a
-					class=" flex flex-row justify-between items-center border-2 rounded-2xl p-4  max-w-5xl group hover:bg-card/85 hover:border-transparent"
+					class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-5xl group hover:bg-card/85 hover:border-transparent"
 					href={`/blog/${post.slug}/`}
 				>
 					<div class=" space-y-10 max-w-xl">
-						<h2 class=" font-bold text-4xl group-hover:underline group-hover:text-pink">
+						<h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
 							{post.data.title}
 						</h2>
+
 						<p class=" text-xl">{post.data.description}</p>
+						<span class=" flex gap-4">
+							{[...new Set(post.data.tags)].map((taggie) => (
+								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
+									{" "}
+									{taggie}
+								</p>
+							))}
+						</span>
 					</div>
 
 					{post.data.image.url !== "" && (
 						<img
 							src={post.data.image.url}
 							alt={post.data.image.alt}
-							class=" size-44  object-cover rounded-3xl transition group-hover:sepia"
+							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
 						/>
 					)}
 				</a>
