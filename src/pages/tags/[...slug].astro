@@ -1,34 +1,9 @@
 ---
-let { slug } = Astro.params;
 import slugify from "slugify";
 import Layout from "../layout.astro";
-
-let options = {
-	lower: true,
-	trim: true,
-	remove: undefined as undefined,
-};
-let tag = slugify(slug, options);
-
-import { tags, sortedPosts } from "../../utils/posts";
-console.log(slug);
-const updatedPosts = sortedPosts.map((post) => {
-	// Slugify each tag in the post
-	post.data.tags = post.data.tags.map((tag) => slugify(tag, options));
-	return post;
-});
-console.log(
-	updatedPosts.map((post) => {
-		return post.data.tags;
-	})
-);
-
-function unslugify(slug: String) {
-	return slug
-		.split("-")
-		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-		.join(" ");
-}
+let { slug } = Astro.params;
+import { sortedPosts, unslugify } from "../../utils/posts";
+console.log(sortedPosts[0].data.tags);
 ---
 
 <Layout
@@ -42,7 +17,7 @@ function unslugify(slug: String) {
 		<h1 class="font-bold uppercase text-title">Tags</h1>
 
 		<h3 class="font-bold text-2xl">
-			You are Searching For {unslugify(slug)}
+			You are Searching For Posts about {unslugify(slug)}
 		</h3>
 		{
 			sortedPosts

@@ -9,10 +9,10 @@ image:
     }
 tags:
     - Web Dev
-draft: true
+production: true
 ---
 
-When you share on any social media platform, some websites give you that neat preview right? So what I am doing today is dynamically making those preview images ( also called Open Graph Images ) for my blogs using Satori for Astro. I am implementing this also because I'm too lazy to make OG images from scratch in Figma everytime.
+When you share on any social media platform, some websites give you that neat preview right? So what I am doing today is dynamically making those preview images (also called Open Graph Images) for my blogs using Satori in Astro. I am implementing this also because I'm too lazy to make OG images from scratch in Figma everytime.
 ![Open Grapgh Example in .](../../assets/OG-Preview-Discord.png)
 I was aware of Satori and how it made SVG's from HTML and CSS and it was on my TODO list for a long time but I was procrastinating on actualy implementing until I read [this article by dietcode](https://dietcode.io/p/astro-og/). The article's imlpementation used a Astro post build hook but since I am using Server Side Rending for Vercel analytics, I'll have to modify it to run pre build because then it would be bundeled with the Vercel Adapter Build. [ Here is a quick TL;DR of my hacky implementation in Astro](https://github.com/yashd-dev/portfoliov7/blob/main/satori.js)
 
@@ -56,7 +56,7 @@ props: {
 });
 ```
 
-Then a font file is loaded as a ArrayBuffer using `fs`. We read each file in the posts directory, parse it using `grey-matter` to get the frontmatter _(Astro's content collection was not working here so grey matter it is)_. After parsing, I'll get the title of the post which will be passed to the above function and gets the transpiled JSX Object with the title. Now we call Satori and pass in our object along with other parameters like height, width and the font ArrayBuffer. Finaly, we convert the SVG to a PNG using `Resvg` and write it do the `public/og` directory as Astro doesnt touch this directory and passing this path as props would be easier.
+Then a font file is loaded as a ArrayBuffer using `fs`. We read each file in the posts directory, parse it using `grey-matter` to get the frontmatter _(Astro's content collection was not working here so grey matter it is)_. After parsing, I'll get the title of the post which will be passed to the above function and gets the transpiled JSX Object with the title. Now we call Satori and pass in our object along with other parameters like height, width of the image and the font ArrayBuffer. Finaly, we convert the SVG to a PNG using `Resvg` and write it do the `public/og` directory as Astro doesn't touch this directory and passing this path as props is easier.
 
 ```js
 const outfit = fs.readFileSync("./Outfit-Bold.ttf"); // Font file ArrayBuffer is needed by Satori
@@ -134,4 +134,3 @@ const { imgurl, title, description } = Astro.props;
 ### Improvements that can be made
 
 Currently the script is generating the images that were previously generated once more and overiding the previous version just adding time and increasing computation. Right now I'm hosted on Vercel so build times are not my worries and my blogs right now are at a very small scale, once they reach bigger, the script will be revisited and improvised.
-

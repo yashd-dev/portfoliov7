@@ -14,7 +14,8 @@ if (entry === undefined) {
 	return Astro.redirect("/blog");
 }
 const { Content, remarkPluginFrontmatter } = await entry.render();
-if (entry.data.draft == false) {
+
+if (entry.data.production == false) {
 	return Astro.redirect("/blog");
 }
 let options = {
@@ -22,6 +23,7 @@ let options = {
 	trim: true,
 	remove: undefined as undefined,
 };
+import { unslugify } from "../../utils/posts";
 ---
 
 <Layout
@@ -46,7 +48,7 @@ let options = {
 			{entry.data.title}
 		</h1>
 		<h4
-			class="flex flex-col md:flex-row gap-x-10 gap-y-2 mx-auto items-center justify-center mt-8"
+			class="flex flex-col md:flex-row gap-x-10 gap-y-5 mx-auto items-center justify-center h-fit"
 		>
 			<span class="flex gap-2 items-center"
 				><Image
@@ -69,13 +71,12 @@ let options = {
 			<span> {remarkPluginFrontmatter.minutesRead}</span>
 		</h4>
 
-		<span
-			class="grid grid-cols-3 md:flex md:flex-col items-center justify-center gap-5 *:border *:px-2.5 *:py-1 *:rounded-2xl"
-		>
+		<span class="flex flex-row md:flex-col items-center justify-center gap-5 md:gap-0 md:space-x-5 md:space-y-5 *:border *:px-2.5 *:py-1 *:rounded-2xl *:mt-3 md:*:mt-0 ">
+
 			{
 				entry.data.tags.map((tag: string) => (
-					<a href=`/tags/${slugify(tag,options)}` class="!text-text !no-underline transition hover:!bg-green hover:!text-background ">
-						{tag}
+					<a href=`/tags/${slugify(tag,options)}` class="!text-text !no-underline transition hover:!bg-green hover:!text-background !border-2 !mx-auto ">
+						{unslugify(tag)}
 					</a>
 				))
 			}

@@ -1,28 +1,13 @@
 ---
-import { getCollection } from "astro:content";
 import slugify from "slugify";
-
 let options = {
 	lower: true,
 	trim: true,
 	remove: undefined as undefined,
 };
-const allPosts = await getCollection("posts");
 import Layout from "../layout.astro";
-let sortedPosts = allPosts.sort(
-	(a, b) =>
-		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
-sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
-
-let tags: string[] = [];
-
-sortedPosts.forEach((post) => {
-	const currentTags = post.data.tags || [];
-	tags.push(...currentTags);
-});
-
-tags = [...new Set(tags)];
+import {tags, sortedPosts, unslugify } from "../../utils/posts";
+import { Image } from "astro:assets";
 ---
 
 <Layout
@@ -38,7 +23,7 @@ tags = [...new Set(tags)];
 		<h3 class="font-bold text-2xl">Tags</h3>
 								<span class=" flex gap-4">
 
-		{tags.map((tag => <a href=`/tags/${slugify(tag,options)}`  class=" p-3 rounded-md bg-pink w-fit text-black font-semibold transition hover:bg-pink/70">{tag}</a>))}
+		{tags.map((tag => <a href=`/tags/${slugify(tag,options)}`  class=" p-3 rounded-md bg-pink w-fit text-black font-semibold transition hover:bg-pink/70">{unslugify(tag)}</a>))}
 								</span>
 
 		{
@@ -57,16 +42,18 @@ tags = [...new Set(tags)];
 							{[...new Set(post.data.tags)].map((taggie) => (
 								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
 									{" "}
-									{taggie}
+									{unslugify(taggie)}
 								</p>
 							))}
 						</span>
 					</div>
 
 					{post.data.image.url !== "" && (
-						<img
+						<Image
 							src={post.data.image.url}
 							alt={post.data.image.alt}
+							height={400}
+							width={400}
 							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
 						/>
 					)}

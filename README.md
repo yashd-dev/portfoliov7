@@ -12,13 +12,12 @@ The place where I will dump my projects and thoughts. Hopefully this would be th
 ## TODO
 
 -   [ ] Search Box with fuzzy search
--   [ ] Filter By Tags
+-   [X] Filter By Tags
 -   [x] Auto Generated OG Images with Satori
 -   [ ] Social Share Buttons
 -   [ ] Like Button
 -   [x] Maybe Analytics
--   [ ] View Transitions API
 -   [x] 404 Page
 -   [x] Draft Property
--   [] Utils file to export Astro Content collection (DRY)
--   [] Improve Code Quality
+-   [X] Utils file to export Astro Content collection (DRY)
+-   [X] Improve Code Quality

@@ -8,15 +8,9 @@ import pfe from "../assets/PFE-Logo.png";
 import hand from "../assets/RPS Screenshot.png";
 import chatapp from "../assets/chatapp.jpeg";
 import aws from "../assets/aws.svg";
-import Arrow from "../assets/arrow.svg?raw";
 
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-let sortedPosts = allPosts.sort(
-	(a, b) =>
-		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
-sortedPosts = sortedPosts.filter((post) => post.data.draft === true);
+import { sortedPosts } from "../utils/posts";
+
 const projects = [
 	{
 		name: "ACM Chronicles",
@@ -158,6 +152,8 @@ const projects = [
 							src={project.image}
 							alt=""
 							class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
+							height={100}
+							width={100}
 						/>
 						<h1 class="font-bold uppercase text-2xl fill">
 							{project.name}
@@ -203,9 +199,11 @@ const projects = [
 					</div>
 
 					{post.data.image.url !== "" && (
-						<img
+						<Image
 							src={post.data.image.url}
 							alt={post.data.image.alt}
+							height={400}
+							width={400}
 							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
 						/>
 					)}

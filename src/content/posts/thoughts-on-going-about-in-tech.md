@@ -6,8 +6,7 @@ image:
     { url: "/og/thoughts-on-going-about-in-tech.png", alt: "Something Tech " }
 tags:
     - Personal
-    - hehes
-draft: true
+production: false
 ---
 
 ## Preface
