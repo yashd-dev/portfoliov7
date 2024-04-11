@@ -63,7 +63,6 @@ const postsDirectory = "src/content/posts";
 const files = fs.readdirSync(postsDirectory);
 
 files.forEach(async (file) => {
-
 	const filePath = `${postsDirectory}/${file}`;
 	const fileContent = fs.readFileSync(filePath, "utf-8");
 	const title = parseFrontmatter(fileContent).data; // just reading and parsing each post to get frontmatter of each to pass on to our above styled div

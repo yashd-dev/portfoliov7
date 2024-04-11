@@ -40,6 +40,7 @@ const svg = (title) => ({
 						display: "flex",
 						padding: 10,
 						alignItems: "center",
+						textAlign: "center",
 					},
 				},
 			},
