@@ -40,17 +40,16 @@ const svg = (title) => ({
 type: "div",
 props: {
         {
-            type: "p",
-            props: {
-                children: title,
-                style: {
-                    marginTop: 40,
-                    fontSize: 52,
-                    display: "flex",
-                    padding: 10,
-                    alignItems: "center",
-                },
-            },
+		type: "p",
+		props: {
+			children: title,
+			style: {
+				marginTop: 40,
+				fontSize: 52,
+				display: "flex",
+				padding: 10,
+				alignItems: "center",
+			}, },
         },
     }
 });
@@ -64,9 +63,11 @@ const postsDirectory = "src/content/posts";
 const files = fs.readdirSync(postsDirectory);
 
 files.forEach(async (file) => {
+
 	const filePath = `${postsDirectory}/${file}`;
 	const fileContent = fs.readFileSync(filePath, "utf-8");
 	const title = parseFrontmatter(fileContent).data; // just reading and parsing each post to get frontmatter of each to pass on to our above styled div
+
 	const output = await satori(svg(title.title), {
 		width: 1200,
 		height: 430,
@@ -122,7 +123,7 @@ const { imgurl, title, description } = Astro.props;
 // This is the slug.astro, passing the props
 <Layout
 	title={entry.data.title}
-	imgurl=`https://yashd.tech/og/${slugify(entry.data.title, {
+	imgurl= `https://yashd.tech/og/${slugify(entry.data.title, {
 			lower: true,
 			trim: true,
 			remove: undefined,
