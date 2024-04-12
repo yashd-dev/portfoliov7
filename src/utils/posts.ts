@@ -12,6 +12,7 @@ let sortedPosts = allPosts.sort(
 	(a, b) =>
 		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
+
 sortedPosts = sortedPosts.filter((post) => post.data.production === true);
 
 sortedPosts = sortedPosts.map((post) => {
