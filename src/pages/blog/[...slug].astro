@@ -24,6 +24,7 @@ let options = {
 	remove: undefined as undefined,
 };
 import { unslugify } from "../../utils/posts";
+console.log(entry.data.title)
 ---
 
 <Layout
@@ -44,7 +45,7 @@ import { unslugify } from "../../utils/posts";
 			) : (
 				""
 			)
-		}<h1 class="!font-bold !text-title !text-center">
+		}<h1 class="!font-bold !text-title !text-center mx-auto">
 			{entry.data.title}
 		</h1>
 		<h4

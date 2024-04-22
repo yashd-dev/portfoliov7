@@ -1,7 +1,6 @@
 // Import utilities from `astro:content`
 import { z, defineCollection } from "astro:content";
 // Define a `type` and `schema` for each collection
-import slugify from "slugify";
 const postsCollection = defineCollection({
 	type: "content",
 	schema: z.object({

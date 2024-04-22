@@ -43,5 +43,5 @@
 }
 
 .article {
-	@apply my-auto prose  md:prose-lg prose-pink  prose-invert prose-zinc prose-headings:text-text  prose-img:rounded-xl prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2;
+	@apply my-auto prose  md:prose-lg prose-pink  prose-invert  prose-headings:text-text  prose-img:rounded-xl prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2;
 }

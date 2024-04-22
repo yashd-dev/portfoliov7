@@ -1,11 +1,10 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig, squooshImageService,sharpImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import { remarkReadingTime } from "./remark-reading-time.mjs";
 import rehypeExternalLinks from "rehype-external-links";
 import autolinkHeadings from "rehype-autolink-headings";
-import { toString } from "hast-util-to-string";
 import rehypeSlug from "rehype-slug";
 import { h } from "hastscript";
 // https://astro.build/config
@@ -68,11 +67,11 @@ export default defineConfig({
 		],
 	},
 	image: {
-		service: squooshImageService(),
+		service: sharpImageService(),
 	},
+	prefetch: true,
 	output: "server",
 	adapter: vercel({
-		imageService: true,
 		webAnalytics: {
 			enabled: true,
 		},
