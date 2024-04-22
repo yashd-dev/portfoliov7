@@ -1,4 +1,8 @@
-import { defineConfig, squooshImageService,sharpImageService } from "astro/config";
+import {
+	defineConfig,
+	squooshImageService,
+	sharpImageService,
+} from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
@@ -67,13 +71,13 @@ export default defineConfig({
 		],
 	},
 	image: {
-		service: sharpImageService(),
+		service: squooshImageService(),
 	},
-	output: "server",
-	adapter: vercel({
-		webAnalytics: {
-			enabled: true,
-		},
-	}),
+	output: "static",
+	// adapter: vercel({
+	// 	webAnalytics: {
+	// 		enabled: true,
+	// 	},
+	// }),
 	prefetch: true,
 });
