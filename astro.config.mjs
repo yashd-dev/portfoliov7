@@ -69,7 +69,6 @@ export default defineConfig({
 	image: {
 		service: sharpImageService(),
 	},
-	prefetch: true,
 	output: "server",
 	adapter: vercel({
 		webAnalytics: {
