@@ -1,3 +1,10 @@
+@font-face {
+	font-family: "Outfit";
+	src: url("/font/outfit_var.ttf");
+}
+* {
+	font-family: "Outfit", sans-serif;
+}
 .bg-build-white {
 	background-image: repeating-linear-gradient(
 			to right,

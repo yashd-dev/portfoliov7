@@ -31,12 +31,11 @@ const { imgurl, title, description } = Astro.props;
 			href="https://yashd.tech/favicon.ico"
 		/>
 		<meta name="viewport" content="width=device-width" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-			rel="stylesheet"
-			crossorigin
-		/>
 		<meta name="generator" content={Astro.generator} />
+		<script
+			defer
+			src="https://umami-ochre-ten.vercel.app/script.js"
+			data-website-id="f3d034b6-7303-42eb-bd85-138220bac413"></script>
 		<title>{title}</title>
 	</head>
 	<body
@@ -102,14 +101,11 @@ const { imgurl, title, description } = Astro.props;
 			}
 		</script>
 
-		<script src="https://unpkg.com/lucide@latest" is:inline></script>
+		<script src="/lucide.js" is:inline></script>
 		<script is:inline>
 			lucide.createIcons();
 		</script>
-		<script
-			is:inline
-			src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
-		></script>
+		<script is:inline src="/lenis.js"></script>
 		<script is:inline>
 			document.addEventListener("DOMContentLoaded", () => {
 				const lenis = new Lenis();
