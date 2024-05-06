@@ -8,6 +8,7 @@ let options = {
 import Layout from "../layout.astro";
 import {tags, sortedPosts, unslugify } from "../../utils/posts";
 import { Image } from "astro:assets";
+export const prerender = true;
 ---
 
 <Layout

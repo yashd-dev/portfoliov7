@@ -1,8 +1,8 @@
 ---
 import "../global.css";
 import clsx from "clsx";
-import SpeedInsights from "@vercel/speed-insights/astro";
 const { imgurl, title, description } = Astro.props;
+export const prerender = true;
 ---
 
 <html lang="en">
@@ -30,6 +30,28 @@ const { imgurl, title, description } = Astro.props;
 			type="image/svg+xml"
 			href="https://yashd.tech/favicon.ico"
 		/>
+		<!-- Linkedin -->
+		<meta
+			prefix="og: http://ogp.me/ns#"
+			property="og:title"
+			content={title}
+		/>
+		<meta
+			prefix="og: http://ogp.me/ns#"
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			prefix="og: http://ogp.me/ns#"
+			property="og:image"
+			content={imgurl}
+		/>
+		<meta
+			prefix="og: http://ogp.me/ns#"
+			property="og:url"
+			content="https://yashd.tech/"
+		/>
+
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<script
@@ -41,7 +63,6 @@ const { imgurl, title, description } = Astro.props;
 	<body
 		class="bg-background text-text min-w-screen min-h-[100vh] bg-build-white md:overflow-clip pt-[12vh] md:pt-0"
 	>
-		<SpeedInsights />
 		<slot />
 
 		<nav
