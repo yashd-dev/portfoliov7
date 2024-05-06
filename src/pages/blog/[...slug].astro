@@ -3,12 +3,10 @@ import { getEntry } from "astro:content";
 import Layout from "../layout.astro";
 import slugify from "slugify";
 import { Image } from "astro:assets";
-
 const { slug } = Astro.params;
 if (slug === undefined) {
 	throw new Error("Slug is required");
 }
-
 const entry = await getEntry("posts", slug);
 if (entry === undefined) {
 	return Astro.redirect("/blog");
