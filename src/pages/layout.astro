@@ -6,8 +6,14 @@ const { imgurl, title, description } = Astro.props;
 
 <html lang="en">
 	<head>
-		<meta prefix="og: http://ogp.me/ns#" name="title" content={title} />
 		<meta
+			data-rh="true"
+			prefix="og: http://ogp.me/ns#"
+			name={title}
+			content={title}
+		/>
+		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			name="description"
 			content={description}
@@ -15,26 +21,31 @@ const { imgurl, title, description } = Astro.props;
 
 		<!-- Open Graph / Facebook -->
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:type"
 			content="website"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:title"
 			content={title}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:url"
 			content="https://yashd.tech"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:description"
 			content={description}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:image"
 			content={imgurl}
@@ -42,32 +53,37 @@ const { imgurl, title, description } = Astro.props;
 
 		<!-- Twitter -->
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="twitter:card"
 			content="summary_large_image"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="twitter:url"
 			content="https://yashd.tech/"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="twitter:title"
 			content={title}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="twitter:description"
 			content={description}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="twitter:image"
 			content={imgurl}
 		/>
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta prefix="og: http://ogp.me/ns#" charset="UTF-8" />
+		<meta data-rh="true" prefix="og: http://ogp.me/ns#" charset="UTF-8" />
 		<link
 			rel="icon"
 			type="image/svg+xml"
@@ -75,32 +91,38 @@ const { imgurl, title, description } = Astro.props;
 		/>
 		<!-- Linkedin -->
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:title"
 			content={title}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:type"
 			content="website"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:image"
 			content={imgurl}
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			property="og:url"
 			content="https://yashd.tech/"
 		/>
 
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			name="viewport"
 			content="width=device-width"
 		/>
 		<meta
+			data-rh="true"
 			prefix="og: http://ogp.me/ns#"
 			name="generator"
 			content={Astro.generator}
