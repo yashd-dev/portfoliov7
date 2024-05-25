@@ -8,8 +8,9 @@ import pfe from "../assets/PFE-Logo.png";
 import hand from "../assets/RPS Screenshot.png";
 import chatapp from "../assets/chatapp.jpeg";
 import aws from "../assets/aws.svg";
-import { sortedPosts } from "../utils/posts";
+import { sortedPosts, unslugify } from "../utils/posts";
 export const prerender = true;
+
 const projects = [
 	{
 		name: "ACM Chronicles",
@@ -195,7 +196,7 @@ const projects = [
 							{[...new Set(post.data.tags)].map((taggie) => (
 								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
 									{" "}
-									{taggie}
+									{unslugify(taggie)}
 								</p>
 							))}
 						</span>

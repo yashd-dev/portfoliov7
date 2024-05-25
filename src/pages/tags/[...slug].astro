@@ -2,7 +2,6 @@
 import Layout from "../layout.astro";
 let { slug } = Astro.params;
 import { sortedPosts, unslugify } from "../../utils/posts";
-console.log(sortedPosts[0].data.tags);
 ---
 
 <Layout
@@ -11,7 +10,7 @@ console.log(sortedPosts[0].data.tags);
 	description="Blog page of Yash Deshpande :)"
 >
 	<section
-		class="w-full min-h-screen flex flex-col justify-center max-w-5xl gap-10 mx-auto pt-[10vh] relative px-8 md:px-32"
+		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative px-8 md:px-32"
 	>
 		<h1 class="font-bold uppercase text-title">Tags</h1>
 
@@ -23,7 +22,7 @@ console.log(sortedPosts[0].data.tags);
 				.filter((post) => post.data.tags.includes(slug))
 				.map((post) => (
 					<a
-						class="flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition max-w-5xl group hover:bg-card/85 hover:border-transparent"
+						class="flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition max-w-5xl group hover:bg-card/85 hover:border-transparent gap-2"
 						href={`/blog/${post.slug}/`}
 					>
 						<div class="space-y-10 max-w-xl">
@@ -31,7 +30,7 @@ console.log(sortedPosts[0].data.tags);
 								{post.data.title}
 							</h2>
 
-							<p class="text-xl">{post.data.description}</p>
+							<p class="text-xl text-text/70">{post.data.description}</p>
 						</div>
 
 						{post.data.image.url !== "" && (
