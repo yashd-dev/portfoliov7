@@ -1,6 +1,7 @@
 ---
 import Layout from "./layout.astro";
 import { Image } from "astro:assets";
+import slugify from "slugify";
 import black from "../assets/black..jpg";
 import white from "../assets/white.jpg";
 import logo from "../assets/logo.png";
@@ -202,15 +203,17 @@ const projects = [
 						</span>
 					</div>
 
-					{post.data.image.url !== "" && (
-						<Image
-							src={post.data.image.url}
-							alt={post.data.image.alt}
-							height={400}
-							width={400}
-							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue mx-2"
-						/>
-					)}
+					<Image
+						src={`https://yashd.tech/og/${slugify(post.data.title, {
+							lower: true,
+							trim: true,
+							remove: undefined,
+						})}.png`}
+						alt={post.data.title}
+						height={400}
+						width={400}
+						class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
+					/>
 				</a>
 			))
 		}
