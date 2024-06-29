@@ -1,6 +1,8 @@
 ---
 import Layout from "../layout.astro";
+import slugify from "slugify";
 let { slug } = Astro.params;
+import { Image } from "astro:assets";
 import { sortedPosts, unslugify } from "../../utils/posts";
 ---
 
@@ -30,16 +32,25 @@ import { sortedPosts, unslugify } from "../../utils/posts";
 								{post.data.title}
 							</h2>
 
-							<p class="text-xl text-text/70">{post.data.description}</p>
+							<p class="text-xl text-text/70">
+								{post.data.description}
+							</p>
 						</div>
 
-						{post.data.image.url !== "" && (
-							<img
-								src={post.data.image.url}
-								alt={post.data.image.alt}
-								class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
-							/>
-						)}
+						<Image
+							src={`https://yashd.tech/og/${slugify(
+								post.data.title,
+								{
+									lower: true,
+									trim: true,
+									remove: undefined,
+								}
+							)}.png`}
+							alt={post.data.title}
+							height={400}
+							width={400}
+							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
+						/>
 					</a>
 				))
 		}

@@ -48,16 +48,17 @@ export const prerender = true;
 							))}
 						</span>
 					</div>
-
-					{post.data.image.url !== "" && (
 						<Image
-							src={post.data.image.url}
-							alt={post.data.image.alt}
+							src={`https://yashd.tech/og/${slugify(post.data.title, {
+								lower: true,
+								trim: true,
+								remove: undefined,
+							})}.png`}
+							alt={post.data.title}
 							height={400}
 							width={400}
 							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
 						/>
-					)}
 				</a>
 			))
 		}

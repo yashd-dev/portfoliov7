@@ -2,11 +2,6 @@
 title: Dynamic Open Graph Images using Satori and Astro
 pubDate: 2024-04-11 00:00:00
 description: I wanted to make custom open graph images, similar to how you get on medium so that it looks nicer when I share it on social media..
-image:
-    {
-        url: "/og/dynamic-open-graph-images-using-satori.png",
-        alt: "Something Tech ",
-    }
 tags:
     - Web Dev
 production: true

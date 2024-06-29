@@ -2,11 +2,6 @@
 title: Thoughts on Open Source
 pubDate: 2024-06-29 00:00:00
 description: My thoughts on Open Source after participating in GSSOC.
-image:
-    {
-        url: "/og/open-source.png",
-        alt: "Something Tech ",
-    }
 tags:
     - Open Source
 production: true

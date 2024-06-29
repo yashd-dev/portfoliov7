@@ -2,8 +2,6 @@
 title: Thoughts on Going about in Tech
 pubDate: 2024-04-12 00:00:00
 description: There are endless possibilities in the tech sphere, and it can often be overwhelming. Here are my thoughts on how I navigate the tech world.
-image:
-    { url: "/og/thoughts-on-going-about-in-tech.png", alt: "Something Tech " }
 tags:
     - Personal
 production: true

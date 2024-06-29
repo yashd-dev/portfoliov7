@@ -2,7 +2,6 @@
 title: The Github Copilot Effect
 pubDate: 2024-04-14 00:00:00
 description: I have been using Copilot for a while now and I have mixed feelings about it.
-image: { url: "/og/thoughts-on-github-copilot.png", alt: "Something Tech " }
 tags:
     - Personal
 production: true
