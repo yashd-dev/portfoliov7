@@ -9,10 +9,23 @@ import pfe from "../assets/PFE-Logo.png";
 import hand from "../assets/RPS Screenshot.png";
 import chatapp from "../assets/chatapp.jpeg";
 import aws from "../assets/aws.svg";
+import cnn from "../assets/cnn.svg";
 import { sortedPosts, unslugify } from "../utils/posts";
 export const prerender = true;
 
 const projects = [
+	{
+		name:"Neurotechh",
+		description:"A community of student developers who build projects and comeup with innovative solutions!",
+		image:"https://neurotechh.live/logo.png",
+		link:"https://neurotechh.live/",
+	},
+	{
+		name:"Brain Tumour Detection from MRI",
+		description:"A project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024",
+		image:cnn,
+		link:"https://technikwissen.eu/volume-24-issue-8-2024/",
+	},
 	{
 		name: "ACM Chronicles",
 		description:
@@ -28,13 +41,6 @@ const projects = [
 		link: "https://mpstme.acm.org",
 	},
 	{
-		name: "Rock Paper Scissors",
-		description:
-			"Rock Paper Scissors game built with OpenCV, Python and Mediapipe. The game is played with hand gestures.",
-		image: hand,
-		link: "https://github.com/yashd-dev/RPS-using-OpenCv",
-	},
-	{
 		name: "Programming For Eveyone",
 		description:
 			"ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
@@ -42,13 +48,6 @@ const projects = [
 		link: "https://pfe.mpstme.hosting.acm.org/",
 	},
 
-	{
-		name: "Chat App",
-		description:
-			"A realtime chat app built with React, Firebase and Tailwind CSS. The app is currently discontinued.",
-		image: chatapp,
-		link: "https://github.com/Amazing-ChatApp/",
-	},
 	{
 		name: "DevOps Pipeline",
 		description:
@@ -163,7 +162,7 @@ const projects = [
 						<h1 class="font-bold uppercase text-2xl fill">
 							{project.name}
 						</h1>
-						<p class="text-md text-justify">
+						<p class="text-md ">
 							{project.description}
 						</p>
 					</a>
