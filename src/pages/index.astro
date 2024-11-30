@@ -15,207 +15,199 @@ import { sortedPosts, unslugify } from "../utils/posts";
 export const prerender = true;
 
 const projects = [
-	{
-		name:"Neurotechh",
-		description:"A community of student developers who build projects and comeup with innovative solutions!",
-		image:neurotechh,
-		link:"https://neurotechh.live/",
-	},
-	{
-		name:"Brain Tumour Detection from MRI",
-		description:"A project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024",
-		image:cnn,
-		link:"https://technikwissen.eu/volume-24-issue-8-2024/",
-	},
-	{
-		name: "ACM Chronicles",
-		description:
-			"Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io.",
-		image: logo,
-		link: "https://mpstme.acm.org/newsletter/",
-	},
-	{
-		name: "ACM MPSTME Website",
-		description:
-			"Lead Developer for the ACM MPSTME Studen Chapter Website. The website is built using Astro and Tailwind CSS.",
-		image: logo,
-		link: "https://mpstme.acm.org",
-	},
-	{
-		name: "Programming For Eveyone",
-		description:
-			"ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
-		image: pfe,
-		link: "https://pfe.mpstme.hosting.acm.org/",
-	},
+  {
+    name: "Neurotechh",
+    description:
+      "A community of student developers who build projects and comeup with innovative solutions!",
+    image: neurotechh,
+    link: "https://neurotechh.live/",
+  },
+  {
+    name: "Brain Tumour Detection from MRI",
+    description:
+      "A project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024",
+    image: cnn,
+    link: "https://technikwissen.eu/volume-24-issue-8-2024/",
+  },
+  {
+    name: "ACM Chronicles",
+    description:
+      "Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io.",
+    image: logo,
+    link: "https://mpstme.acm.org/newsletter/",
+  },
+  {
+    name: "ACM MPSTME Website",
+    description:
+      "Lead Developer for the ACM MPSTME Studen Chapter Website. The website is built using Astro and Tailwind CSS.",
+    image: logo,
+    link: "https://mpstme.acm.org",
+  },
+  {
+    name: "Programming For Eveyone",
+    description:
+      "ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
+    image: pfe,
+    link: "https://pfe.mpstme.hosting.acm.org/",
+  },
 
-	{
-		name: "DevOps Pipeline",
-		description:
-			"Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
-		image: aws,
+  {
+    name: "DevOps Pipeline",
+    description:
+      "Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
+    image: aws,
 
-		link: "",
-	},
+    link: "",
+  },
 ];
+const isProd = import.meta.env.PROD;
 ---
 
 <Layout
-	imgurl="https://yashd.tech/preview.png"
-	title="Yash D's Portfolio"
-	description="A portfolio page of Yash Deshpande :)"
+  imgurl="https://yashd.tech/preview.png"
+  title="Yash D's Portfolio"
+  description="A portfolio page of Yash Deshpande :)"
 >
-	<section
-		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative px-8 md:px-32"
-	>
-		<Image
-			class="md:absolute top-24 right-0 w-72 rotate-12 h-fit object-cover rounded-2xl border-4 border-peach"
-			src={black}
-			alt="black"
-			height={300}
-			width={300}
-			loading="eager"
-			decoding="async"
-		/>
-		<Image
-			class="md:absolute -mt-[12vh] md:mt-0 top-44 right-0 w-72 -rotate-12 h-fit object-cover rounded-2xl border-4 border-green"
-			src={white}
-			alt="white"
-			height={300}
-			width={300}
-			loading="eager"
-			decoding="async"
-		/>
-		<h1
-			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
-		>
-			Yash<br /> Deshpande
-		</h1>
-		<ul
-			class="flex flex-col md:flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
-		>
-			<li class="text-green">Student</li>
-			<li>Dev&lt;&gt;loper</li>
-			<li class="text-blue italic">I use Arch BTW</li>
-		</ul>
-		<ul
-			class="flex flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
-		>
-			<a
-				href="https://github.com/yashd-dev"
-				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-			>
-				<i data-lucide="github" class="size-8"></i></a
-			>
-			<a
-				href="https://www.linkedin.com/in/yash-deshpande-224431219/"
-				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-			>
-				<i data-lucide="linkedin" class="size-8"></i>
-			</a>
-			<a
-				href="mailto:yashdeshpande415@protonmail.com"
-				class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-			>
-				<i data-lucide="mail" class="size-8"></i>
-			</a>
-		</ul>
-		<section
-			class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-justify"
-		>
-			<p>
-				Hello everyone, I'm Yash, a Student Developer who is proficient
-				at Frontend Web Development and knows a great deal about
-				Operating Systems! Currently, I am working on making a Github
-				AWS Pipeline for a college community backend, grinding leetcode
-				on the side. I am also building a community of Developers called
-				<a
-					href="https://neurotechh.live/"
-					class="text-green underline hover:no-underline hover:text-pink"
-					>NeuroTechh</a
-				>. These are the ones with actual progress thus worth
-				mentioning; I have a million more pending, stay tuned for that
-				:)
-			</p>
-		</section>
-		<h1
-			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
-		>
-			Projects
-		</h1>
+  <section
+    class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative px-8 md:px-32"
+  >
+    <Image
+      class="md:absolute top-24 right-0 w-72 rotate-12 h-fit object-cover rounded-2xl border-4 border-peach"
+      src={black}
+      alt="black"
+      height={300}
+      width={300}
+      loading="eager"
+      decoding="async"
+    />
+    <Image
+      class="md:absolute -mt-[12vh] md:mt-0 top-44 right-0 w-72 -rotate-12 h-fit object-cover rounded-2xl border-4 border-green"
+      src={white}
+      alt="white"
+      height={300}
+      width={300}
+      loading="eager"
+      decoding="async"
+    />
+    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
+      Yash<br /> Deshpande
+    </h1>
+    <ul
+      class="flex flex-col md:flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
+    >
+      <li class="text-green">Student</li>
+      <li>Dev&lt;&gt;loper</li>
+      <li class="text-blue italic">I use Arch BTW</li>
+    </ul>
+    <ul
+      class="flex flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
+    >
+      <a
+        href="https://github.com/yashd-dev"
+        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+      >
+        <i data-lucide="github" class="size-8"></i></a
+      >
+      <a
+        href="https://www.linkedin.com/in/yash-deshpande-224431219/"
+        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+      >
+        <i data-lucide="linkedin" class="size-8"></i>
+      </a>
+      <a
+        href="mailto:yashdeshpande415@protonmail.com"
+        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
+      >
+        <i data-lucide="mail" class="size-8"></i>
+      </a>
+    </ul>
+    <section
+      class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-justify"
+    >
+      <p>
+        Hello everyone, I'm Yash, a Student Developer who is proficient at
+        Frontend Web Development and knows a great deal about Operating Systems!
+        Currently, I am working on making a Github AWS Pipeline for a college
+        community backend, grinding leetcode on the side. I am also building a
+        community of Developers called
+        <a
+          href="https://neurotechh.live/"
+          class="text-green underline hover:no-underline hover:text-pink"
+          >NeuroTechh</a
+        >. These are the ones with actual progress thus worth mentioning; I have
+        a million more pending, stay tuned for that :)
+      </p>
+    </section>
+    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
+      Projects
+    </h1>
 
-		<section
-			class="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10"
-		>
-			{
-				projects.map((project) => (
-					<a
-						href={project.link}
-						class={`w-full h-full py-10 rounded-2xl transition duration-300 p-4 hover:bg-card/85 flex flex-col justify-around hover:shadow-lg hover:border-transparent border-2 gap-5`}
-					>
-						<Image
-							src={project.image}
-							alt=""
-							class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
-							height={100}
-							width={100}
-						/>
-						<h1 class="font-bold uppercase text-2xl fill">
-							{project.name}
-						</h1>
-						<p class="text-md ">
-							{project.description}
-						</p>
-					</a>
-				))
-			}
-		</section>
-		<h1
-			class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title"
-		>
-			Blogs
-		</h1>
-		<a
-			href="/blog/"
-			class="text-green font-semibold text-body italic hover:underline"
-		>
-			Show all
-		</a>
-		{
-			sortedPosts.slice(0, 5).map((post) => (
-				<a
-					class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-5xl group hover:bg-card/85 hover:border-transparent"
-					href={`/blog/${post.slug}/`}
-				>
-					<div class=" space-y-10 max-w-xl">
-						<h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
-							{post.data.title}
-						</h2>
+    <section
+      class="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10"
+    >
+      {
+        projects.map((project) => (
+          <a
+            href={project.link}
+            class={`w-full h-full py-10 rounded-2xl transition duration-300 p-4 hover:bg-card/85 flex flex-col justify-around hover:shadow-lg hover:border-transparent border-2 gap-5`}
+          >
+            <Image
+              src={project.image}
+              alt=""
+              class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
+              height={100}
+              width={100}
+            />
+            <h1 class="font-bold uppercase text-2xl fill">{project.name}</h1>
+            <p class="text-md ">{project.description}</p>
+          </a>
+        ))
+      }
+    </section>
+    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
+      Blogs
+    </h1>
+    <a
+      href="/blog/"
+      class="text-green font-semibold text-body italic hover:underline"
+    >
+      Show all
+    </a>
+    {
+      sortedPosts.slice(0, 5).map((post) => (
+        <a
+          class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-5xl group hover:bg-card/85 hover:border-transparent"
+          href={`/blog/${post.slug}/`}
+        >
+          <div class=" space-y-10 max-w-xl">
+            <h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
+              {post.data.title}
+            </h2>
 
-						<p class=" text-md">{post.data.description}</p>
-						<span class=" flex gap-4">
-							{[...new Set(post.data.tags)].map((taggie) => (
-								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
-									{" "}
-									{unslugify(taggie)}
-								</p>
-							))}
-						</span>
-					</div>
+            <p class=" text-md">{post.data.description}</p>
+            <span class=" flex gap-4">
+              {[...new Set(post.data.tags)].map((taggie) => (
+                <p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
+                  {" "}
+                  {unslugify(taggie)}
+                </p>
+              ))}
+            </span>
+          </div>
 
-					<Image
-						src={`https://yashd.tech/og/${slugify(post.data.title, {
-							lower: true,
-							trim: true,
-							remove: undefined,
-						})}.png`}
-						alt={post.data.title}
-						height={400}
-						width={400}
-						class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
-					/>
-				</a>
-			))
-		}
-	</section>
+          <Image
+            src={`${"/og/"}${slugify(post.data.title, {
+              lower: true,
+              trim: true,
+              remove: undefined,
+            })}.png`}
+            alt={post.data.title}
+            height={400}
+            width={400}
+            class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
+          />
+        </a>
+      ))
+    }
+  </section>
 </Layout>
