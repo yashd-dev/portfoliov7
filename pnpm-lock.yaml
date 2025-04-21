@@ -92,6 +92,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+      tailwindcss-animated:
+        specifier: ^2.0.0
+        version: 2.0.0(tailwindcss@3.4.3)
       typescript:
         specifier: ^5.4.4
         version: 5.4.4
@@ -3027,6 +3030,11 @@ packages:
     resolution: {integrity: sha512-4PP6CMW/V7l/GmKRKzsLR8xxjdHTV4IMvhTnpuHwwBazSIlw5W/5SmPjN8Dwyt7lKbSJrRDgp4t9ph0HgChFBQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  tailwindcss-animated@2.0.0:
+    resolution: {integrity: sha512-anNNGpxNgjydD8p1lcJjxxH+XbjW6KR8Xs29owTrbcf3tOJ6IRblpyFob43HBkfxFJJTAfFQqugoEG2b1EsR0A==}
+    peerDependencies:
+      tailwindcss: '>=3.1.0 || >=4.0.0'
 
   tailwindcss@3.4.3:
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
@@ -6954,6 +6962,10 @@ snapshots:
       css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.0.0
+
+  tailwindcss-animated@2.0.0(tailwindcss@3.4.3):
+    dependencies:
+      tailwindcss: 3.4.3
 
   tailwindcss@3.4.3:
     dependencies:

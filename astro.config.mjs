@@ -27,7 +27,7 @@ const AnchorLinkIcon = h("svg", {
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap(), partytown(), playformCompress()],
-  site: "https://yashd.tech/",
+  site: "https://yashd.in/",
   markdown: {
     gfm: true,
     shikiConfig: {

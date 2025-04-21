@@ -117,7 +117,7 @@ const { imgurl, title, description } = Astro.props;
 // This is the slug.astro, passing the props
 <Layout
 	title={entry.data.title}
-	imgurl= `https://yashd.tech/og/${slugify(entry.data.title, {
+	imgurl= `https://yashd.in/og/${slugify(entry.data.title, {
 			lower: true,
 			trim: true,
 			remove: undefined,

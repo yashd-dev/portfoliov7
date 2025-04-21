@@ -1,66 +1,156 @@
 ---
 import slugify from "slugify";
-let options = {
-	lower: true,
-	trim: true,
-	remove: undefined as undefined,
-};
 import Layout from "../layout.astro";
-import {tags, sortedPosts, unslugify } from "../../utils/posts";
+import { tags, sortedPosts, unslugify } from "../../utils/posts";
 import { Image } from "astro:assets";
+import background from "../../assets/background.svg";
+
+let options = {
+  lower: true,
+  trim: true,
+  remove: undefined as undefined,
+};
+
 export const prerender = true;
 ---
 
 <Layout
-	title="Yash D's Blogs"
-	imgurl="https://yashd.tech/preview.png"
-	description="Blog page of Yash Deshpande :)"
+  title="Yash D's Blogs"
+  imgurl="https://yashd.in/preview.png"
+  description="Blog page of Yash Deshpande :)"
 >
-	<section
-		class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative  px-8 md:px-32"
-	>
-		<h1 class="font-bold uppercase text-title">Blogs</h1>
+  <main class="px-4 flex flex-col items-center">
 
-		<h3 class="font-bold text-2xl">Tags</h3>
-								<span class=" flex gap-4">
 
-		{tags.map((tag => <a href=`/tags/${slugify(tag,options)}`  class=" p-3 rounded-md bg-pink w-fit text-black font-semibold transition hover:bg-pink/70">{unslugify(tag)}</a>))}
-								</span>
+    <div class="content max-w-[600px] w-full">
+      <h1 class="text-2xl md:text-3xl font-bold my-8 text-center">My Blogs</h1>
 
-		{
-			sortedPosts.slice(0, 5).map((post) => (
-				<a
-					class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-6xl group hover:bg-card/85 hover:border-transparent gap-5"
-					href={`/blog/${post.slug}/`}
-				>
-					<div class=" space-y-10 max-w-xl">
-						<h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
-							{post.data.title}
-						</h2>
+      <div
+        class="mb-8 flex flex-wrap justify-center gap-3 animate-fade animate-duration-[230ms] animate-delay-200 animate-ease-in"
+      >
+        {
+          tags.map((tag) => (
+            <a
+              href={`/tags/${slugify(tag, options)}`}
+              class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-rose-100 text-gray-800 text-sm transition-all duration-300 hover:shadow-md hover:from-pink-200 hover:to-rose-200 border border-pink-200/30"
+            >
+              <em>{unslugify(tag)}</em>
+            </a>
+          ))
+        }
+      </div>
 
-						<p class=" text-md">{post.data.description}</p>
-						<span class=" flex gap-4">
-							{[...new Set(post.data.tags)].map((taggie) => (
-								<p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
-									{" "}
-									{unslugify(taggie)}
-								</p>
-							))}
-						</span>
-					</div>
-						<Image
-							src={`https://yashd.tech/og/${slugify(post.data.title, {
-								lower: true,
-								trim: true,
-								remove: undefined,
-							})}.png`}
-							alt={post.data.title}
-							height={400}
-							width={400}
-							class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
-						/>
-				</a>
-			))
-		}
-	</section>
+      <div class="flex flex-col gap-6 w-full">
+        {
+          sortedPosts.slice(0, 5).map((post, index) => (
+            <a
+              href={`/blog/${post.slug}/`}
+              class="flex flex-col items-start gap-4 p-5 rounded-none transition-all duration-300 hover:bg-white/60 hover:shadow-xl animate-fade animate-duration-[230ms] animate-ease-in bg-white/30 border border-gray-100"
+              style={`animation-delay: ${400 + index * 200}ms`}
+            >
+              <div class="w-full">
+                <h2 class="text-lg md:text-xl mb-2 font-semibold text-transparent bg-clip-text bg-[linear-gradient(60deg,_rgb(247,_149,_51),_rgb(243,_112,_85),_rgb(239,_78,_123),_rgb(161,_102,_171),_rgb(80,_115,_184),_rgb(16,_152,_173),_rgb(7,_179,_155),_rgb(111,_186,_130))]">
+                  {post.data.title}
+                </h2>
+                <p class="text-gray-600 text-sm mb-4">
+                  {post.data.description}
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags &&
+                    [...new Set(post.data.tags)].map((taggie) => (
+                      <span class="px-3 py-1 rounded-full bg-gradient-to-r from-orange-50 to-amber-50 text-gray-700 text-xs border border-amber-100/30">
+                        <em>{unslugify(taggie)}</em>
+                      </span>
+                    ))}
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .line-seperator {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.03),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.03)
+    );
+    margin: 0 0.5rem;
+  }
+
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(100px);
+  }
+
+  .animate-fade {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+  }
+
+  .animate-duration-\[230ms\] {
+    animation-duration: 230ms;
+  }
+
+  .animate-duration-\[400ms\] {
+    animation-duration: 400ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-ease-in {
+    animation-timing-function: ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wave-hand {
+    display: inline-block;
+    animation: wave 2s infinite ease-in-out;
+    transform-origin: 70% 70%;
+  }
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    60% {
+      transform: rotate(12deg);
+    }
+    80% {
+      transform: rotate(-8deg);
+    }
+  }
+</style>

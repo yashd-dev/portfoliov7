@@ -1,213 +1,533 @@
 ---
 import Layout from "./layout.astro";
-import { Image } from "astro:assets";
-import slugify from "slugify";
-import black from "../assets/black..jpg";
-import white from "../assets/white.jpg";
-import logo from "../assets/logo.png";
-import pfe from "../assets/PFE-Logo.png";
-import hand from "../assets/RPS Screenshot.png";
-import chatapp from "../assets/chatapp.jpeg";
-import aws from "../assets/aws.svg";
-import cnn from "../assets/cnn.svg";
-import neurotechh from "../assets/neurotechh.png";
 import { sortedPosts, unslugify } from "../utils/posts";
-export const prerender = true;
+const work = [
+  { name: "Neurotechh", description: "A community of student developers" },
+  {
+    name: "Brain Tumour Detection from MRI",
+    description: "CNN-based detection project",
+  },
+  {
+    name: "6pistons Media",
+    description: "Technical Lead for media platform",
+  },
+];
+
+const posts = [
+  {
+    title: "Dynamic Open Graph Images using Satori and Astro",
+    blurb: "Custom OG images for social media",
+    year: "2024",
+  },
+  {
+    title: "Thoughts on Open Source",
+    blurb: "Reflections after GSSOC participation",
+    year: "2024",
+  },
+  {
+    title: "The Github Copilot Effect",
+    blurb: "Mixed feelings on AI pair programming",
+    year: "2023",
+  },
+  {
+    title: "Thoughts on Going about in Tech",
+    blurb: "Navigating the tech world",
+    year: "2023",
+  },
+];
+
+const technicalSkills = {
+  frontend: [
+    "NextJS",
+    "Astro",
+    "Vite",
+    "Typescript",
+    "TailwindCSS",
+    "Javascript",
+    "HTML",
+    "CSS",
+  ],
+  backend: ["Flask", "Node", "Express", "MySQL", "Python", "SQL", "PostgreSQL"],
+  devops: [
+    "Linux",
+    "Nginx",
+    "Cloudflare",
+    "PM2",
+    "Cronjobs",
+    "Docker",
+    "Bash",
+    "Github Actions",
+  ],
+  miscellaneous: ["Flutter", "Figma", "Google Appscript", "Vercel", "Netlify"],
+};
+
+const positions = [
+  {
+    title: "Technical Lead",
+    organization: "6pistons Media",
+    dates: "December 2024 - Present",
+    responsibilities: [
+      "Built a blog site using Next.js, Tailwind CSS, and Sanity CMS for real-time content updates",
+      "Configured domain and DNS records via Cloudflare",
+      "Set up custom email addresses using Cloudflare Email Routing",
+      "Designed initial brand graphics and visual assets",
+    ],
+  },
+  {
+    title: "Speaker",
+    organization:
+      "DevFest Mumbai 2024 (Organised by GDG MAD Mumbai & GDG Cloud Mumbai)",
+    dates: "December 2024",
+    responsibilities: [
+      "Delivered a talk on Gemini Nano in Chrome, covering its on-device capabilities and APIs",
+      "Selected as 1 of 18 speakers (the only student chosen) from over 100 submissions",
+    ],
+  },
+  {
+    title: "Vice-Chairperson",
+    organization: "ACM MPSTME Chapter",
+    dates: "July 2024 - April 2025",
+    responsibilities: [
+      "Led tech team in building a CI/CD pipeline using GitHub Actions on a self-hosted Hetzner runner",
+      "Oversaw development of multiple projects and event websites, including mpstmeacm.com",
+      "Developed a certificate portal that generates certificates from CSV",
+    ],
+  },
+];
 
 const projects = [
   {
     name: "Neurotechh",
+    technologies: ["NextJS", "Tailwind CSS", "TypeScript"],
     description:
-      "A community of student developers who build projects and comeup with innovative solutions!",
-    image: neurotechh,
-    link: "https://neurotechh.live/",
+      "A community of student developers who build projects and come up with innovative solutions!",
+    featured: true,
   },
   {
     name: "Brain Tumour Detection from MRI",
+    technologies: ["Python", "CNN", "Streamlit"],
     description:
-      "A project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024",
-    image: cnn,
-    link: "https://technikwissen.eu/volume-24-issue-8-2024/",
+      "A research project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024. Achieved 99.46% accuracy with a custom architecture, enhancing diagnostic support using deep learning techniques.",
+    featured: true,
+  },
+  {
+    name: "Taqneeq Fest Companion App",
+    technologies: ["Flutter", "Firebase", "Flask"],
+    dates: "December 2024 - March 2025",
+    description:
+      "Built and deployed the official fest app on App Store & Play Store for 500+ users. Developed robust Flask API endpoints for authentication, event tracking, and point logic. Integrated QR-based point system tied to user activity across stalls, games, and events.",
+    featured: true,
   },
   {
     name: "ACM Chronicles",
+    technologies: ["Astro", "Tailwind CSS", "Sanity.io"],
     description:
-      "Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io.",
-    image: logo,
-    link: "https://mpstme.acm.org/newsletter/",
+      "Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io for content management.",
+    featured: false,
   },
   {
     name: "ACM MPSTME Website",
+    technologies: ["Astro", "Tailwind CSS"],
     description:
-      "Lead Developer for the ACM MPSTME Studen Chapter Website. The website is built using Astro and Tailwind CSS.",
-    image: logo,
-    link: "https://mpstme.acm.org",
+      "Lead Developer for the ACM MPSTME Student Chapter Website. The website is built using Astro and Tailwind CSS.",
+    featured: false,
   },
   {
-    name: "Programming For Eveyone",
+    name: "Programming For Everyone",
+    technologies: ["Astro", "Tailwind CSS"],
     description:
       "ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
-    image: pfe,
-    link: "https://pfe.mpstme.hosting.acm.org/",
+    featured: false,
   },
-
   {
     name: "DevOps Pipeline",
+    technologies: ["Github Actions", "AWS", "Bash"],
     description:
       "Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
-    image: aws,
-
-    link: "",
+    featured: false,
   },
 ];
-const isProd = import.meta.env.PROD;
+
+const education = {
+  degree: "Bachelor of Technology in Computer Engineering",
+  institution:
+    "Mukesh Patel School of Technology Management and Engineering Mumbai",
+  years: "2021-2027",
+};
+
+const contact = {
+  phone: "+91 9004654411",
+  email: "hello@yashd.in",
+  website: "www.yashd.in",
+  location: "Mumbai, India",
+};
 ---
 
 <Layout
-  imgurl="https://yashd.tech/preview.png"
+  imgurl="https://yashd.in/preview.png"
   title="Yash D's Portfolio"
   description="A portfolio page of Yash Deshpande :)"
 >
-  <section
-    class="w-full min-h-screen flex flex-col justify-center max-w-6xl gap-10 mx-auto py-[10vh] relative px-8 md:px-32"
-  >
-    <Image
-      class="md:absolute top-24 right-0 w-72 rotate-12 h-fit object-cover rounded-2xl border-4 border-peach"
-      src={black}
-      alt="black"
-      height={300}
-      width={300}
-      loading="eager"
-      decoding="async"
-    />
-    <Image
-      class="md:absolute -mt-[12vh] md:mt-0 top-44 right-0 w-72 -rotate-12 h-fit object-cover rounded-2xl border-4 border-green"
-      src={white}
-      alt="white"
-      height={300}
-      width={300}
-      loading="eager"
-      decoding="async"
-    />
-    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
-      Yash<br /> Deshpande
-    </h1>
-    <ul
-      class="flex flex-col md:flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
-    >
-      <li class="text-green">Student</li>
-      <li>Dev&lt;&gt;loper</li>
-      <li class="text-blue italic">I use Arch BTW</li>
-    </ul>
-    <ul
-      class="flex flex-row gap-5 md:gap-10 text-body font-semibold *:tracking-wider"
-    >
-      <a
-        href="https://github.com/yashd-dev"
-        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-      >
-        <i data-lucide="github" class="size-8"></i></a
-      >
-      <a
-        href="https://www.linkedin.com/in/yash-deshpande-224431219/"
-        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-      >
-        <i data-lucide="linkedin" class="size-8"></i>
-      </a>
-      <a
-        href="mailto:yashdeshpande415@protonmail.com"
-        class="p-2 transition hover:bg-green rounded-2xl hover:text-black"
-      >
-        <i data-lucide="mail" class="size-8"></i>
-      </a>
-    </ul>
-    <section
-      class="md:bg-card w-full h-fit rounded-2xl md:p-7 text-paragraph font-normal md:border border-lav tracking-wide text-justify"
-    >
-      <p>
-        Hello everyone, I'm Yash, a Student Developer who is proficient at
-        Frontend Web Development and knows a great deal about Operating Systems!
-        Currently, I am working on making a Github AWS Pipeline for a college
-        community backend, grinding leetcode on the side. I am also building a
-        community of Developers called
-        <a
-          href="https://neurotechh.live/"
-          class="text-green underline hover:no-underline hover:text-pink"
-          >NeuroTechh</a
-        >. These are the ones with actual progress thus worth mentioning; I have
-        a million more pending, stay tuned for that :)
-      </p>
-    </section>
-    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
-      Projects
-    </h1>
+  <main class="px-4 flex flex-col items-center">
+    <div class="content max-w-[700px]">
+      <div class="">
+        <img
+          src="/me.jpg"
+          class="aspect-video object-cover rounded-none shadow-2xl animate-fade animate-duration-[230ms] animate-ease-in"
+        />
 
-    <section
-      class="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-10"
-    >
-      {
-        projects.map((project) => (
-          <a
-            href={project.link}
-            class={`w-full h-full py-10 rounded-2xl transition duration-300 p-4 hover:bg-card/85 flex flex-col justify-around hover:shadow-lg hover:border-transparent border-2 gap-5`}
-          >
-            <Image
-              src={project.image}
-              alt=""
-              class="h-24 w-24 items-center justify-center rounded-full object-contain  shadow-md shadow-slate-100/5 border border-slate-400/50 bg-slate-950 "
-              height={100}
-              width={100}
-            />
-            <h1 class="font-bold uppercase text-2xl fill">{project.name}</h1>
-            <p class="text-md ">{project.description}</p>
-          </a>
-        ))
-      }
-    </section>
-    <h1 class="2xl:text-[10vw] 2xl:space-y-16 font-bold uppercase text-title">
-      Blogs
-    </h1>
-    <a
-      href="/blog/"
-      class="text-green font-semibold text-body italic hover:underline"
-    >
-      Show all
-    </a>
-    {
-      sortedPosts.slice(0, 5).map((post) => (
-        <a
-          class=" flex flex-col md:flex-row justify-between items-center border-2 rounded-2xl p-4 transition  max-w-5xl group hover:bg-card/85 hover:border-transparent"
-          href={`/blog/${post.slug}/`}
+        <div
+          class="my-4 flex gap-2 flex-col animate-fade animate-duration-[230ms] animate-delay-200 animate-ease-in"
         >
-          <div class=" space-y-10 max-w-xl">
-            <h2 class=" font-bold text-2xl md:text-3xl group-hover:underline group-hover:text-pink">
-              {post.data.title}
-            </h2>
+          <span class="flex flex-col mb-4">
+            <span class="text-black text-2xl font-bold"
+              >Hi I am <em>Yash Deshpande</em>
+              <span class="wave-hand">👋</span></span
+            >
+            <span class="text-gray-700">Student Developer</span>
+          </span>
+          <div class="content markdown">
+            <p class="text-gray-900">
+              Hi! I am a <em>Frontend Web Developer</em> and <em
+                >Design Enthusiast</em
+              >. I am building <em>NeuroTechh</em> and working on various projects.
+              One thing I really love to do is talk and share my knowledge about
+              tech with everyone! It's a bit ironic, considering how much of an introvert
+              I am. Oh, also, I was a part of <em
+                class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-600"
+                >Google's DevFest Mumbai,</em
+              > and I was the youngest and the only student speaker at that convention!
+            </p>
+          </div>
+        </div>
 
-            <p class=" text-md">{post.data.description}</p>
-            <span class=" flex gap-4">
-              {[...new Set(post.data.tags)].map((taggie) => (
-                <p class=" p-2 rounded-2xl bg-peach w-fit text-black font-semibold">
-                  {" "}
-                  {unslugify(taggie)}
-                </p>
-              ))}
-            </span>
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[400ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
+          >
+            <em>Contact</em>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+            <div class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-gray-600"
+                ><rect x="2" y="4" width="20" height="16" rx="2"></rect><path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+              >
+              <a
+                href={`mailto:${contact.email}`}
+                class="text-gray-800 hover:text-blue-500">{contact.email}</a
+              >
+            </div>
+
+            <div class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-gray-600"
+                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                ></path><circle cx="12" cy="10" r="3"></circle></svg
+              >
+              <span class="text-gray-800">{contact.location}</span>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[500ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500"
+          >
+            <em>Education</em>
+          </h3>
+          <div class="mt-2 p-4 border border-gray-200 rounded-none">
+            <h4 class="text-gray-800"><em>{education.degree}</em></h4>
+            <p class="text-gray-700">{education.institution}</p>
+            <p class="text-gray-600 text-sm">{education.years}</p>
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[600ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+          >
+            <em>Technical Skills</em>
+          </h3>
+          <div class="mt-2">
+            <div class="mb-3">
+              <h4 class="text-gray-800"><em>Frontend</em></h4>
+              <div class="flex flex-wrap gap-2 mt-1">
+                {
+                  technicalSkills.frontend.map((skill) => (
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="mb-3">
+              <h4 class="text-gray-800"><em>Backend</em></h4>
+              <div class="flex flex-wrap gap-2 mt-1">
+                {
+                  technicalSkills.backend.map((skill) => (
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="mb-3">
+              <h4 class="text-gray-800"><em>DevOps</em></h4>
+              <div class="flex flex-wrap gap-2 mt-1">
+                {
+                  technicalSkills.devops.map((skill) => (
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="mb-3">
+              <h4 class="text-gray-800"><em>Miscellaneous</em></h4>
+              <div class="flex flex-wrap gap-2 mt-1">
+                {
+                  technicalSkills.miscellaneous.map((skill) => (
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[700ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-500"
+          >
+            <em>Positions of Responsibility</em>
+          </h3>
+          <div class="mt-2 space-y-4">
+            {
+              positions.map((position) => (
+                <div class="p-4 border border-gray-200 rounded-none">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                    <h4 class="text-gray-800">
+                      <em>{position.title}</em>
+                    </h4>
+                    <span class="text-gray-600 text-sm">{position.dates}</span>
+                  </div>
+                  <p class="text-gray-700">{position.organization}</p>
+                  <ul class="mt-2 list-disc list-inside text-gray-700 text-sm">
+                    {position.responsibilities.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[800ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-[linear-gradient(60deg,_rgb(247,_149,_51),_rgb(243,_112,_85),_rgb(239,_78,_123),_rgb(161,_102,_171),_rgb(80,_115,_184),_rgb(16,_152,_173),_rgb(7,_179,_155),_rgb(111,_186,_130))]"
+          >
+            <em>Work</em>
+          </h3>
+          <div>
+            {
+              work.map((item) => (
+                <div class="flex items-center gap-3 relative overflow-hidden pt-2 pb-2 transition-none rounded-none outline-none">
+                  <a href="#" class="text-black">
+                    <em>{item.name}</em>
+                  </a>
+                  <div class="line-seperator" />
+                  <div class="text-gray-600 text-sm">{item.description}</div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[900ms] animate-ease-in"
+        >
+          <h3
+            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-500"
+          >
+            <em>Projects</em>
+          </h3>
+
+          <div class="mt-2 space-y-6">
+            {
+              projects
+                .filter((project) => project.featured)
+                .map((project) => (
+                  <div class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                      <h4 class="text-gray-800 text-lg">
+                        <em>{project.name}</em>
+                      </h4>
+                      {project.dates && (
+                        <span class="text-gray-600 text-sm">
+                          {project.dates}
+                        </span>
+                      )}
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                      {project.technologies &&
+                        project.technologies.map((tech) => (
+                          <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                            {tech}
+                          </span>
+                        ))}
+                    </div>
+                    <p class="mt-2 text-gray-700 text-sm">
+                      {project.description}
+                    </p>
+                  </div>
+                ))
+            }
           </div>
 
-          <Image
-            src={`${"/og/"}${slugify(post.data.title, {
-              lower: true,
-              trim: true,
-              remove: undefined,
-            })}.png`}
-            alt={post.data.title}
-            height={400}
-            width={400}
-            class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia order-first md:order-last my-4 border-2 border-blue"
-          />
-        </a>
-      ))
-    }
-  </section>
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+              projects
+                .filter((project) => !project.featured)
+                .map((project) => (
+                  <div class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow h-full">
+                    <h4 class="text-gray-800">
+                      <em>{project.name}</em>
+                    </h4>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                      {project.technologies &&
+                        project.technologies.map((tech) => (
+                          <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                            {tech}
+                          </span>
+                        ))}
+                    </div>
+                    <p class="mt-2 text-gray-700 text-sm">
+                      {project.description}
+                    </p>
+                  </div>
+                ))
+            }
+          </div>
+        </section>
+
+        <section
+          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[1000ms] animate-ease-in"
+        >
+          <div class="flex justify-between">
+            <h3 class="text-black"><em>Posts</em></h3>
+            <a class="archive-link text-blue-400" href="/blog">Archive</a>
+          </div>
+          <div>
+            {
+              sortedPosts.slice(0, 5).map((post) => (
+                <a href={`/blog/${post.slug}/`}>
+                  <div class="flex flex-col md:flex-row items-start md:items-center gap-0 md:gap-3 w-full relative overflow-hidden pt-2 pb-3 transition-none rounded-none outline-none">
+                    <div class="flex justify-between w-full md:w-auto">
+                      <em>
+                        {post.data.title.split(" ").slice(0, 6).join(" ")}...
+                      </em>
+                      <div class="md:ml-auto md:hidden text-xs text-gray-700">
+                        {new Date(post.data.pubDate).toLocaleString("default", {
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </div>
+                    </div>
+                    <div class="text-sm block md:inline text-gray-600">
+                      {post.data.description.split(" ").slice(0, 5).join(" ")}-
+                    </div>
+                    <div class="line-seperator hidden md:block" />
+                    <div class="hidden md:block ml-auto text-xs text-gray-700">
+                      {new Date(post.data.pubDate).toLocaleString("default", {
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </div>
+                  </div>{" "}
+                </a>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .line-seperator {
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0 0.5rem;
+  }
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(100px);
+  }
+  .wave-hand {
+    display: inline-block;
+    animation: wave 2s infinite ease-in-out;
+    transform-origin: 70% 70%;
+  }
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    60% {
+      transform: rotate(12deg);
+    }
+    80% {
+      transform: rotate(-8deg);
+    }
+  }
+</style>

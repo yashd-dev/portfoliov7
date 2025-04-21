@@ -1,54 +1,107 @@
 @font-face {
-	font-family: "Outfit";
-	src: url("/font/outfit_var.ttf");
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
+  font-weight: 900;
+  font-style: italic;
 }
-* {
-	font-family: "Outfit", sans-serif;
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYBOLD.OTF") format("opentype");
+  font-weight: 700;
+  font-style: normal;
 }
-.bg-build-white {
-	background-image: repeating-linear-gradient(
-			to right,
-			rgb(35, 31, 32),
-			rgb(35, 31, 32) 1px,
-			rgba(243, 214, 214, 0) 1px,
-			rgba(0, 0, 0, 0) 50px
-		),
-		repeating-linear-gradient(
-			rgb(35, 31, 32),
-			rgb(35, 31, 32) 1px,
-			rgba(0, 0, 0, 0) 1px,
-			rgba(0, 0, 0, 0) 50px
-		);
-	text-rendering: optimizeLegibility;
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYHEAVYITALIC.OTF") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYLIGHTITALIC.OTF") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYSEMIBOLDITALIC.OTF") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYTHINITALIC.OTF") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/font/SFPRODISPLAYULTRALIGHTITALIC.OTF") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/font/AppleGaramond-LightItalic.ttf") format("truetype");
+}
+
+body {
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 18px;
+}
+em {
+  font-family: "Garamond", sans-serif;
+  font-size: 19px;
 }
 
 .text-title {
-	font-size: clamp(3rem, 8vw, 8rem);
+  font-size: clamp(3rem, 8vw, 8rem);
 }
 /* Heading 2 */
 .text-title-2 {
-	font-size: clamp(2.5rem, 6vw, 6.5rem);
+  font-size: clamp(2.5rem, 6vw, 6.5rem);
 }
 
 /* Heading 3 */
 .text-title-3 {
-	font-size: clamp(2rem, 5vw, 6rem);
+  font-size: clamp(2rem, 5vw, 6rem);
 }
 
 /* Heading 4 */
 .text-title-4 {
-	font-size: clamp(1.5rem, 4vw, 5.5rem);
+  font-size: clamp(1.5rem, 4vw, 5.5rem);
 }
 
 /* Paragraph Text */
 .text-paragraph {
-	font-size: clamp(1.2rem, 1.2vw, 4rem);
+  font-size: clamp(1.2rem, 1.2vw, 4rem);
 }
 
 .text-body {
-	font-size: clamp(1.5rem, 1vw, 6rem);
+  font-size: clamp(1.5rem, 1vw, 6rem);
 }
 
 .article {
-	@apply my-auto prose  md:prose-lg prose-pink  prose-invert  prose-headings:text-text  prose-img:rounded-xl prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:mt-5;
+  @apply my-auto prose  md:prose-lg prose-pink  prose-img:rounded-none prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:mt-5;
 }
