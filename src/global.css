@@ -64,15 +64,34 @@
 @font-face {
   font-family: "Garamond";
   src: url("/font/AppleGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/font/AppleGaramond-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
 }
 
 body {
   font-family: "SF Pro Display", sans-serif;
   font-size: 18px;
 }
+
 em {
   font-family: "Garamond", sans-serif;
   font-size: 19px;
+  font-style: normal;
+}
+
+@media (min-width: 768px) {
+  em {
+    font-family: "Garamond", sans-serif;
+    font-size: 19px;
+    font-style: italic;
+  }
 }
 
 .text-title {
