@@ -1,61 +1,61 @@
-/* @font-face {
-  font-family: "SF Pro Display";
+@font-face {
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
   font-weight: 900;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYBOLD.OTF") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYHEAVYITALIC.OTF") format("opentype");
   font-weight: 800;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYLIGHTITALIC.OTF") format("opentype");
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYMEDIUM.OTF") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYREGULAR.OTF") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYSEMIBOLDITALIC.OTF") format("opentype");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYTHINITALIC.OTF") format("opentype");
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SF";
   src: url("/font/SFPRODISPLAYULTRALIGHTITALIC.OTF") format("opentype");
   font-weight: 100;
   font-style: italic;
@@ -73,7 +73,7 @@
   src: url("/font/AppleGaramond-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
-} */
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -122,5 +122,5 @@ em {
 }
 
 .article {
-  @apply my-auto prose  prose-pink prose-headings:font-["Times"]  prose-img:rounded-none prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:mt-5;
+  @apply my-auto prose  prose-pink prose-headings:font-["Times"] prose-headings:font-normal  prose-img:rounded-none prose-img:shadow-2xl  prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto  prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:mt-5  prose-p:font-["SF"];
 }
