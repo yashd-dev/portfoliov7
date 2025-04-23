@@ -37,17 +37,8 @@ const posts = [
 ];
 
 const technicalSkills = {
-  frontend: [
-    "NextJS",
-    "Astro",
-    "Vite",
-    "Typescript",
-    "TailwindCSS",
-    "Javascript",
-    "HTML",
-    "CSS",
-  ],
-  backend: ["Flask", "Node", "Express", "MySQL", "Python", "SQL", "PostgreSQL"],
+  frontend: ["NextJS", "Astro", "Vite", "Typescript", "TailwindCSS"],
+  backend: ["Flask", "Node", "Express", "MySQL", "Python", "PostgreSQL"],
   devops: [
     "Linux",
     "Nginx",
@@ -102,6 +93,7 @@ const projects = [
     description:
       "A community of student developers who build projects and come up with innovative solutions!",
     featured: true,
+    link: "https://neurotechh.xyz",
   },
   {
     name: "Brain Tumour Detection from MRI",
@@ -109,6 +101,7 @@ const projects = [
     description:
       "A research project that uses CNN to detect brain tumours from MRI scans. Published in Technische Sicherheit Volume 24 Issue 8 2024. Achieved 99.46% accuracy with a custom architecture, enhancing diagnostic support using deep learning techniques.",
     featured: true,
+    link: "https://drive.google.com/file/d/1R2CzlcCENvW3ZLt2_Zr2gmccbc4Bpdtc/view",
   },
   {
     name: "Taqneeq Fest Companion App",
@@ -117,6 +110,7 @@ const projects = [
     description:
       "Built and deployed the official fest app on App Store & Play Store for 500+ users. Developed robust Flask API endpoints for authentication, event tracking, and point logic. Integrated QR-based point system tied to user activity across stalls, games, and events.",
     featured: true,
+    link: "https://www.taqneeqfest.com/app",
   },
   {
     name: "ACM Chronicles",
@@ -124,6 +118,7 @@ const projects = [
     description:
       "Monthly tech newsletter by ACM MPSTME. Lead developer & editor. Built with Astro, Tailwind CSS & Sanity.io for content management.",
     featured: false,
+    link: "https://mpstmeacm.com/newsletter",
   },
   {
     name: "ACM MPSTME Website",
@@ -131,6 +126,7 @@ const projects = [
     description:
       "Lead Developer for the ACM MPSTME Student Chapter Website. The website is built using Astro and Tailwind CSS.",
     featured: false,
+    link: "https://mpstmeacm.com",
   },
   {
     name: "Programming For Everyone",
@@ -138,6 +134,7 @@ const projects = [
     description:
       "ACM MPSTME event: Teaching programming to students. Lead developer for website. Built with Astro & Tailwind CSS.",
     featured: false,
+    link: "https://pfe.mpstmeacm.com/",
   },
   {
     name: "DevOps Pipeline",
@@ -145,6 +142,7 @@ const projects = [
     description:
       "Github Actions pipeline for a college community backend. The pipeline is built with Github Actions and AWS. Under development, stay tuned for the blog post!",
     featured: false,
+    link: "",
   },
 ];
 
@@ -156,9 +154,7 @@ const education = {
 };
 
 const contact = {
-  phone: "+91 9004654411",
   email: "hello@yashd.in",
-  website: "www.yashd.in",
   location: "Mumbai, India",
 };
 ---
@@ -181,7 +177,7 @@ const contact = {
         >
           <span class="flex flex-col mb-4">
             <span class="text-black text-2xl font-bold"
-              >Hi I am <em>Yash Deshpande</em>
+              >Hi I am <em class="font-normal">Yash Deshpande</em>
               <span class="wave-hand">👋</span></span
             >
             <span class="text-gray-700">Student Developer</span>
@@ -267,66 +263,6 @@ const contact = {
         </section>
 
         <section
-          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[600ms] animate-ease-in"
-        >
-          <h3
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
-          >
-            <em>Technical Skills</em>
-          </h3>
-          <div class="mt-2">
-            <div class="mb-3">
-              <h4 class="text-gray-800"><em>Frontend</em></h4>
-              <div class="flex flex-wrap gap-2 mt-1">
-                {
-                  technicalSkills.frontend.map((skill) => (
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                      {skill}
-                    </span>
-                  ))
-                }
-              </div>
-            </div>
-            <div class="mb-3">
-              <h4 class="text-gray-800"><em>Backend</em></h4>
-              <div class="flex flex-wrap gap-2 mt-1">
-                {
-                  technicalSkills.backend.map((skill) => (
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                      {skill}
-                    </span>
-                  ))
-                }
-              </div>
-            </div>
-            <div class="mb-3">
-              <h4 class="text-gray-800"><em>DevOps</em></h4>
-              <div class="flex flex-wrap gap-2 mt-1">
-                {
-                  technicalSkills.devops.map((skill) => (
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                      {skill}
-                    </span>
-                  ))
-                }
-              </div>
-            </div>
-            <div class="mb-3">
-              <h4 class="text-gray-800"><em>Miscellaneous</em></h4>
-              <div class="flex flex-wrap gap-2 mt-1">
-                {
-                  technicalSkills.miscellaneous.map((skill) => (
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                      {skill}
-                    </span>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
           class="py-4 animate-fade animate-duration-[230ms] animate-delay-[700ms] animate-ease-in"
         >
           <h3
@@ -357,29 +293,6 @@ const contact = {
         </section>
 
         <section
-          class="py-4 animate-fade animate-duration-[230ms] animate-delay-[800ms] animate-ease-in"
-        >
-          <h3
-            class="text-transparent bg-clip-text bg-[linear-gradient(60deg,_rgb(247,_149,_51),_rgb(243,_112,_85),_rgb(239,_78,_123),_rgb(161,_102,_171),_rgb(80,_115,_184),_rgb(16,_152,_173),_rgb(7,_179,_155),_rgb(111,_186,_130))]"
-          >
-            <em>Work</em>
-          </h3>
-          <div>
-            {
-              work.map((item) => (
-                <div class="flex items-center gap-3 relative overflow-hidden pt-2 pb-2 transition-none rounded-none outline-none">
-                  <a href="#" class="text-black">
-                    <em>{item.name}</em>
-                  </a>
-                  <div class="line-seperator" />
-                  <div class="text-gray-600 text-sm">{item.description}</div>
-                </div>
-              ))
-            }
-          </div>
-        </section>
-
-        <section
           class="py-4 animate-fade animate-duration-[230ms] animate-delay-[900ms] animate-ease-in"
         >
           <h3
@@ -393,7 +306,7 @@ const contact = {
               projects
                 .filter((project) => project.featured)
                 .map((project) => (
-                  <div class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow">
+                  <a href={project.link} class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow"> 
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center">
                       <h4 class="text-gray-800 text-lg">
                         <em>{project.name}</em>
@@ -415,7 +328,7 @@ const contact = {
                     <p class="mt-2 text-gray-700 text-sm">
                       {project.description}
                     </p>
-                  </div>
+                  </a>
                 ))
             }
           </div>
@@ -425,7 +338,7 @@ const contact = {
               projects
                 .filter((project) => !project.featured)
                 .map((project) => (
-                  <div class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow h-full">
+                  <a href={project.link} class="p-4 border border-gray-200 rounded-none hover:shadow-md transition-shadow h-full">
                     <h4 class="text-gray-800">
                       <em>{project.name}</em>
                     </h4>
@@ -440,7 +353,7 @@ const contact = {
                     <p class="mt-2 text-gray-700 text-sm">
                       {project.description}
                     </p>
-                  </div>
+                  </a>
                 ))
             }
           </div>

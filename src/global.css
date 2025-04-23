@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "SF Pro Display";
   src: url("/font/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
   font-weight: 900;
@@ -73,23 +73,23 @@
   src: url("/font/AppleGaramond-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
-}
+} */
 
 body {
-  font-family: "SF Pro Display", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
 em {
-  font-family: "Garamond", sans-serif;
-  font-size: 19px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
   font-style: normal;
 }
 
 @media (min-width: 768px) {
   em {
-    font-family: "Garamond", sans-serif;
-    font-size: 19px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
     font-style: italic;
   }
 }
