@@ -33,9 +33,26 @@ import { unslugify } from "../../utils/posts";
 		})}.png`
 	description={entry.data.description}
 >
+
 	<article
 		class="article w-full flex flex-col justify-center mx-auto pt-[10vh] px-6 md:px-0"
-	>
+	> <a href="/blog" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-500"
+	><svg
+	  xmlns="http://www.w3.org/2000/svg"
+	  width="14"
+	  height="14"
+	  viewBox="0 0 24 24"
+	  fill="none"
+	  stroke="currentColor"
+	  stroke-width="2"
+	  stroke-linecap="round"
+	  stroke-linejoin="round"
+	  class="lucide lucide-undo2-icon lucide-undo-2"
+	  ><path d="M9 14 4 9l5-5"></path><path
+		d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
+	  ></path></svg
+	>Blogs</a
+  >
 		<h1 class="!font-bold !text-title !text-center mx-auto">
 			{entry.data.title}
 		</h1>
