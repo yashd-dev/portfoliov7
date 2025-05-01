@@ -1,136 +1,45 @@
 ---
 import "../global.css";
-import clsx from "clsx";
-const { imgurl, title, description } = Astro.props;
+const { imgurl, title, description, keywords } = Astro.props;
 import background from "../assets/background.svg";
-import Nav from "../utils/navbar.astro";
 ---
 
 <html lang="en">
   <head>
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      name={title}
-      content={title}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      name="description"
-      content={description}
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="generator" content={Astro.generator} />
 
-    <!-- Open Graph / Facebook -->
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:type"
-      content="website"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:title"
-      content={title}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:url"
-      content="https://yashd.in"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:description"
-      content={description}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:image"
-      content={imgurl}
-    />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://yashd.in" />
+    <meta property="og:image" content={imgurl} />
 
     <!-- Twitter -->
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="twitter:card"
-      content="summary_large_image"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="twitter:url"
-      content="https://yashd.in/"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="twitter:title"
-      content={title}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="twitter:description"
-      content={description}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="twitter:image"
-      content={imgurl}
-    />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta data-rh="true" prefix="og: http://ogp.me/ns#" charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://yashd.in/favicon.ico" />
-    <!-- Linkedin -->
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:title"
-      content={title}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:type"
-      content="website"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:image"
-      content={imgurl}
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      property="og:url"
-      content="https://yashd.in/"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:url" content="https://yashd.in/" />
+    <meta name="twitter:image" content={imgurl} />
 
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      name="viewport"
-      content="width=device-width"
-    />
-    <meta
-      data-rh="true"
-      prefix="og: http://ogp.me/ns#"
-      name="generator"
-      content={Astro.generator}
-    />
+    <!-- Favicon & Sitemap -->
+    <link rel="icon" type="image/svg+xml" href="https://yashd.in/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Analytics -->
     <script
       defer
       src="https://umami-ochre-ten.vercel.app/script.js"
       data-website-id="f3d034b6-7303-42eb-bd85-138220bac413"></script>
+
     <title>{title}</title>
   </head>
+
   <body class="min-h-screen flex flex-col justify-between pt-8 p-8">
     <slot />
     <img

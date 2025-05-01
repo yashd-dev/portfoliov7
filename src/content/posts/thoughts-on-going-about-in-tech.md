@@ -5,6 +5,7 @@ description: There are endless possibilities in the tech sphere, and it can ofte
 tags:
     - Personal
 production: true
+keywords: navigating tech careers, tech career advice, breaking into tech, tech industry tips, tech journey personal experience, tech career roadmap, tech field opportunities, tech world guidance
 ---
 
 ## Preface

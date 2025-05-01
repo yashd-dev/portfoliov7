@@ -5,6 +5,7 @@ description: I have been using Copilot for a while now and I have mixed feelings
 tags:
     - Personal
 production: true
+keywords: Github Copilot review, AI coding assistants, Copilot pros and cons, Github Copilot experience, AI tools for developers, Copilot productivity, Copilot for programming, AI code generation
 ---
 I have been using Github Co-pilot for around 6 months and I have a love hate relationship with it. It's great because it helped me in filling out boilerplate code and simpler code snippets. It's bad as well due to it auto-filling the logical aspects of my code and it deciding the logic and me just brushing over the snippet once and calling it a day. As a software developer, I have to keep in mind of many things that should affect the logic, the context that Co-pilot doesn't always have. 
 

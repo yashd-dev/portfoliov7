@@ -5,6 +5,7 @@ description: I wanted to make custom open graph images, similar to how you get o
 tags:
     - Web Dev
 production: true
+keywords : open graph images, dynamic og images, Satori Astro tutorial, generate og images Astro, custom social media previews, Astro open graph automation, Satori SVG HTML CSS, Astro vercel integration, automate og image generation, Astro blog SEO images
 ---
 
 When you share on any social media platform, some websites give you that neat preview right? So what I am doing today is dynamically making those preview images (also called Open Graph Images) for my blogs using Satori in Astro. I am implementing this also because I'm too lazy to make OG images from scratch in Figma everytime.

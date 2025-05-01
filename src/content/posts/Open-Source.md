@@ -5,6 +5,7 @@ description: My thoughts on Open Source after participating in GSSOC.
 tags:
     - Open Source
 production: true
+keywords: open source insights, open source community, GSSOC experience, benefits of open source, contributing to open source, open source participation, open source for beginners, open source projects
 ---
 I am currently a part of [GSSOC](https://gssoc.girlscript.tech/) as a project admin and well here is my experience so far. I decided to participate in it, thinking I would interact with like minded individuals but this was far from the truth.
 ## About GSSOC
