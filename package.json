@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "yash-d-portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -25,6 +25,7 @@
     "astro": "^4.5.16",
     "clsx": "^2.1.0",
     "gray-matter": "^4.0.3",
+    "gsap": "^3.13.0",
     "hast-util-to-string": "^3.0.0",
     "hastscript": "^9.0.0",
     "lucide": "^0.365.0",
@@ -44,8 +45,5 @@
   "devDependencies": {
     "@iconify/tailwind": "^0.1.4",
     "@tailwindcss/typography": "^0.5.12"
-  },
-  "engines": {
-    "node": "18.x"
   }
 }

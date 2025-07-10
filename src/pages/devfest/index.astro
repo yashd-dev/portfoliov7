@@ -3,87 +3,207 @@ import Layout from "../layout.astro";
 ---
 
 <Layout
-  title="Yash D's Blogs"
+  title="DevFest Mumbai 2024 - Chrome AI Resources"
   imgurl="https://yashd.in/preview.png"
-  description="Blog page of Yash Deshpande :)"
-  keywords="web development, portfolio, personal website, Yash, frontend, developer, design, gdg, gdg mad, gdg mumbai, devfest "
+  description="Resources from Yash's DevFest Mumbai 2024 talk on Chrome's built-in AI capabilities"
+  keywords="web development, portfolio, personal website, Yash, frontend, developer, design, gdg, gdg mad, gdg mumbai, devfest, chrome ai, gemini nano"
 >
-  <section
-    class="w-full min-h-screen flex flex-col justify-center items-start max-w-6xl gap-10 mx-auto py-[10vh] px-8 md:px-32 overflow-hidden"
-  >
-    <h1 class="font-bold text-4xl md:text-6xl leading-tight tracking-tight">
-      Resources for Exploring Chrome's Inbuilt AI
-    </h1>
-
-    <article class="article text-lg leading-relaxed text-gray-800 space-y-6">
-      <div>
-        <h2 class="font-semibold text-2xl mb-2">Official Documentation:</h2>
-        <p>
-          To gain access to the official documentation and channel logs for this
-          feature, fill out
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfZXeiwj9KO9jMctffHPym88ln12xNWCrVkMY_u06WfSTulQg/viewform"
-            >this form</a
-          >. The documentation can also be found
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://docs.google.com/document/d/18otm-D9xhn_XyObbQrc1v7SI-7lBX3ynZkjEpiS1V04/edit?tab=t.0"
-            >here</a
-          >.
-        </p>
+  <!-- Hero Content -->
+  <section class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10">
+    <div class="max-w-[1920px] mx-auto">
+      <!-- Header -->
+      <div class="border-t border-b border-white/20 py-4 mb-8">
+        <div class="flex items-center justify-between">
+          <div class="flex-1 flex items-center gap-8">
+            <span
+              class="text-sm font-mono text-white/70 uppercase tracking-wide"
+              >DevFest Mumbai 2024</span
+            >
+            <span
+              class="text-xs font-mono text-white/50 uppercase tracking-wide"
+              >Chrome AI Resources</span
+            >
+          </div>
+          <span class="text-xs font-mono text-white/50 uppercase tracking-wide"
+            >Talk Resources</span
+          >
+        </div>
       </div>
 
-      <div>
-        <h2 class="font-semibold text-2xl mb-2">Project Examples</h2>
-        <p>
-          Each documentation page includes demo code you can try out. Check this
-          GitHub repo:
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://github.com/GoogleChromeLabs/web-ai-demos"
-          >
-            GoogleChromeLabs/web-ai-demos
-          </a>.
-        </p>
-      </div>
+      <!-- Main Heading -->
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12"
+      >
+        <span class="block uppercase tracking-tighter"
+          >Resources for <span
+            class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text"
+            >Exploring Chrome's</span
+          > Inbuilt AI
+        </span>
+      </h1>
 
-      <div>
-        <h2 class="font-semibold text-2xl mb-2">Extra Reading Material</h2>
-        <p>
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://arxiv.org/abs/2312.11805"
+      <!-- Back Button -->
+      <div class="flex justify-start mb-12">
+        <a
+          href="/"
+          class="group border border-cream px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-[radial-gradient(at_30%_150%,#ffb3e6_0,transparent_50%),radial-gradient(at_75%_120%,rgba(255,102,204,0.9)_0,transparent_50%),radial-gradient(at_15%_150%,#e91e63_35%,transparent_70%),radial-gradient(at_85%_120%,#ff0080_55%,transparent_85%)] hover:border-zinc-950 transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-cream"
+        >
+          ← <span
+            class="font-serif font-thin italic normal-case text-white text-xl sm:text-2xl transition-colors duration-300"
+            >Back to Portfolio</span
           >
-            This comprehensive paper by Google
-          </a> helps you understand technical capabilities of the Gemini models.
-        </p>
-        <p>
-          These videos by 3blue1Brown are amazing for diving deep into ML and
-          LLMs:
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ftLa6P4EdGtQX79Z"
-          >
-            Machine Learning playlist
-          </a>.
-        </p>
-        <p>
-          And here's the
-          <a
-            class="text-blue-600 underline hover:text-blue-800 transition"
-            target="_blank"
-            href="https://docs.google.com/presentation/d/1xW_ATfzohdg2wKsdQeqNatCQf5HF-_QJCKTkgYuSiDY/edit?usp=sharing"
-          >
-            presentation link
-          </a> (just in case you want it!).
-        </p>
+        </a>
       </div>
-    </article>
+    </div>
   </section>
+
+  <!-- Content Section -->
+  <main class="px-6 sm:px-10 md:px-20 lg:px-40 pb-20">
+    <div class="max-w-[1920px] mx-auto">
+      <!-- Official Documentation Section -->
+      <section class="mb-16">
+        <!-- Section Header -->
+        <div class="border-t border-b border-white/20 py-3 mb-8">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Official Documentation</span
+            >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >01</span
+            >
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed">
+            To gain access to the official documentation and channel logs for
+            this feature, fill out
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfZXeiwj9KO9jMctffHPym88ln12xNWCrVkMY_u06WfSTulQg/viewform"
+              >this form</a
+            >. The documentation can also be found
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://docs.google.com/document/d/18otm-D9xhn_XyObbQrc1v7SI-7lBX3ynZkjEpiS1V04/edit?tab=t.0"
+              >here</a
+            >.
+          </p>
+        </div>
+      </section>
+
+      <!-- Project Examples Section -->
+      <section class="mb-16">
+        <!-- Section Header -->
+        <div class="border-t border-b border-white/20 py-3 mb-8">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Project Examples</span
+            >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >02</span
+            >
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed">
+            Each documentation page includes demo code you can try out. Check
+            this GitHub repo:
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://github.com/GoogleChromeLabs/web-ai-demos"
+            >
+              GoogleChromeLabs/web-ai-demos
+            </a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Extra Reading Material Section -->
+      <section class="mb-16">
+        <!-- Section Header -->
+        <div class="border-t border-b border-white/20 py-3 mb-8">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Extra Reading Material</span
+            >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >03</span
+            >
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed">
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://arxiv.org/abs/2312.11805"
+            >
+              This comprehensive paper by Google
+            </a> helps you understand technical capabilities of the Gemini models.
+          </p>
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed">
+            These videos by 3blue1Brown are amazing for diving deep into ML and
+            LLMs:
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ftLa6P4EdGtQX79Z"
+            >
+              Machine Learning playlist
+            </a>.
+          </p>
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed">
+            And here's the
+            <a
+              class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text hover:underline transition-all duration-300"
+              target="_blank"
+              href="https://docs.google.com/presentation/d/1xW_ATfzohdg2wKsdQeqNatCQf5HF-_QJCKTkgYuSiDY/edit?usp=sharing"
+            >
+              presentation link
+            </a> (just in case you want it!).
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .bg-gradient-pink {
+    background-image: radial-gradient(at 30% 150%, #ffb3e6 0, transparent 50%),
+      radial-gradient(at 75% 120%, rgba(255, 102, 204, 0.9) 0, transparent 50%),
+      radial-gradient(at 15% 150%, #e91e63 35%, transparent 70%),
+      radial-gradient(at 85% 120%, #ff0080 55%, transparent 85%);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .border.border-cream {
+      padding: 0.75rem 1.5rem !important;
+      font-size: 0.875rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.75rem !important;
+    }
+  }
+</style>

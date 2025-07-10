@@ -20,155 +20,213 @@ export const prerender = true;
   description="Blog page of Yash Deshpande :)"
   keywords="web development, portfolio, personal website, Yash, frontend, developer, design, gdg, gdg mad, gdg mumbai, devfest "
 >
-  <main class="px-4 flex flex-col items-center">
-    <div class="content max-w-[600px] w-full">
-      <a
-        href="/"
-        class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-500"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-undo2-icon lucide-undo-2"
-          ><path d="M9 14 4 9l5-5"></path><path
-            d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
-          ></path></svg
-        >Home</a
-      >
-      <h1 class="text-2xl font-bold my-8 text-center">My Blogs</h1>
+  <section class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10">
+    <div class="max-w-[1920px] mx-auto">
+      <div class="border-t border-b border-white/20 py-4 mb-8">
+        <div class="flex items-center justify-between">
+          <div class="flex-1 flex items-center gap-8">
+            <span
+              class="text-sm font-mono text-white/70 uppercase tracking-wide"
+              >Blog Posts</span
+            >
+            <span
+              class="text-xs font-mono text-white/50 uppercase tracking-wide"
+              >Selected Writing</span
+            >
+          </div>
+          <span class="text-xs font-mono text-white/50 uppercase tracking-wide"
+            >Archive</span
+          >
+        </div>
+      </div>
 
-      <div
-        class="mb-8 flex flex-wrap justify-center gap-3 animate-fade animate-duration-[230ms] animate-delay-200 animate-ease-in"
+      <div class="flex items-center justify-between mb-8 sm:mb-12">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-undo2-icon lucide-undo-2"
+          >
+            <path d="M9 14 4 9l5-5"></path>
+            <path d="M4 9h10.5a5.5 5.5 0 0 1-5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
+            ></path>
+          </svg>
+          <span class="font-mono text-sm uppercase tracking-wide"
+            >Back to Home</span
+          >
+        </a>
+      </div>
+
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12"
       >
+        <span class="block uppercase tracking-tighter"
+          >Blog <span
+            class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text"
+            >Posts</span
+          >
+        </span>
+      </h1>
+
+      <div class="mb-8 flex flex-wrap gap-3 justify-center">
         {
           tags.map((tag) => (
             <a
               href={`/tags/${slugify(tag, options)}`}
-              class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-rose-100 text-gray-800 text-sm transition-all duration-300 hover:shadow-md hover:from-pink-200 hover:to-rose-200 border border-pink-200/30"
+              class="px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm transition-all duration-300 hover:bg-white/20 hover:text-white border border-white/20 hover:border-white/40 font-mono uppercase tracking-wide"
             >
-              <em>{unslugify(tag)}</em>
+              {unslugify(tag)}
             </a>
           ))
         }
       </div>
 
-      <div class="flex flex-col gap-6 w-full">
-        {
-          sortedPosts.slice(0, 5).map((post, index) => (
-            <a
-              href={`/blog/${post.slug}/`}
-              class="flex flex-col items-start gap-4 p-5 rounded-none transition-all duration-300 hover:bg-white/60 hover:shadow-xl animate-fade animate-duration-[230ms] animate-ease-in bg-white/30 border border-gray-100"
-              style={`animation-delay: ${400 + index * 200}ms`}
+      <div class="max-w-[1920px] w-full mx-auto">
+        <div class="border-t border-b border-white/20 py-3 mb-8">
+          <div class="flex items-center justify-between">
+            <div
+              class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
             >
-              <div class="w-full">
-                <h2 class="text-lg mb-2 font-semibold text-transparent bg-clip-text bg-[linear-gradient(60deg,_rgb(247,_149,_51),_rgb(243,_112,_85),_rgb(239,_78,_123),_rgb(161,_102,_171),_rgb(80,_115,_184),_rgb(16,_152,_173),_rgb(7,_179,_155),_rgb(111,_186,_130))]">
-                  {post.data.title}
-                </h2>
-                <p class="text-gray-600 text-sm mb-4">
-                  {post.data.description}
-                </p>
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >Article</span
+              >
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >Description</span
+              >
+            </div>
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide ml-8"
+              >Tags</span
+            >
+          </div>
+        </div>
 
-                <div class="flex flex-wrap gap-2">
-                  {post.data.tags &&
-                    [...new Set(post.data.tags)].map((taggie) => (
-                      <span class="px-3 py-1 rounded-full bg-gradient-to-r from-orange-50 to-amber-50 text-gray-700 text-xs border border-amber-100/30">
-                        <em>{unslugify(taggie)}</em>
-                      </span>
-                    ))}
-                </div>
-              </div>
-            </a>
-          ))
-        }
+        <ul class="list-none p-0 m-0 space-y-8">
+          {
+            sortedPosts.slice(0, 5).map((post, index) => (
+              <li class="group relative">
+                <a
+                  href={`/blog/${post.slug}/`}
+                  class="flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
+                >
+                  <div class="flex-1 flex items-baseline gap-4 sm:gap-6">
+                    <span class="font-serif block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream/70 hover:text-cream transition-colors duration-700 ease-out tracking-tight group-hover:text-white">
+                      {post.data.title}
+                    </span>
+                    <p class="text-cream/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block group-hover:text-white/80 transition-colors duration-700">
+                      {post.data.description}
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-4 ml-8">
+                    <div class="flex flex-wrap gap-2">
+                      {post.data.tags &&
+                        [...new Set(post.data.tags)]
+                          .slice(0, 2)
+                          .map((taggie) => (
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs border border-white/20 font-mono uppercase tracking-wide">
+                              {unslugify(taggie)}
+                            </span>
+                          ))}
+                    </div>
+                    <div class="text-white/40 text-sm font-mono">
+                      0{index + 1}
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
-  </main>
+  </section>
 </Layout>
 
 <style>
-  .line-seperator {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.03),
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.03)
-    );
-    margin: 0 0.5rem;
+  .bg-gradient-pink {
+    background-image: radial-gradient(at 30% 150%, #ff66c4 0, transparent 50%),
+      radial-gradient(at 75% 120%, rgba(255, 102, 204, 0.9) 0, transparent 50%),
+      radial-gradient(at 15% 150%, #e91e63 35%, transparent 70%),
+      radial-gradient(at 85% 120%, #ff0080 55%, transparent 85%);
   }
 
-  #background {
-    position: fixed;
+  .project-name {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .project-name::before {
+    content: attr(data-text);
+    position: absolute;
     top: 0;
     left: 0;
+    width: 0;
+    color: #ffffff;
+    overflow: hidden;
+    transition: width 0.8s cubic-bezier(0.84, 0, 0.08, 0.99);
+    white-space: nowrap;
+  }
+
+  .project-link:hover .project-name::before {
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(100px);
   }
 
-  .animate-fade {
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-fill-mode: forwards;
+  ul li a {
+    text-decoration: none !important;
   }
 
-  .animate-duration-\[230ms\] {
-    animation-duration: 230ms;
-  }
-
-  .animate-duration-\[400ms\] {
-    animation-duration: 400ms;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animate-ease-in {
-    animation-timing-function: ease-in;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  @media (max-width: 768px) {
+    .projects-section {
+      min-height: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    h1 {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* Mobile project adjustments */
+    .group a {
+      padding: 1rem 0 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .group a:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .font-serif {
+      font-size: 1.5rem !important;
+      line-height: 1.2 !important;
     }
   }
 
-  .wave-hand {
-    display: inline-block;
-    animation: wave 2s infinite ease-in-out;
-    transform-origin: 70% 70%;
-  }
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.75rem !important;
+    }
 
-  @keyframes wave {
-    0%,
-    100% {
-      transform: rotate(0deg);
-    }
-    20% {
-      transform: rotate(15deg);
-    }
-    40% {
-      transform: rotate(-10deg);
-    }
-    60% {
-      transform: rotate(12deg);
-    }
-    80% {
-      transform: rotate(-8deg);
+    .font-serif {
+      font-size: 1.25rem !important;
     }
   }
 </style>

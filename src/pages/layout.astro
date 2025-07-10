@@ -27,6 +27,17 @@ import background from "../assets/background.svg";
     <meta name="twitter:url" content="https://yashd.in/" />
     <meta name="twitter:image" content={imgurl} />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Favicon & Sitemap -->
     <link rel="icon" type="image/svg+xml" href="https://yashd.in/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -40,15 +51,11 @@ import background from "../assets/background.svg";
     <title>{title}</title>
   </head>
 
-  <body class="min-h-screen flex flex-col justify-between pt-8 p-8">
+  <body
+    class="min-h-screen flex flex-col justify-between pt-8 sm:px-8 bg-zinc-950 text-[rgb(255,252,225)] overflow-x-hidden"
+  >
     <slot />
-    <img
-      id="background"
-      src={background.src}
-      alt=""
-      fetchpriority="high"
-      class="animate-fade animate-duration-[400ms] animate-ease-in"
-    />
+
     <script src="/lucide.js" is:inline></script>
     <script is:inline>
       lucide.createIcons();

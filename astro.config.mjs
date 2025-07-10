@@ -38,7 +38,7 @@ export default defineConfig({
   markdown: {
     gfm: true,
     shikiConfig: {
-      theme: "catppuccin-latte",
+      theme: "vitesse-black",
       wrap: true,
     },
     remarkPlugins: [remarkReadingTime],

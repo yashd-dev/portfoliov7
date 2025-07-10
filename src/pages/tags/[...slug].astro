@@ -4,111 +4,218 @@ import slugify from "slugify";
 let { slug } = Astro.params;
 import { Image } from "astro:assets";
 import { sortedPosts, unslugify } from "../../utils/posts";
-import background from "../../assets/background.svg";
+
+let options = {
+  lower: true,
+  trim: true,
+  remove: undefined as undefined,
+};
 ---
 
 <Layout
-  title="Yash D's Blogs"
+  title={`Posts about ${unslugify(slug)} - Yash D`}
   imgurl="https://yashd.in/preview.png"
-  description="Blog page of Yash Deshpande :)"
+  description={`Blog posts about ${unslugify(slug)} by Yash Deshpande`}
   keywords="web development, portfolio, personal website, Yash, frontend, developer, design"
 >
-  <main class="px-4 flex flex-col items-center">
-    <section
-      class="w-full min-h-screen flex flex-col items-center max-w-3xl gap-10 mx-auto py-[10vh] relative px-4"
-    >
+  <section class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10">
+    <div class="max-w-[1920px] mx-auto">
+      <div class="border-t border-b border-white/20 py-4 mb-8">
+        <div class="flex items-center justify-between">
+          <div class="flex-1 flex items-center gap-8">
+            <span
+              class="text-sm font-mono text-white/70 uppercase tracking-wide"
+              >Tagged Posts</span
+            >
+            <span
+              class="text-xs font-mono text-white/50 uppercase tracking-wide"
+              >Filtered Content</span
+            >
+          </div>
+          <span class="text-xs font-mono text-white/50 uppercase tracking-wide"
+            >Archive</span
+          >
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between mb-8 sm:mb-12">
+        <a
+          href="/blog"
+          class="group inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-undo2-icon lucide-undo-2"
+          >
+            <path d="M9 14 4 9l5-5"></path>
+            <path d="M4 9h10.5a5.5 5.5 0 0 1-5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
+            ></path>
+          </svg>
+          <span class="font-mono text-sm uppercase tracking-wide"
+            >Back to Blog</span
+          >
+        </a>
+      </div>
+
       <h1
-        class="text-2xl md:text-3xl font-bold text-center animate-fade animate-duration-[230ms] animate-delay-200 animate-ease-in"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12"
       >
-        You are Searching For Posts about <em>{unslugify(slug)}</em>
+        <span class="block uppercase tracking-tighter"
+          >Posts about <span
+            class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text"
+            >{unslugify(slug)}</span
+          >
+        </span>
       </h1>
 
-      <div class="flex flex-col gap-6 w-full">
-        {
-          sortedPosts
-            .filter((post) => post.data.tags.includes(slug))
-            .map((post, index) => (
-              <a
-                class="flex flex-col md:flex-row items-start md:items-center justify-between border border-gray-100 bg-white/30 rounded-xl p-5 transition-all duration-300 hover:bg-white/60 hover:shadow-xl animate-fade animate-duration-[230ms] animate-ease-in"
-                style={`animation-delay: ${400 + index * 200}ms`}
-                href={`/blog/${post.slug}/`}
+      <div class="max-w-[1920px] w-full mx-auto">
+        <div class="border-t border-b border-white/20 py-3 mb-8">
+          <div class="flex items-center justify-between">
+            <div
+              class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
+            >
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >Article</span
               >
-                <div class="space-y-4 max-w-xl">
-                  <h2 class="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-[linear-gradient(60deg,_rgb(247,_149,_51),_rgb(243,_112,_85),_rgb(239,_78,_123),_rgb(161,_102,_171),_rgb(80,_115,_184),_rgb(16,_152,_173),_rgb(7,_179,_155),_rgb(111,_186,_130))]">
-                    {post.data.title}
-                  </h2>
-                  <p class="text-gray-600 text-sm">{post.data.description}</p>
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >Description</span
+              >
+            </div>
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide ml-8"
+              >Date</span
+            >
+          </div>
+        </div>
 
-                  <div class="flex flex-wrap gap-2">
-                    {post.data.tags &&
-                      [...new Set(post.data.tags)].map((taggie) => (
-                        <span class="px-3 py-1 rounded-full bg-gradient-to-r from-orange-50 to-amber-50 text-gray-700 text-xs border border-amber-100/30">
-                          <em>{unslugify(taggie)}</em>
-                        </span>
-                      ))}
-                  </div>
-                </div>
+        <ul class="list-none p-0 m-0 space-y-8">
+          {
+            sortedPosts
+              .filter((post) => post.data.tags.includes(slug))
+              .map((post, index) => (
+                <li class="group relative">
+                  <a
+                    href={`/blog/${post.slug}/`}
+                    class="flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
+                  >
+                    <div class="flex-1 flex items-baseline gap-4 sm:gap-6">
+                      <span class="font-serif block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream/70 hover:text-cream transition-colors duration-700 ease-out tracking-tight group-hover:text-white">
+                        {post.data.title}
+                      </span>
+                      <p class="text-cream/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block group-hover:text-white/80 transition-colors duration-700">
+                        {post.data.description}
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-4 ml-8">
+                      <div class="text-white/60 text-sm font-mono">
+                        {new Date(post.data.pubDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          }
+                        )}
+                      </div>
+                      <div class="text-white/40 text-sm font-mono">
+                        0{index + 1}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))
+          }
+        </ul>
 
-                <Image
-                  src={`/og/${slugify(post.data.title, {
-                    lower: true,
-                    trim: true,
-                    remove: undefined,
-                  })}.png`}
-                  alt={post.data.title}
-                  height={400}
-                  width={400}
-                  class="h-fit size-96 object-contain rounded-3xl transition group-hover:sepia mt-6 md:mt-0 border-2 border-blue"
-                />
-              </a>
-            ))
+        {
+          sortedPosts.filter((post) => post.data.tags.includes(slug)).length ===
+            0 && (
+            <div class="text-center py-16">
+              <div class="border border-white/20 rounded-lg p-8 bg-white/5">
+                <h2 class="text-2xl font-bold text-cream mb-4">
+                  No posts found
+                </h2>
+                <p class="text-cream/60 mb-6">
+                  Sorry, no posts were found with the tag "{unslugify(slug)}".
+                </p>
+                <a
+                  href="/blog"
+                  class="group border border-cream px-6 py-3 rounded-full hover:bg-[radial-gradient(at_30%_150%,#ff66c4_0,transparent_50%),radial-gradient(at_75%_120%,rgba(255,102,204,0.9)_0,transparent_50%),radial-gradient(at_15%_150%,#e91e63_35%,transparent_70%),radial-gradient(at_85%_120%,#ff0080_55%,transparent_85%)] hover:border-zinc-950 transition-all duration-300 text-base whitespace-nowrap uppercase font-semibold text-cream"
+                >
+                  View All{" "}
+                  <span class="font-serif font-thin italic normal-case text-white text-xl transition-colors duration-300">
+                    Posts
+                  </span>
+                </a>
+              </div>
+            </div>
+          )
         }
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  #background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(100px);
+  .bg-gradient-pink {
+    background-image: radial-gradient(at 30% 150%, #ff66c4 0, transparent 50%),
+      radial-gradient(at 75% 120%, rgba(255, 102, 204, 0.9) 0, transparent 50%),
+      radial-gradient(at 15% 150%, #e91e63 35%, transparent 70%),
+      radial-gradient(at 85% 120%, #ff0080 55%, transparent 85%);
   }
 
-  .animate-fade {
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-fill-mode: forwards;
+  ul li a {
+    text-decoration: none !important;
   }
 
-  .animate-duration-\[230ms\] {
-    animation-duration: 230ms;
-  }
-
-  .animate-duration-\[400ms\] {
-    animation-duration: 400ms;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animate-ease-in {
-    animation-timing-function: ease-in;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  @media (max-width: 768px) {
+    .projects-section {
+      min-height: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    h1 {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* Mobile project adjustments */
+    .group a {
+      padding: 1rem 0 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .group a:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .font-serif {
+      font-size: 1.5rem !important;
+      line-height: 1.2 !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.75rem !important;
+    }
+
+    .font-serif {
+      font-size: 1.25rem !important;
     }
   }
 </style>
