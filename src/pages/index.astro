@@ -1,142 +1,77 @@
 ---
 import Layout from "./layout.astro";
-import { sortedPosts, unslugify } from "../utils/posts";
-const work = [
-  { name: "Neurotechh", description: "A community of student developers" },
-  {
-    name: "Brain Tumour Detection from MRI",
-    description: "CNN-based detection project",
-  },
-  {
-    name: "6pistons Media",
-    description: "Technical Lead for media platform",
-  },
-];
-
-const posts = [
-  {
-    title: "Dynamic Open Graph Images using Satori and Astro",
-    blurb: "Custom OG images for social media",
-    year: "2024",
-  },
-  {
-    title: "Thoughts on Open Source",
-    blurb: "Reflections after GSSOC participation",
-    year: "2024",
-  },
-  {
-    title: "The Github Copilot Effect",
-    blurb: "Mixed feelings on AI pair programming",
-    year: "2023",
-  },
-  {
-    title: "Thoughts on Going about in Tech",
-    blurb: "Navigating the tech world",
-    year: "2023",
-  },
-];
-
-const technicalSkills = {
-  frontend: ["NextJS", "Astro", "Vite", "Typescript", "TailwindCSS"],
-  backend: ["Flask", "Node", "Express", "MySQL", "Python", "PostgreSQL"],
-  devops: [
-    "Linux",
-    "Nginx",
-    "Cloudflare",
-    "PM2",
-    "Cronjobs",
-    "Docker",
-    "Bash",
-    "Github Actions",
-  ],
-  miscellaneous: ["Flutter", "Figma", "Google Appscript", "Vercel", "Netlify"],
-};
-
-const positions = [
-  {
-    title: "Technical Lead",
-    organization: "6pistons Media",
-    dates: "December 2024 - Present",
-    responsibilities: [
-      "Built a blog site using Next.js, Tailwind CSS, and Sanity CMS for real-time content updates",
-      "Configured domain and DNS records via Cloudflare",
-      "Set up custom email addresses using Cloudflare Email Routing",
-      "Designed initial brand graphics and visual assets",
-    ],
-  },
-  {
-    title: "Speaker",
-    organization:
-      "DevFest Mumbai 2024 (Organised by GDG MAD Mumbai & GDG Cloud Mumbai)",
-    dates: "December 2024",
-    responsibilities: [
-      "Delivered a talk on Gemini Nano in Chrome, covering its on-device capabilities and APIs",
-      "Selected as 1 of 18 speakers (the only student chosen) from over 100 submissions",
-    ],
-  },
-  {
-    title: "Vice-Chairperson",
-    organization: "ACM MPSTME Chapter",
-    dates: "July 2024 - April 2025",
-    responsibilities: [
-      "Led tech team in building a CI/CD pipeline using GitHub Actions on a self-hosted Hetzner runner",
-      "Oversaw development of multiple projects and event websites, including mpstmeacm.com",
-      "Developed a certificate portal that generates certificates from CSV",
-    ],
-  },
-];
-
 const projects = [
   {
-    name: "Neurotechh",
-    technologies: ["NextJS", "Tailwind CSS", "TypeScript"],
-    description:
-      "Community of student developers building innovative solutions",
+    name: "6Pistons Media",
+    description: "A Media platform for automotive content",
+    link: "https://6pistons.com",
+    image: "6pistons.png",
     featured: true,
-    link: "https://neurotechh.xyz",
   },
   {
-    name: "Brain Tumour Detection",
-    technologies: ["Python", "CNN", "Streamlit"],
-    description: "CNN-based MRI analysis achieving 99.46% accuracy",
+    name: "SS Healthcare",
+    description: "A Veterinary Healthcare Solution",
+    link: "https://sshealthcare.org/",
+    image: "sshealthcare.png",
     featured: true,
-    link: "https://drive.google.com/file/d/1R2CzlcCENvW3ZLt2_Zr2gmccbc4Bpdtc/view",
+  },
+  {
+    name: "Strive",
+    description: "Productivity and goal tracking app",
+    link: "https://www.striveconsultancy.in/",
+    image: "strive.png",
+    featured: true,
+  },
+  {
+    name: "Adeon",
+    description: "A Modern Developer suite",
+    link: "https://adeon.me/",
+    image: "adeon.png",
+    featured: false,
+  },
+  {
+    name: "Neurotechh",
+    description:
+      "Community of student developers building innovative solutions",
+    link: "https://neurotechh.xyz",
+    image: "neurotechh.png",
+    featured: false,
   },
   {
     name: "Taqneeq Fest App",
-    technologies: ["Flutter", "Firebase", "Flask"],
-    dates: "December 2024 - March 2025",
-    description: "Official fest app for 500+ users with QR-based points system",
-    featured: true,
+    description: "Official fest app made in Flutter for 500+ users with QR-based points system",
     link: "https://www.taqneeqfest.com/app",
-  },
-  {
-    name: "ACM Chronicles",
-    technologies: ["Astro", "Tailwind CSS", "Sanity.io"],
-    description: "Monthly tech newsletter with Sanity CMS integration",
+    image: "tq.png",
     featured: false,
-    link: "https://mpstmeacm.com/newsletter",
   },
   {
     name: "ACM MPSTME Website",
-    technologies: ["Astro", "Tailwind CSS"],
     description: "Student chapter website built with modern web technologies",
-    featured: false,
     link: "https://mpstmeacm.com",
+    image: "acm.png",
+    featured: false,
   },
   {
     name: "Programming For Everyone",
-    technologies: ["Astro", "Tailwind CSS"],
     description: "Educational event website for programming workshops",
-    featured: false,
     link: "https://pfe.mpstmeacm.com/",
+    image: "pfe.png",
+    featured: false,
+  },
+
+  {
+    name: "Betaverse",
+    description: "A Virtual Reality Competition",
+    link: "https://betaverse-five.vercel.app/",
+    image: "betaverse.png",
+    featured: false,
   },
   {
-    name: "DevOps Pipeline",
-    technologies: ["Github Actions", "AWS", "Bash"],
-    description: "Automated CI/CD pipeline for college community backend",
+    name: "Gamers Platform",
+    description: "A Gaming Competition",
+    link: "https://gamers-asylum.vercel.app/",
+    image: "gamers.png",
     featured: false,
-    link: "",
   },
 ];
 
@@ -151,6 +86,12 @@ const contact = {
   email: "hello@yashd.in",
   location: "Mumbai, India",
 };
+
+const socials = {
+  github: "https://github.com/yashd-dev",
+  twitter: "https://x.com/yashd_dev",
+  linkedin: "https://www.linkedin.com/in/yashd-dev/",
+};
 ---
 
 <Layout
@@ -159,50 +100,46 @@ const contact = {
   description="A portfolio page of Yash Deshpande :)"
   keywords="web development, portfolio, personal website, Yash, frontend, developer, design"
 >
-  <section class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10">
-    <div class="max-w-[1920px] mx-auto">
-      <div class="border-t border-b border-white/20 py-4 mb-8">
-        <div class="flex items-center justify-between">
-          <div class="flex-1 flex items-center gap-8">
-            <span
-              class="text-sm font-mono text-white/70 uppercase tracking-wide"
-              >Featured Projects</span
-            >
-            <span
-              class="text-xs font-mono text-white/50 uppercase tracking-wide"
-              >Selected Work</span
-            >
-          </div>
-          <span class="text-xs font-mono text-white/50 uppercase tracking-wide"
-            >Portfolio</span
-          >
-        </div>
-      </div>
+  <div class="w-full min-h-screen bg-gradient">
+    <div
+      class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10 flex flex-col justify-between h-full min-h-screen"
+    >
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12"
+        class="text-9xl sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[8vw] 2xl:text-[9.5vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full"
       >
-        <span class="block uppercase tracking-tighter"
-          >Hey I'm Yash, a developer, <span
-            class="font-serif font-thin italic normal-case text-transparent bg-gradient-pink bg-clip-text"
-            >creative tinkerer</span
-          >, and perfectionist :)
-        </span>
+        Yash Deshpande
       </h1>
 
-      <div class="flex justify-end">
+      <div class="flex justify-end mb-8 sm:mb-0">
         <a
           href="https://cal.com/yashd-dev/discussion"
           target="_blank"
-          class="group border border-cream px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-[radial-gradient(at_30%_150%,#ff66c4_0,transparent_50%),radial-gradient(at_75%_120%,rgba(255,102,204,0.9)_0,transparent_50%),radial-gradient(at_15%_150%,#e91e63_35%,transparent_70%),radial-gradient(at_85%_120%,#ff0080_55%,transparent_85%)] hover:border-zinc-950 transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-cream"
+          class="group border border-zinc-50 px-3 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-zinc-50"
         >
           Let's <span
-            class="font-serif font-thin italic normal-case text-white text-xl sm:text-2xl transition-colors duration-300"
+            class="font-serif font-thin italic normal-case text-white text-lg sm:text-2xl transition-colors duration-300 group-hover:text-black"
             >Talk!</span
           >
         </a>
       </div>
+
+      <div
+        class="flex-1 flex flex-col justify-center md:justify-end pb-8 sm:pb-16"
+      >
+        <div class="px-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20">
+          <h3
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight"
+          >
+            I'm a Developer, Creative<br />
+            <span class="font-serif italic tracking-normal font-thin"
+              >Tinkerer</span
+            > and Perfectionist
+          </h3>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+
   <main>
     <section
       class="projects-section relative min-h-screen flex items-center justify-center px-6 sm:px-10 md:px-20 lg:px-40 py-12 sm:py-20"
@@ -217,6 +154,11 @@ const contact = {
       </div>
 
       <div class="max-w-[1920px] w-full mx-auto hidden md:block">
+        <h1
+          class="text-[12vw] sm:text-[10vw] md:text-[8.5vw] lg:text-[7.5vw] xl:text-[8vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full bg-gradient-to-br from-white to-zinc-500 text-transparent bg-clip-text"
+        >
+          Some Of My Works
+        </h1>
         <div class="border-t border-b border-white/20 py-3 mb-8">
           <div class="flex items-center justify-between">
             <div
@@ -240,22 +182,29 @@ const contact = {
 
         <ul class="projects-navigation list-none p-0 m-0 space-y-8">
           {
-            projects.slice(0, 5).map((project, index) => (
+            projects.slice(0, 8).map((project, index) => (
               <li class="project-item group relative">
                 <a
                   href={project.link || "#"}
                   target="_blank"
-                  class="project-link flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
+                  class="project-link flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline "
                   data-project={index}
                 >
-                  <div class="flex-1 flex items-baseline gap-4 sm:gap-6">
-                    <span
-                      class="font-serif project-name block text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-cream/70 hover:text-cream transition-colors duration-700 ease-out  tracking-tight"
-                      data-text={project.name}
-                    >
-                      {project.name}
-                    </span>
-                    <p class="project-description text-cream/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
+                  <div class="flex-1 flex items-baseline gap-4 sm:gap-14">
+                    <div class="flex items-center gap-6">
+                      <span
+                        class="font-serif project-name block text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out  tracking-tight"
+                        data-text={project.name}
+                      >
+                        {project.name}
+                      </span>
+                      {project.featured && (
+                        <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
+                          My Client!
+                        </span>
+                      )}
+                    </div>
+                    <p class="project-description text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
                       {project.description}
                     </p>
                   </div>
@@ -284,7 +233,7 @@ const contact = {
 
         <ul class="projects-navigation-mobile list-none p-0 m-0 space-y-4">
           {
-            projects.slice(0, 5).map((project, index) => (
+            projects.slice(0, 8).map((project, index) => (
               <li class="project-item-mobile group relative">
                 <a
                   href={project.link || "#"}
@@ -293,29 +242,28 @@ const contact = {
                   data-project={index}
                 >
                   <div class="flex-1">
-                    <span
-                      class="project-name-mobile block text-2xl font-bold text-cream/70 hover:text-cream transition-colors duration-700 ease-out uppercase tracking-tight"
-                      data-text={project.name}
-                    >
-                      {project.name}
-                    </span>
+                    <div class="flex items-center gap-6 mb-1">
+                      <span
+                        class="project-name-mobile block text-2xl font-bold text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out uppercase tracking-tight"
+                        data-text={project.name}
+                      >
+                        {project.name}
+                      </span>
+                      {project.featured && (
+                        <span class="px-2 py-0.5 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
+                          My CLients
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <div class="flex items-center gap-4">
                     <div class="project-number text-white/40 text-sm font-mono">
                       0{index + 1}
                     </div>
                     <img
-                      src={
-                        [
-                          "/images/neurotechh.png",
-                          "/images/handlocations.png",
-                          "/images/RPS-Screenshot.png",
-                          "/preview.png",
-                          "/preview.png",
-                        ][index]
-                      }
+                      src={`/website/${project.image}`}
                       alt={project.name + " preview"}
-                      class="w-12 h-12 object-cover rounded-md flex-shrink-0"
+                      class="w-12 h-12 object-contain rounded-md flex-shrink-0"
                     />
                   </div>
                 </a>
@@ -325,17 +273,178 @@ const contact = {
         </ul>
       </div>
     </section>
+
+    <!-- About Me Section -->
+    <section
+      class="about-section relative min-h-screen bg-black px-6 sm:px-10 md:px-20 lg:px-40 py-12 sm:py-20"
+    >
+      <div class="max-w-[1920px] w-full mx-auto">
+        <!-- Section Header -->
+        <div class="border-t border-b border-white/20 py-3 mb-12">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >About</span
+            >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Me</span
+            >
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start"
+        >
+          <!-- Left Side - Text Content -->
+          <div class="lg:col-span-7 space-y-8">
+            <h2
+              class="text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3.5vw] font-black leading-[0.9] uppercase tracking-tighter text-white"
+            >
+              About Me
+            </h2>
+
+            <div class="space-y-6 text-zinc-300">
+              <p class="text-lg sm:text-xl leading-relaxed">
+                I'm a passionate developer who believes in creating digital
+                experiences that matter. Currently pursuing my Bachelor's in
+                Computer Engineering while building innovative solutions for
+                real-world problems.
+              </p>
+
+              <p class="text-lg sm:text-xl leading-relaxed">
+                My journey in tech started with curiosity and has evolved into a
+                deep love for crafting clean, efficient code. I specialize in
+                full-stack development with a keen eye for design and user
+                experience.
+              </p>
+
+              <p class="text-lg sm:text-xl leading-relaxed">
+                When I'm not coding, you'll find me exploring new technologies,
+                contributing to open-source projects, or mentoring fellow
+                developers through community initiatives.
+              </p>
+            </div>
+
+            <!-- Education Info -->
+            <div class="border-l-2 border-white/20 pl-6 mt-8">
+              <h3
+                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+              >
+                Education
+              </h3>
+              <p class="text-white font-semibold">{education.degree}</p>
+              <p class="text-zinc-400">{education.institution}</p>
+              <p class="text-zinc-500 text-sm">{education.years}</p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="border-l-2 border-white/20 pl-6">
+              <h3
+                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+              >
+                Location
+              </h3>
+              <p class="text-white">{contact.location}</p>
+              <a
+                href={`mailto:${contact.email}`}
+                class="text-zinc-400 hover:text-white transition-colors"
+              >
+                {contact.email}
+              </a>
+            </div>
+
+            <!-- Socials Info -->
+            <div class="border-l-2 border-white/20 pl-6">
+              <h3
+                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+              >
+                Connect
+              </h3>
+              <div class="space-y-2">
+                {
+                  socials.github && (
+                    <a
+                      href={socials.github}
+                      target="_blank"
+                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                    >
+                      GitHub
+                    </a>
+                  )
+                }
+                {
+                  socials.twitter && socials.twitter.trim() && (
+                    <a
+                      href={socials.twitter}
+                      target="_blank"
+                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  )
+                }
+                {
+                  socials.linkedin && socials.linkedin.trim() && (
+                    <a
+                      href={socials.linkedin}
+                      target="_blank"
+                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Image and Skills -->
+          <div class="lg:col-span-5 space-y-8">
+            <!-- Profile Image -->
+            <div class="relative group">
+              <div class="aspect-[3/4] overflow-hidden rounded-lg bg-zinc-900">
+                <img
+                  src="/me.jpg"
+                  alt="Yash Deshpande"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+                />
+              </div>
+              <!-- Default gradient overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg opacity-60 group-hover:opacity-0 transition-opacity duration-700"
+              >
+              </div>
+              <!-- Red gradient overlay on hover -->
+              <div
+                class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-50 transition-opacity duration-700"
+                style="background-image: radial-gradient(at 30% 150%, #fff266 0, transparent 50%), radial-gradient(at 75% 120%, rgba(255, 217, 102, 0.9) 0, transparent 50%), radial-gradient(at 15% 150%, #f50004 35%, transparent 70%), radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <div
     id="hover-image-preview"
-    class="fixed bottom-4 right-4 w-64 h-64 bg-cover bg-center rounded-lg shadow-lg hidden"
+    class="fixed bottom-4 right-4 w-64 h-64 bg-contain bg-center bg-no-repeat rounded-lg shadow-lg hidden"
   >
   </div>
 </Layout>
 
 <style>
   .bg-gradient {
-    background-image: radial-gradient(at 30% 150%, #fff266 0, transparent 50%),
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 80%,
+        #000000 100%
+      ),
+      radial-gradient(at 30% 150%, #fff266 0, transparent 50%),
       radial-gradient(at 75% 120%, rgba(255, 217, 102, 0.9) 0, transparent 50%),
       radial-gradient(at 15% 150%, #f50004 35%, transparent 70%),
       radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);
@@ -366,8 +475,9 @@ const contact = {
   }
 
   .project-preview {
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     border-radius: 12px;
     overflow: hidden;
     width: 0;
@@ -507,7 +617,7 @@ const contact = {
     }
 
     /* Mobile button consistency */
-    .border.border-cream {
+    .border.border-zinc-50 {
       padding: 0.75rem 1.5rem !important;
       font-size: 0.875rem !important;
     }
@@ -547,11 +657,16 @@ const contact = {
   document.addEventListener("DOMContentLoaded", function () {
     // Project images for each project
     const projectImages = [
-      "/images/neurotechh.png",
-      "/images/handlocations.png",
-      "/images/RPS-Screenshot.png",
-      "/preview.png",
-      "/preview.png",
+      "/website/6pistons.png",
+      "/website/sshealthcare.png",
+      "/website/strive.png",
+      "/website/adeon.png",
+      "/website/neurotechh.png",
+      "/website/tq.png",
+      "/website/acm.png",
+      "/website/pfe.png",
+      "/website/betaverse.png",
+      "/website/gamers.png",
     ];
 
     // Project hover image preview logic
@@ -591,31 +706,56 @@ const contact = {
             "Community of student developers building innovative solutions",
         },
         {
-          name: "Brain Tumour Detection",
-          description: "CNN-based MRI analysis achieving 99.46% accuracy",
-        },
-        {
           name: "Taqneeq Fest App",
           description:
             "Official fest app for 500+ users with QR-based points system",
-        },
-        {
-          name: "ACM Chronicles",
-          description: "Monthly tech newsletter with Sanity CMS integration",
         },
         {
           name: "ACM MPSTME Website",
           description:
             "Student chapter website built with modern web technologies",
         },
+        {
+          name: "Programming For Everyone",
+          description: "Educational event website for programming workshops",
+        },
+        {
+          name: "6pistons Media",
+          description: "Media platform for automotive content",
+        },
+        {
+          name: "Adeon",
+          description: "Modern web application",
+        },
+        {
+          name: "Betaverse",
+          description: "Innovative digital platform",
+        },
+        {
+          name: "Gamers Platform",
+          description: "Gaming community platform",
+        },
+        {
+          name: "SS Healthcare",
+          description: "Healthcare management system",
+        },
+        {
+          name: "Strive Consultancy",
+          description: "A Consultancy Firm",
+        },
       ];
 
       const images = [
-        "/images/neurotechh.png",
-        "/images/handlocations.png",
-        "/images/RPS-Screenshot.png",
-        "/preview.png",
-        "/preview.png",
+        "/website/neurotechh.png",
+        "/website/tq.png",
+        "/website/acm.png",
+        "/website/pfe.png",
+        "/website/6pistons.png",
+        "/website/adeon.png",
+        "/website/betaverse.png",
+        "/website/gamers.png",
+        "/website/sshealthcare.png",
+        "/website/strive.png",
       ];
 
       if (mobileTitle) mobileTitle.textContent = projects[index].name;

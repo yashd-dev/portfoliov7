@@ -1,0 +1,288 @@
+---
+// InViewAnimation.astro
+interface Props {
+  animation?:
+    | "fade-up"
+    | "fade-down"
+    | "fade-left"
+    | "fade-right"
+    | "fade-in"
+    | "scale-up"
+    | "scale-down"
+    | "slide-up"
+    | "slide-down"
+    | "slide-left"
+    | "slide-right"
+    | "rotate-in"
+    | "flip-x"
+    | "flip-y"
+    | "bounce-in"
+    | "elastic-in"
+    | "blur-in"
+    | "typewriter"
+    | "wave"
+    | "split-chars"
+    | "split-words"
+    | "split-lines";
+  duration?: number;
+  delay?: number;
+  distance?: number;
+  threshold?: number;
+  ease?: string;
+  stagger?: number;
+  trigger?: "once" | "repeat";
+  className?: string;
+}
+
+const {
+  animation = "fade-up",
+  duration = 1,
+  delay = 0,
+  distance = 40,
+  threshold = 0.2,
+  ease = "power3.out",
+  stagger = 0,
+  trigger = "once",
+  className = "",
+} = Astro.props;
+---
+
+<div
+  class={`when-in-view ${className}`}
+  data-animation={animation}
+  data-duration={duration}
+  data-delay={delay}
+  data-distance={distance}
+  data-threshold={threshold}
+  data-ease={ease}
+  data-stagger={stagger}
+  data-trigger={trigger}
+  style="opacity: 0;"
+>
+  <slot />
+</div>
+
+<script type="module" is:inline>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { TextPlugin } from "gsap/TextPlugin";
+
+  gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+  const el = document.currentScript.previousElementSibling;
+  if (!el) return;
+
+  const animation = el.dataset.animation;
+  const duration = Number(el.dataset.duration) || 1;
+  const delay = Number(el.dataset.delay) || 0;
+  const distance = Number(el.dataset.distance) || 40;
+  const threshold = Number(el.dataset.threshold) || 0.2;
+  const ease = el.dataset.ease || "power3.out";
+  const stagger = Number(el.dataset.stagger) || 0;
+  const trigger = el.dataset.trigger || "once";
+
+  // Function to get initial animation state
+  function getInitialState(animationType, dist) {
+    const states = {
+      "fade-up": { y: dist, opacity: 0 },
+      "fade-down": { y: -dist, opacity: 0 },
+      "fade-left": { x: -dist, opacity: 0 },
+      "fade-right": { x: dist, opacity: 0 },
+      "fade-in": { opacity: 0 },
+      "scale-up": { scale: 0.8, opacity: 0 },
+      "scale-down": { scale: 1.2, opacity: 0 },
+      "slide-up": { y: dist, opacity: 0 },
+      "slide-down": { y: -dist, opacity: 0 },
+      "slide-left": { x: -dist, opacity: 0 },
+      "slide-right": { x: dist, opacity: 0 },
+      "rotate-in": { rotation: 180, opacity: 0 },
+      "flip-x": { rotationX: 90, opacity: 0 },
+      "flip-y": { rotationY: 90, opacity: 0 },
+      "bounce-in": { scale: 0.3, opacity: 0 },
+      "elastic-in": { scale: 0.1, opacity: 0 },
+      "blur-in": { filter: "blur(10px)", opacity: 0 },
+      typewriter: { width: 0, opacity: 1 },
+      wave: { y: -20, opacity: 0 },
+      "split-chars": { y: 50, opacity: 0 },
+      "split-words": { y: 30, opacity: 0 },
+      "split-lines": { y: 40, opacity: 0 },
+    };
+    return states[animationType] || states["fade-up"];
+  }
+
+  // Function to get final animation state
+  function getFinalState(animationType) {
+    const states = {
+      "fade-up": { y: 0, opacity: 1 },
+      "fade-down": { y: 0, opacity: 1 },
+      "fade-left": { x: 0, opacity: 1 },
+      "fade-right": { x: 0, opacity: 1 },
+      "fade-in": { opacity: 1 },
+      "scale-up": { scale: 1, opacity: 1 },
+      "scale-down": { scale: 1, opacity: 1 },
+      "slide-up": { y: 0, opacity: 1 },
+      "slide-down": { y: 0, opacity: 1 },
+      "slide-left": { x: 0, opacity: 1 },
+      "slide-right": { x: 0, opacity: 1 },
+      "rotate-in": { rotation: 0, opacity: 1 },
+      "flip-x": { rotationX: 0, opacity: 1 },
+      "flip-y": { rotationY: 0, opacity: 1 },
+      "bounce-in": { scale: 1, opacity: 1 },
+      "elastic-in": { scale: 1, opacity: 1 },
+      "blur-in": { filter: "blur(0px)", opacity: 1 },
+      typewriter: { width: "auto", opacity: 1 },
+      wave: { y: 0, opacity: 1 },
+      "split-chars": { y: 0, opacity: 1 },
+      "split-words": { y: 0, opacity: 1 },
+      "split-lines": { y: 0, opacity: 1 },
+    };
+    return states[animationType] || states["fade-up"];
+  }
+
+  // Function to get animation ease
+  function getEase(animationType, defaultEase) {
+    const eases = {
+      "bounce-in": "bounce.out",
+      "elastic-in": "elastic.out(1, 0.3)",
+      wave: "sine.inOut",
+      typewriter: "none",
+    };
+    return eases[animationType] || defaultEase;
+  }
+
+  // Split text animations
+  function splitText(element, type) {
+    const text = element.textContent;
+    let splitArray = [];
+
+    if (type === "split-chars") {
+      splitArray = text.split("");
+    } else if (type === "split-words") {
+      splitArray = text.split(" ");
+    } else if (type === "split-lines") {
+      // For lines, we need to detect line breaks or create artificial ones
+      splitArray = text.split("\n").filter((line) => line.trim() !== "");
+    }
+
+    element.innerHTML = "";
+    splitArray.forEach((item, index) => {
+      const span = document.createElement("span");
+      span.textContent = item;
+      span.style.display = "inline-block";
+      if (type === "split-words" && index < splitArray.length - 1) {
+        span.style.marginRight = "0.25em";
+      }
+      element.appendChild(span);
+    });
+
+    return element.querySelectorAll("span");
+  }
+
+  // Create the animation
+  function createAnimation() {
+    const initialState = getInitialState(animation, distance);
+    const finalState = getFinalState(animation);
+    const animEase = getEase(animation, ease);
+
+    let targets = el;
+
+    // Handle split text animations
+    if (animation.includes("split-")) {
+      targets = splitText(el, animation);
+      gsap.set(targets, initialState);
+    } else {
+      gsap.set(el, initialState);
+    }
+
+    // Special handling for specific animations
+    if (animation === "typewriter") {
+      el.style.overflow = "hidden";
+      el.style.whiteSpace = "nowrap";
+      el.style.borderRight = "2px solid currentColor";
+
+      gsap.to(el, {
+        ...finalState,
+        duration: duration,
+        delay: delay,
+        ease: animEase,
+        onComplete: () => {
+          // Remove cursor after animation
+          setTimeout(() => {
+            el.style.borderRight = "none";
+          }, 500);
+        },
+      });
+    } else if (animation === "wave") {
+      // Wave animation for characters
+      const chars = splitText(el, "split-chars");
+      gsap.set(chars, initialState);
+
+      chars.forEach((char, index) => {
+        gsap.to(char, {
+          ...finalState,
+          duration: duration,
+          delay: delay + index * 0.1,
+          ease: animEase,
+          repeat: 1,
+          yoyo: true,
+        });
+      });
+    } else {
+      // Standard animations
+      const animationProps = {
+        ...finalState,
+        duration: duration,
+        delay: delay,
+        ease: animEase,
+      };
+
+      if (stagger > 0 && targets.length > 1) {
+        animationProps.stagger = stagger;
+      }
+
+      gsap.to(targets, animationProps);
+    }
+  }
+
+  // Setup intersection observer
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        createAnimation();
+
+        if (trigger === "once") {
+          observer.disconnect();
+        }
+      } else if (trigger === "repeat") {
+        // Reset animation for repeat trigger
+        const initialState = getInitialState(animation, distance);
+        gsap.set(el, initialState);
+        if (animation.includes("split-")) {
+          const spans = el.querySelectorAll("span");
+          if (spans.length > 0) {
+            gsap.set(spans, initialState);
+          }
+        }
+      }
+    },
+    { threshold: threshold }
+  );
+
+  observer.observe(el);
+</script>
+
+<style>
+  .when-in-view {
+    /* Ensure proper positioning for animations */
+    position: relative;
+  }
+
+  /* Prevent flash of unstyled content */
+  .when-in-view[data-animation="typewriter"] {
+    white-space: nowrap;
+  }
+
+  .when-in-view[data-animation*="split-"] span {
+    display: inline-block;
+  }
+</style>

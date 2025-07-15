@@ -11,7 +11,6 @@ export default {
         background: "rgb(17,16,16)",
         card: "#18181b",
         border: "rgba(63,63,70,.4)",
-        cream: "rgb(255,252,225)",
         // pink: "rgb(243, 139, 163)",
         // blue: "rgb(18, 181, 229)",
         // lav: "rgb(204, 153, 255)",

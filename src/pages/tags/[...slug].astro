@@ -109,10 +109,10 @@ let options = {
                     class="flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
                   >
                     <div class="flex-1 flex items-baseline gap-4 sm:gap-6">
-                      <span class="font-serif block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream/70 hover:text-cream transition-colors duration-700 ease-out tracking-tight group-hover:text-white">
+                      <span class="font-serif block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out tracking-tight group-hover:text-white">
                         {post.data.title}
                       </span>
-                      <p class="text-cream/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block group-hover:text-white/80 transition-colors duration-700">
+                      <p class="text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block group-hover:text-white/80 transition-colors duration-700">
                         {post.data.description}
                       </p>
                     </div>
@@ -142,15 +142,15 @@ let options = {
             0 && (
             <div class="text-center py-16">
               <div class="border border-white/20 rounded-lg p-8 bg-white/5">
-                <h2 class="text-2xl font-bold text-cream mb-4">
+                <h2 class="text-2xl font-bold text-zinc-50 mb-4">
                   No posts found
                 </h2>
-                <p class="text-cream/60 mb-6">
+                <p class="text-zinc-50/60 mb-6">
                   Sorry, no posts were found with the tag "{unslugify(slug)}".
                 </p>
                 <a
                   href="/blog"
-                  class="group border border-cream px-6 py-3 rounded-full hover:bg-[radial-gradient(at_30%_150%,#ff66c4_0,transparent_50%),radial-gradient(at_75%_120%,rgba(255,102,204,0.9)_0,transparent_50%),radial-gradient(at_15%_150%,#e91e63_35%,transparent_70%),radial-gradient(at_85%_120%,#ff0080_55%,transparent_85%)] hover:border-zinc-950 transition-all duration-300 text-base whitespace-nowrap uppercase font-semibold text-cream"
+                  class="group border border-zinc-50 px-6 py-3 rounded-full hover:bg-[radial-gradient(at_30%_150%,#ff66c4_0,transparent_50%),radial-gradient(at_75%_120%,rgba(255,102,204,0.9)_0,transparent_50%),radial-gradient(at_15%_150%,#e91e63_35%,transparent_70%),radial-gradient(at_85%_120%,#ff0080_55%,transparent_85%)] hover:border-zinc-950 transition-all duration-300 text-base whitespace-nowrap uppercase font-semibold text-zinc-50"
                 >
                   View All{" "}
                   <span class="font-serif font-thin italic normal-case text-white text-xl transition-colors duration-300">
