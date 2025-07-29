@@ -1,30 +1,31 @@
 ---
 import Layout from "./layout.astro";
+import MotionFadeIn from "../utils/MotionFadeIn";
 const projects = [
   {
     name: "6Pistons Media",
-    description: "A Media platform for automotive content",
+    description: "A media platform for automotive content",
     link: "https://6pistons.com",
     image: "6pistons.png",
     featured: true,
   },
   {
     name: "SS Healthcare",
-    description: "A Veterinary Healthcare Solution",
+    description: "A veterinary healthcare solution",
     link: "https://sshealthcare.org/",
     image: "sshealthcare.png",
     featured: true,
   },
   {
-    name: "Strive",
-    description: "Productivity and goal tracking app",
+    name: "Strive Consultancy",
+    description: "A business consultancy firm",
     link: "https://www.striveconsultancy.in/",
     image: "strive.png",
     featured: true,
   },
   {
     name: "Adeon",
-    description: "A Modern Developer suite",
+    description: "A modern developer suite",
     link: "https://adeon.me/",
     image: "adeon.png",
     featured: false,
@@ -32,43 +33,42 @@ const projects = [
   {
     name: "Neurotechh",
     description:
-      "Community of student developers building innovative solutions",
+      "A community of student developers building innovative solutions",
     link: "https://neurotechh.xyz",
     image: "neurotechh.png",
     featured: false,
   },
   {
     name: "Taqneeq Fest App",
-    description: "Official fest app made in Flutter for 500+ users with QR-based points system",
+    description: "An official fest app built with Flutter for 500+ users",
     link: "https://www.taqneeqfest.com/app",
     image: "tq.png",
     featured: false,
   },
   {
     name: "ACM MPSTME Website",
-    description: "Student chapter website built with modern web technologies",
+    description: "A student chapter website built with modern web technologies",
     link: "https://mpstmeacm.com",
     image: "acm.png",
     featured: false,
   },
   {
     name: "Programming For Everyone",
-    description: "Educational event website for programming workshops",
+    description: "An educational event website for programming workshops",
     link: "https://pfe.mpstmeacm.com/",
     image: "pfe.png",
     featured: false,
   },
-
   {
     name: "Betaverse",
-    description: "A Virtual Reality Competition",
+    description: "A virtual reality competition platform",
     link: "https://betaverse-five.vercel.app/",
     image: "betaverse.png",
     featured: false,
   },
   {
     name: "Gamers Platform",
-    description: "A Gaming Competition",
+    description: "A gaming competition platform",
     link: "https://gamers-asylum.vercel.app/",
     image: "gamers.png",
     featured: false,
@@ -100,41 +100,48 @@ const socials = {
   description="A portfolio page of Yash Deshpande :)"
   keywords="web development, portfolio, personal website, Yash, frontend, developer, design"
 >
-  <div class="w-full min-h-screen bg-gradient">
+  <div class="w-full min-h-[50vh] md:min-h-screen bg-gradient">
     <div
-      class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10 flex flex-col justify-between h-full min-h-screen"
+      class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10 flex flex-col justify-between h-full min-h-[50vh] md:min-h-screen"
+      id="line"
     >
-      <h1
-        class="text-9xl sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[8vw] 2xl:text-[9.5vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full"
-      >
-        Yash Deshpande
-      </h1>
-
-      <div class="flex justify-end mb-8 sm:mb-0">
-        <a
-          href="https://cal.com/yashd-dev/discussion"
-          target="_blank"
-          class="group border border-zinc-50 px-3 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-zinc-50"
+      <MotionFadeIn client:load>
+        <h1
+          class="text-9xl sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[8vw] 2xl:text-[9.5vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full"
         >
-          Let's <span
-            class="font-serif font-thin italic normal-case text-white text-lg sm:text-2xl transition-colors duration-300 group-hover:text-black"
-            >Talk!</span
+          Yash Deshpande
+        </h1>
+      </MotionFadeIn>
+
+      <div class="h-full flex justify-end mb-8 sm:mb-0">
+        <MotionFadeIn client:load delay={0.5}>
+          <a
+            href="https://cal.com/yashd-dev/discussion"
+            target="_blank"
+            class="group border border-zinc-50 px-3 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-zinc-50"
           >
-        </a>
+            Let's <span
+              class="font-serif font-thin italic normal-case text-white text-lg sm:text-2xl transition-colors duration-300 group-hover:text-black"
+              >Talk!</span
+            >
+          </a>
+        </MotionFadeIn>
       </div>
 
       <div
-        class="flex-1 flex flex-col justify-center md:justify-end pb-8 sm:pb-16"
+        class="flex-1 max-h-[60%] flex flex-col justify-center md:justify-end pb-8 sm:pb-16"
       >
         <div class="px-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20">
-          <h3
-            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight"
-          >
-            I'm a Developer, Creative<br />
-            <span class="font-serif italic tracking-normal font-thin"
-              >Tinkerer</span
-            > and Perfectionist
-          </h3>
+          <MotionFadeIn client:load delay={1}>
+            <h3
+              class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight"
+            >
+              I'm a Developer, Creative<br />
+              <span class="font-serif italic tracking-normal font-thin"
+                >Tinkerer</span
+              > and Perfectionist
+            </h3>
+          </MotionFadeIn>
         </div>
       </div>
     </div>
@@ -159,115 +166,122 @@ const socials = {
         >
           Some Of My Works
         </h1>
-        <div class="border-t border-b border-white/20 py-3 mb-8">
-          <div class="flex items-center justify-between">
-            <div
-              class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
-            >
+        <div class="border-t  border-white/20 py-3 mb-8">
+          <MotionFadeIn client:load>
+            <div class="flex items-center justify-between">
+              <div
+                class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
+              >
+                <span
+                  class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                  >Project</span
+                >
+                <span
+                  class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                  >Description</span
+                >
+              </div>
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide ml-8"
+                >Image</span
+              >
+            </div>
+          </MotionFadeIn>
+
+          <ul class="projects-navigation list-none p-0 m-0 space-y-8">
+            {
+              projects.slice(0, 8).map((project, index) => (
+                <MotionFadeIn client:load delay={0.2 + index * 0.2}>
+                  <li class="project-item group relative">
+                    <a
+                      href={project.link || "#"}
+                      target="_blank"
+                      class="project-link flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline "
+                      data-project={index}
+                    >
+                      <div class="flex-1 flex items-baseline gap-4 sm:gap-14">
+                        <div class="flex items-center gap-6">
+                          <span
+                            class="font-serif project-name block text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out  tracking-tight"
+                            data-text={project.name}
+                          >
+                            {project.name}
+                          </span>
+                          {project.featured && (
+                            <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
+                              My Client!
+                            </span>
+                          )}
+                        </div>
+                        <p class="project-description text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
+                          {project.description}
+                        </p>
+                      </div>
+                      <div class="project-number text-white/40 text-sm font-mono ml-8">
+                        0{index + 1}
+                      </div>
+                    </a>
+                  </li>
+                </MotionFadeIn>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="block md:hidden w-full max-w-[1920px] mx-auto">
+        <div class="border-t border-b border-white/20 py-3 mb-6">
+          <MotionFadeIn client:load delay={0.5}>
+            <div class="flex items-center justify-between">
               <span
                 class="text-xs font-mono text-white/60 uppercase tracking-wide"
                 >Project</span
               >
               <span
                 class="text-xs font-mono text-white/60 uppercase tracking-wide"
-                >Description</span
+                >Image</span
               >
             </div>
-            <span
-              class="text-xs font-mono text-white/60 uppercase tracking-wide ml-8"
-              >Image</span
-            >
-          </div>
-        </div>
-
-        <ul class="projects-navigation list-none p-0 m-0 space-y-8">
-          {
-            projects.slice(0, 8).map((project, index) => (
-              <li class="project-item group relative">
-                <a
-                  href={project.link || "#"}
-                  target="_blank"
-                  class="project-link flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline "
-                  data-project={index}
-                >
-                  <div class="flex-1 flex items-baseline gap-4 sm:gap-14">
-                    <div class="flex items-center gap-6">
-                      <span
-                        class="font-serif project-name block text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out  tracking-tight"
-                        data-text={project.name}
-                      >
-                        {project.name}
-                      </span>
-                      {project.featured && (
-                        <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
-                          My Client!
-                        </span>
-                      )}
-                    </div>
-                    <p class="project-description text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div class="project-number text-white/40 text-sm font-mono ml-8">
-                    0{index + 1}
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="block md:hidden w-full max-w-[1920px] mx-auto">
-        <div class="border-t border-b border-white/20 py-3 mb-6">
-          <div class="flex items-center justify-between">
-            <span
-              class="text-xs font-mono text-white/60 uppercase tracking-wide"
-              >Project</span
-            >
-            <span
-              class="text-xs font-mono text-white/60 uppercase tracking-wide"
-              >Image</span
-            >
-          </div>
+          </MotionFadeIn>
         </div>
 
         <ul class="projects-navigation-mobile list-none p-0 m-0 space-y-4">
           {
             projects.slice(0, 8).map((project, index) => (
-              <li class="project-item-mobile group relative">
-                <a
-                  href={project.link || "#"}
-                  target="_blank"
-                  class="project-link-mobile flex items-center justify-between py-4 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
-                  data-project={index}
-                >
-                  <div class="flex-1">
-                    <div class="flex items-center gap-6 mb-1">
+              <MotionFadeIn client:load delay={0.2 + index * 0.1}>
+                <li class="project-item-mobile group relative">
+                  <a
+                    href={project.link || "#"}
+                    target="_blank"
+                    class="project-link-mobile block py-4 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline"
+                    data-project={index}
+                  >
+                    <img
+                      src={`/website/${project.image}`}
+                      alt={project.name + " preview"}
+                      class="w-full  object-cover rounded-md mb-3 aspect-video"
+                    />
+                    <div class="flex flex-col gap-2 px-1">
                       <span
                         class="project-name-mobile block text-2xl font-bold text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out uppercase tracking-tight"
                         data-text={project.name}
                       >
                         {project.name}
                       </span>
+                      <span class="project-description-mobile text-zinc-50/60 text-base leading-relaxed">
+                        {project.description}
+                      </span>
                       {project.featured && (
-                        <span class="px-2 py-0.5 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
-                          My CLients
+                        <span class="px-2 py-0.5 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider w-fit">
+                          My Clients
                         </span>
                       )}
+                      <div class="project-number text-white/40 text-sm font-mono">
+                        0{index + 1}
+                      </div>
                     </div>
-                  </div>
-                  <div class="flex items-center gap-4">
-                    <div class="project-number text-white/40 text-sm font-mono">
-                      0{index + 1}
-                    </div>
-                    <img
-                      src={`/website/${project.image}`}
-                      alt={project.name + " preview"}
-                      class="w-12 h-12 object-contain rounded-md flex-shrink-0"
-                    />
-                  </div>
-                </a>
-              </li>
+                  </a>
+                </li>
+              </MotionFadeIn>
             ))
           }
         </ul>
@@ -276,153 +290,164 @@ const socials = {
 
     <!-- About Me Section -->
     <section
-      class="about-section relative min-h-screen bg-black px-6 sm:px-10 md:px-20 lg:px-40 py-12 sm:py-20"
+      class="about-section relative min-h-screen bg-black px-6 sm:px-10 md:px-20 lg:px-40 pb-12 sm:pb-20"
     >
       <div class="max-w-[1920px] w-full mx-auto">
         <!-- Section Header -->
-        <div class="border-t border-b border-white/20 py-3 mb-12">
-          <div class="flex items-center justify-between">
-            <span
-              class="text-xs font-mono text-white/60 uppercase tracking-wide"
-              >About</span
-            >
-            <span
-              class="text-xs font-mono text-white/60 uppercase tracking-wide"
-              >Me</span
-            >
+        <MotionFadeIn client:load>
+          <div class="border-t border-b border-white/20 py-3 mb-12">
+            <div class="flex items-center justify-between">
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >About</span
+              >
+              <span
+                class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                >Me</span
+              >
+            </div>
           </div>
-        </div>
+        </MotionFadeIn>
 
         <!-- Main Content Grid -->
         <div
           class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start"
         >
           <!-- Left Side - Text Content -->
-          <div class="lg:col-span-7 space-y-8">
-            <h2
-              class="text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3.5vw] font-black leading-[0.9] uppercase tracking-tighter text-white"
-            >
-              About Me
-            </h2>
-
-            <div class="space-y-6 text-zinc-300">
-              <p class="text-lg sm:text-xl leading-relaxed">
-                I'm a passionate developer who believes in creating digital
-                experiences that matter. Currently pursuing my Bachelor's in
-                Computer Engineering while building innovative solutions for
-                real-world problems.
-              </p>
-
-              <p class="text-lg sm:text-xl leading-relaxed">
-                My journey in tech started with curiosity and has evolved into a
-                deep love for crafting clean, efficient code. I specialize in
-                full-stack development with a keen eye for design and user
-                experience.
-              </p>
-
-              <p class="text-lg sm:text-xl leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or mentoring fellow
-                developers through community initiatives.
-              </p>
-            </div>
-
-            <!-- Education Info -->
-            <div class="border-l-2 border-white/20 pl-6 mt-8">
-              <h3
-                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+          <div class="lg:col-span-7 flex flex-col gap-8">
+            <MotionFadeIn client:load>
+              <h2
+                class="text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw] xl:text-[3.5vw] font-black leading-[0.9] uppercase tracking-tighter text-white"
               >
-                Education
-              </h3>
-              <p class="text-white font-semibold">{education.degree}</p>
-              <p class="text-zinc-400">{education.institution}</p>
-              <p class="text-zinc-500 text-sm">{education.years}</p>
-            </div>
+                About Me
+              </h2>
+            </MotionFadeIn>
 
-            <!-- Contact Info -->
-            <div class="border-l-2 border-white/20 pl-6">
-              <h3
-                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
-              >
-                Location
-              </h3>
-              <p class="text-white">{contact.location}</p>
-              <a
-                href={`mailto:${contact.email}`}
-                class="text-zinc-400 hover:text-white transition-colors"
-              >
-                {contact.email}
-              </a>
-            </div>
+            <MotionFadeIn client:load delay={0.5}>
+              <div class="space-y-6 text-zinc-300">
+                <p class="text-lg sm:text-xl leading-relaxed">
+                  I'm a passionate developer who believes in creating digital
+                  experiences that matter. Currently pursuing my Bachelor's in
+                  Computer Engineering while building innovative solutions for
+                  real-world problems.
+                </p>
 
-            <!-- Socials Info -->
-            <div class="border-l-2 border-white/20 pl-6">
-              <h3
-                class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
-              >
-                Connect
-              </h3>
-              <div class="space-y-2">
-                {
-                  socials.github && (
-                    <a
-                      href={socials.github}
-                      target="_blank"
-                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
-                    >
-                      GitHub
-                    </a>
-                  )
-                }
-                {
-                  socials.twitter && socials.twitter.trim() && (
-                    <a
-                      href={socials.twitter}
-                      target="_blank"
-                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
-                    >
-                      Twitter
-                    </a>
-                  )
-                }
-                {
-                  socials.linkedin && socials.linkedin.trim() && (
-                    <a
-                      href={socials.linkedin}
-                      target="_blank"
-                      class="block text-zinc-400 hover:text-white transition-colors hover:underline"
-                    >
-                      LinkedIn
-                    </a>
-                  )
-                }
+                <p class="text-lg sm:text-xl leading-relaxed">
+                  My journey in tech started with curiosity and has evolved into
+                  a deep love for crafting clean, efficient code. I specialize
+                  in full-stack development with a keen eye for design and user
+                  experience.
+                </p>
+
+                <p class="text-lg sm:text-xl leading-relaxed">
+                  When I'm not coding, you'll find me exploring new
+                  technologies, contributing to open-source projects, or
+                  mentoring fellow developers through community initiatives.
+                </p>
               </div>
-            </div>
+            </MotionFadeIn>
+
+            <MotionFadeIn client:load delay={0.8}>
+              <div class="flex flex-col gap-8">
+                <div class="border-l-2 border-white/20 pl-6">
+                  <h3
+                    class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+                  >
+                    Education
+                  </h3>
+                  <p class="text-white font-semibold">{education.degree}</p>
+                  <p class="text-zinc-400">{education.institution}</p>
+                  <p class="text-zinc-500 text-sm">{education.years}</p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="border-l-2 border-white/20 pl-6">
+                  <h3
+                    class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+                  >
+                    Location
+                  </h3>
+                  <p class="text-white">{contact.location}</p>
+                  <a
+                    href={`mailto:${contact.email}`}
+                    class="text-zinc-400 hover:text-white transition-colors"
+                  >
+                    {contact.email}
+                  </a>
+                </div>
+
+                <!-- Socials Info -->
+                <div class="border-l-2 border-white/20 pl-6">
+                  <h3
+                    class="text-sm font-mono text-white/60 uppercase tracking-wide mb-2"
+                  >
+                    Connect
+                  </h3>
+                  <div class="space-y-2">
+                    {
+                      socials.github && (
+                        <a
+                          href={socials.github}
+                          target="_blank"
+                          class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                        >
+                          GitHub
+                        </a>
+                      )
+                    }
+                    {
+                      socials.twitter && socials.twitter.trim() && (
+                        <a
+                          href={socials.twitter}
+                          target="_blank"
+                          class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                        >
+                          Twitter
+                        </a>
+                      )
+                    }
+                    {
+                      socials.linkedin && socials.linkedin.trim() && (
+                        <a
+                          href={socials.linkedin}
+                          target="_blank"
+                          class="block text-zinc-400 hover:text-white transition-colors hover:underline"
+                        >
+                          LinkedIn
+                        </a>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </MotionFadeIn>
           </div>
 
           <!-- Right Side - Image and Skills -->
           <div class="lg:col-span-5 space-y-8">
             <!-- Profile Image -->
-            <div class="relative group">
-              <div class="aspect-[3/4] overflow-hidden rounded-lg bg-zinc-900">
-                <img
-                  src="/me.jpg"
-                  alt="Yash Deshpande"
-                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
-                />
+            <MotionFadeIn client:load delay={0.7}>
+              <div class="relative group">
+                <div class="aspect-[3/4] overflow-hidden rounded-lg bg-zinc-900">
+                  <img
+                    src="/me.jpg"
+                    alt="Yash Deshpande"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  />
+                </div>
+                <!-- Default gradient overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg opacity-60 group-hover:opacity-0 transition-opacity duration-700"
+                >
+                </div>
+                <!-- Red gradient overlay on hover -->
+                <div
+                  class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-50 transition-opacity duration-700"
+                  style="background-image: radial-gradient(at 30% 150%, #fff266 0, transparent 50%), radial-gradient(at 75% 120%, rgba(255, 217, 102, 0.9) 0, transparent 50%), radial-gradient(at 15% 150%, #f50004 35%, transparent 70%), radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);"
+                >
+                </div>
               </div>
-              <!-- Default gradient overlay -->
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg opacity-60 group-hover:opacity-0 transition-opacity duration-700"
-              >
-              </div>
-              <!-- Red gradient overlay on hover -->
-              <div
-                class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-50 transition-opacity duration-700"
-                style="background-image: radial-gradient(at 30% 150%, #fff266 0, transparent 50%), radial-gradient(at 75% 120%, rgba(255, 217, 102, 0.9) 0, transparent 50%), radial-gradient(at 15% 150%, #f50004 35%, transparent 70%), radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);"
-              >
-              </div>
-            </div>
+            </MotionFadeIn>
           </div>
         </div>
       </div>
@@ -434,354 +459,361 @@ const socials = {
     class="fixed bottom-4 right-4 w-64 h-64 bg-contain bg-center bg-no-repeat rounded-lg shadow-lg hidden"
   >
   </div>
-</Layout>
 
-<style>
-  .bg-gradient {
-    background-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        transparent 80%,
-        #000000 100%
-      ),
-      radial-gradient(at 30% 150%, #fff266 0, transparent 50%),
-      radial-gradient(at 75% 120%, rgba(255, 217, 102, 0.9) 0, transparent 50%),
-      radial-gradient(at 15% 150%, #f50004 35%, transparent 70%),
-      radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);
-  }
+  <style>
+    .bg-gradient {
+      background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 80%,
+          #000000 100%
+        ),
+        radial-gradient(at 30% 150%, #fff266 0, transparent 50%),
+        radial-gradient(
+          at 75% 120%,
+          rgba(255, 217, 102, 0.9) 0,
+          transparent 50%
+        ),
+        radial-gradient(at 15% 150%, #f50004 35%, transparent 70%),
+        radial-gradient(at 85% 120%, #ff0004 55%, transparent 85%);
+    }
 
-  .bg-gradient-pink {
-    background-image: radial-gradient(at 30% 150%, #ff66c4 0, transparent 50%),
-      radial-gradient(at 75% 120%, rgba(255, 102, 204, 0.9) 0, transparent 50%),
-      radial-gradient(at 15% 150%, #e91e63 35%, transparent 70%),
-      radial-gradient(at 85% 120%, #ff0080 55%, transparent 85%);
-  }
-
-  .projects-section {
-    position: relative;
-    width: 100vw;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  .project-preview-wrapper {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    pointer-events: none;
-    padding-right: 3vw;
-  }
-
-  .project-preview {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    overflow: hidden;
-    width: 0;
-    opacity: 0;
-    transition:
-      width 0.5s cubic-bezier(0.84, 0, 0.08, 0.99),
-      opacity 0.3s;
-  }
-
-  .project-preview.active {
-    width: 500px;
-    opacity: 1;
-  }
-
-  .project-name {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .project-name::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    color: #ffffff;
-    overflow: hidden;
-    transition: width 0.8s cubic-bezier(0.84, 0, 0.08, 0.99);
-    white-space: nowrap;
-  }
-
-  .project-link:hover .project-name::before {
-    width: 100%;
-  }
-
-  /* Mobile project name hover effect */
-  .project-name-mobile {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .project-name-mobile::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    color: #ffffff;
-    overflow: hidden;
-    transition: width 0.8s cubic-bezier(0.84, 0, 0.08, 0.99);
-    white-space: nowrap;
-  }
-
-  .project-link-mobile:hover .project-name-mobile::before {
-    width: 100%;
-  }
-
-  .project-link {
-    text-decoration: none !important;
-  }
-
-  #hover-image-preview {
-    z-index: 2147483647;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  #hover-image-preview:not(.hidden) {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 768px) {
-    .project-preview-wrapper {
-      display: none;
+    .bg-gradient-pink {
+      background-image: radial-gradient(at 30% 150%, #ff66c4 0, transparent 50%),
+        radial-gradient(
+          at 75% 120%,
+          rgba(255, 102, 204, 0.9) 0,
+          transparent 50%
+        ),
+        radial-gradient(at 15% 150%, #e91e63 35%, transparent 70%),
+        radial-gradient(at 85% 120%, #ff0080 55%, transparent 85%);
     }
 
     .projects-section {
-      min-height: auto;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
 
-    .projects-navigation,
-    .projects-navigation-mobile {
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
+    .project-preview-wrapper {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      pointer-events: none;
+      padding-right: 3vw;
     }
 
-    .project-item,
-    .project-item-mobile {
-      margin-bottom: 0.75rem;
+    .project-preview {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 0;
+      opacity: 0;
+      transition:
+        width 0.5s cubic-bezier(0.84, 0, 0.08, 0.99),
+        opacity 0.3s;
+    }
+
+    .project-preview.active {
+      width: 500px;
+      opacity: 1;
     }
 
     .project-name {
-      font-size: 1.75rem !important;
-      line-height: 1.2 !important;
-      margin-bottom: 0.5rem;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
+    .project-name::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      color: #ffffff;
+      overflow: hidden;
+      transition: width 0.8s cubic-bezier(0.84, 0, 0.08, 0.99);
+      white-space: nowrap;
+    }
+
+    .project-link:hover .project-name::before {
+      width: 100%;
+    }
+
+    /* Mobile project name hover effect */
     .project-name-mobile {
-      font-size: 1.75rem !important;
-      line-height: 1.2 !important;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .project-link,
-    .project-link-mobile {
-      padding: 1rem 0 !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    .project-name-mobile::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      color: #ffffff;
+      overflow: hidden;
+      transition: width 0.8s cubic-bezier(0.84, 0, 0.08, 0.99);
+      white-space: nowrap;
     }
 
-    .project-link:hover,
-    .project-link-mobile:hover {
-      border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+    .project-link-mobile:hover .project-name-mobile::before {
+      width: 100%;
     }
 
-    .project-number {
-      font-size: 0.875rem !important;
-      margin-left: 1rem !important;
+    .project-link {
+      text-decoration: none !important;
     }
 
-    /* Mobile typography consistency */
-    h1 {
-      font-size: 2rem !important;
-      line-height: 1.2 !important;
-      margin-bottom: 1.5rem !important;
+    #hover-image-preview {
+      z-index: 2147483647;
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
     }
 
-    /* Mobile button consistency */
-    .border.border-zinc-50 {
-      padding: 0.75rem 1.5rem !important;
-      font-size: 0.875rem !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    /* Extra small mobile devices */
-    .projects-section {
-      padding-left: 1rem;
-      padding-right: 1rem;
+    #hover-image-preview:not(.hidden) {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    h1 {
-      font-size: 1.75rem !important;
+    @media (max-width: 768px) {
+      .project-preview-wrapper {
+        display: none;
+      }
+
+      .projects-section {
+        min-height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .projects-navigation,
+      .projects-navigation-mobile {
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+      }
+
+      .project-item,
+      .project-item-mobile {
+        margin-bottom: 0.75rem;
+      }
+
+      .project-name {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-name-mobile {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .project-link,
+      .project-link-mobile {
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .project-link:hover,
+      .project-link-mobile:hover {
+        border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+      }
+
+      .project-number {
+        font-size: 0.875rem !important;
+        margin-left: 1rem !important;
+      }
+
+      /* Mobile typography consistency */
+      h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* Mobile button consistency */
+      .border.border-zinc-50 {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.875rem !important;
+      }
     }
 
-    .project-name,
-    .project-name-mobile {
-      font-size: 1.5rem !important;
+    @media (max-width: 480px) {
+      /* Extra small mobile devices */
+      .projects-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      h1 {
+        font-size: 1.75rem !important;
+      }
+
+      .project-name,
+      .project-name-mobile {
+        font-size: 1.5rem !important;
+      }
+
+      /* Reduce image size on very small screens */
+      .project-link-mobile img {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+      }
     }
 
-    /* Reduce image size on very small screens */
-    .project-link-mobile img {
-      width: 2.5rem !important;
-      height: 2.5rem !important;
+    @media (min-width: 769px) {
+      .mobile-project-detail {
+        display: none !important;
+      }
     }
-  }
+  </style>
 
-  @media (min-width: 769px) {
-    .mobile-project-detail {
-      display: none !important;
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Project images for each project
-    const projectImages = [
-      "/website/6pistons.png",
-      "/website/sshealthcare.png",
-      "/website/strive.png",
-      "/website/adeon.png",
-      "/website/neurotechh.png",
-      "/website/tq.png",
-      "/website/acm.png",
-      "/website/pfe.png",
-      "/website/betaverse.png",
-      "/website/gamers.png",
-    ];
-
-    // Project hover image preview logic
-    const projectItems = document.querySelectorAll(".project-item");
-    const projectPreview = document.querySelector(
-      ".project-preview"
-    ) as HTMLElement;
-
-    if (projectPreview && projectItems.length > 0) {
-      projectItems.forEach((item, index) => {
-        const projectLink = item.querySelector(".project-link");
-        if (projectLink) {
-          projectLink.addEventListener("mouseenter", () => {
-            projectPreview.style.backgroundImage = `url(${projectImages[index]})`;
-            projectPreview.classList.add("active");
-          });
-          projectLink.addEventListener("mouseleave", () => {
-            projectPreview.classList.remove("active");
-          });
-        }
-      });
-    }
-
-    // Mobile project detail logic
-    const mobileDetail = document.getElementById("mobile-project-detail");
-    const mobileTitle = document.getElementById("mobile-project-title");
-    const mobileDesc = document.getElementById("mobile-project-desc");
-    const mobileImg = document.getElementById(
-      "mobile-project-img"
-    ) as HTMLImageElement;
-
-    function showMobileDetail(index: number) {
-      const projects = [
-        {
-          name: "Neurotechh",
-          description:
-            "Community of student developers building innovative solutions",
-        },
-        {
-          name: "Taqneeq Fest App",
-          description:
-            "Official fest app for 500+ users with QR-based points system",
-        },
-        {
-          name: "ACM MPSTME Website",
-          description:
-            "Student chapter website built with modern web technologies",
-        },
-        {
-          name: "Programming For Everyone",
-          description: "Educational event website for programming workshops",
-        },
-        {
-          name: "6pistons Media",
-          description: "Media platform for automotive content",
-        },
-        {
-          name: "Adeon",
-          description: "Modern web application",
-        },
-        {
-          name: "Betaverse",
-          description: "Innovative digital platform",
-        },
-        {
-          name: "Gamers Platform",
-          description: "Gaming community platform",
-        },
-        {
-          name: "SS Healthcare",
-          description: "Healthcare management system",
-        },
-        {
-          name: "Strive Consultancy",
-          description: "A Consultancy Firm",
-        },
-      ];
-
-      const images = [
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const projectImages = [
+        "/website/6pistons.png",
+        "/website/sshealthcare.png",
+        "/website/strive.png",
+        "/website/adeon.png",
         "/website/neurotechh.png",
         "/website/tq.png",
         "/website/acm.png",
         "/website/pfe.png",
-        "/website/6pistons.png",
-        "/website/adeon.png",
         "/website/betaverse.png",
         "/website/gamers.png",
-        "/website/sshealthcare.png",
-        "/website/strive.png",
       ];
 
-      if (mobileTitle) mobileTitle.textContent = projects[index].name;
-      if (mobileDesc) mobileDesc.textContent = projects[index].description;
-      if (mobileImg) {
-        mobileImg.src = images[index];
-        mobileImg.alt = projects[index].name + " preview";
-      }
-      if (mobileDetail) {
-        mobileDetail.classList.remove("hidden");
-        mobileDetail.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
+      // Project hover image preview logic
+      const projectItems = document.querySelectorAll(".project-item");
+      const projectPreview = document.querySelector(
+        ".project-preview"
+      ) as HTMLElement;
 
-    // Mobile project click handlers
-    if (window.innerWidth <= 768) {
-      const mobileProjectItems = document.querySelectorAll(".project-item");
-      mobileProjectItems.forEach((item, index) => {
-        const projectLink = item.querySelector(".project-link");
-        if (projectLink) {
-          projectLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            showMobileDetail(index);
-          });
+      if (projectPreview && projectItems.length > 0) {
+        projectItems.forEach((item, index) => {
+          const projectLink = item.querySelector(".project-link");
+          if (projectLink) {
+            projectLink.addEventListener("mouseenter", () => {
+              projectPreview.style.backgroundImage = `url(${projectImages[index]})`;
+              projectPreview.classList.add("active");
+            });
+            projectLink.addEventListener("mouseleave", () => {
+              projectPreview.classList.remove("active");
+            });
+          }
+        });
+      }
+
+      // Mobile project detail logic
+      const mobileDetail = document.getElementById("mobile-project-detail");
+      const mobileTitle = document.getElementById("mobile-project-title");
+      const mobileDesc = document.getElementById("mobile-project-desc");
+      const mobileImg = document.getElementById(
+        "mobile-project-img"
+      ) as HTMLImageElement;
+
+      function showMobileDetail(index: number) {
+        const projects = [
+          {
+            name: "Neurotechh",
+            description:
+              "Community of student developers building innovative solutions",
+          },
+          {
+            name: "Taqneeq Fest App",
+            description:
+              "Official fest app for 500+ users with QR-based points system",
+          },
+          {
+            name: "ACM MPSTME Website",
+            description:
+              "Student chapter website built with modern web technologies",
+          },
+          {
+            name: "Programming For Everyone",
+            description: "Educational event website for programming workshops",
+          },
+          {
+            name: "6pistons Media",
+            description: "Media platform for automotive content",
+          },
+          {
+            name: "Adeon",
+            description: "Modern web application",
+          },
+          {
+            name: "Betaverse",
+            description: "Innovative digital platform",
+          },
+          {
+            name: "Gamers Platform",
+            description: "Gaming community platform",
+          },
+          {
+            name: "SS Healthcare",
+            description: "Healthcare management system",
+          },
+          {
+            name: "Strive Consultancy",
+            description: "A Consultancy Firm",
+          },
+        ];
+
+        const images = [
+          "/website/neurotechh.png",
+          "/website/tq.png",
+          "/website/acm.png",
+          "/website/pfe.png",
+          "/website/6pistons.png",
+          "/website/adeon.png",
+          "/website/betaverse.png",
+          "/website/gamers.png",
+          "/website/sshealthcare.png",
+          "/website/strive.png",
+        ];
+
+        if (mobileTitle) mobileTitle.textContent = projects[index].name;
+        if (mobileDesc) mobileDesc.textContent = projects[index].description;
+        if (mobileImg) {
+          mobileImg.src = images[index];
+          mobileImg.alt = projects[index].name + " preview";
         }
-      });
-    }
-  });
-</script>
+        if (mobileDetail) {
+          mobileDetail.classList.remove("hidden");
+          mobileDetail.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      // Mobile project click handlers
+      if (window.innerWidth <= 768) {
+        const mobileProjectItems = document.querySelectorAll(".project-item");
+        mobileProjectItems.forEach((item, index) => {
+          const projectLink = item.querySelector(".project-link");
+          if (projectLink) {
+            projectLink.addEventListener("click", function (e) {
+              e.preventDefault();
+              showMobileDetail(index);
+            });
+          }
+        });
+      }
+    });
+  </script>
+</Layout>

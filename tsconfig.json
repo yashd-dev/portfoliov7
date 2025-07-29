@@ -1,7 +1,9 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"outDir": "./dist", // Change the output directory to avoid overwriting the input file
-		"strictNullChecks": false
-	}
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "strictNullChecks": false,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
