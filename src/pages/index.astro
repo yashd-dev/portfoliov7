@@ -8,6 +8,7 @@ const projects = [
     link: "https://6pistons.com",
     image: "6pistons.png",
     featured: true,
+    tech: "Next.js, Tailwind, Vercel",
   },
   {
     name: "SS Healthcare",
@@ -15,6 +16,7 @@ const projects = [
     link: "https://sshealthcare.org/",
     image: "sshealthcare.png",
     featured: true,
+    tech: "Next.js, Tailwind, Vercel, Google Translate",
   },
   {
     name: "Strive Consultancy",
@@ -22,6 +24,15 @@ const projects = [
     link: "https://www.striveconsultancy.in/",
     image: "strive.png",
     featured: true,
+    tech: "Next.js, Tailwind, Vercel",
+  },
+  {
+    name: "Totso",
+    description: "A ABroad Education Assistant",
+    link: "https://sangam.totso.io/",
+    image: "totso.png",
+    featured: true,
+    tech: "Next.js, Tailwind, EC2, Razorpay",
   },
   {
     name: "Adeon",
@@ -29,6 +40,7 @@ const projects = [
     link: "https://adeon.me/",
     image: "adeon.png",
     featured: false,
+    tech: "Next.js, Tailwind, EC2, Shadcn ",
   },
   {
     name: "Neurotechh",
@@ -37,6 +49,7 @@ const projects = [
     link: "https://neurotechh.xyz",
     image: "neurotechh.png",
     featured: false,
+    tech: "Next.js, Tailwind, Vercel, SanityCMS",
   },
   {
     name: "Taqneeq Fest App",
@@ -44,6 +57,7 @@ const projects = [
     link: "https://www.taqneeqfest.com/app",
     image: "tq.png",
     featured: false,
+    tech: "Next.js, Tailwind, Vercel",
   },
   {
     name: "ACM MPSTME Website",
@@ -51,6 +65,7 @@ const projects = [
     link: "https://mpstmeacm.com",
     image: "acm.png",
     featured: false,
+    tech: "Next.js, Tailwind, Hetzner",
   },
   {
     name: "Programming For Everyone",
@@ -58,6 +73,7 @@ const projects = [
     link: "https://pfe.mpstmeacm.com/",
     image: "pfe.png",
     featured: false,
+    tech: "Next.js, Tailwind, Hetzner",
   },
   {
     name: "Betaverse",
@@ -65,6 +81,7 @@ const projects = [
     link: "https://betaverse-five.vercel.app/",
     image: "betaverse.png",
     featured: false,
+    tech: "Next.js, Tailwind",
   },
   {
     name: "Gamers Platform",
@@ -72,6 +89,7 @@ const projects = [
     link: "https://gamers-asylum.vercel.app/",
     image: "gamers.png",
     featured: false,
+    tech: "Next.js, Tailwind",
   },
 ];
 
@@ -137,7 +155,7 @@ const socials = {
             <h3
               class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight"
             >
-            <span class="md:hidden">A Developer,</span>
+              <span class="md:hidden">A Developer,</span>
               <span class="hidden md:block"> I'm a Developer </span>
               Creative<br />
               <span class="font-serif italic tracking-normal font-thin"
@@ -173,7 +191,7 @@ const socials = {
           <MotionFadeIn client:load>
             <div class="flex items-center justify-between">
               <div
-                class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
+                class="flex-1 flex items-center justify-between gap-6 max-w-[70%]"
               >
                 <span
                   class="text-xs font-mono text-white/60 uppercase tracking-wide"
@@ -182,6 +200,10 @@ const socials = {
                 <span
                   class="text-xs font-mono text-white/60 uppercase tracking-wide"
                   >Description</span
+                >
+                <span
+                  class="text-xs font-mono text-white/60 uppercase tracking-wide"
+                  >Tech Stack</span
                 >
               </div>
               <span
@@ -210,15 +232,18 @@ const socials = {
                           >
                             {project.name}
                           </span>
-                          {project.featured && (
-                            <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
-                              My Client!
-                            </span>
-                          )}
                         </div>
                         <p class="project-description text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
                           {project.description}
                         </p>
+                        <span class="project-tech text-zinc-400 text-xs sm:text-base md:text-lg font-mono ml-4 hidden sm:block">
+                          {project.tech}
+                        </span>
+                        {project.featured && (
+                          <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider ml-4">
+                            My Client!
+                          </span>
+                        )}
                       </div>
                       <div class="project-number text-white/40 text-sm font-mono ml-8">
                         0{index + 1}
@@ -275,6 +300,9 @@ const socials = {
                       </span>
                       <span class="project-description-mobile text-zinc-50/60 text-base leading-relaxed">
                         {project.description}
+                      </span>
+                      <span class="project-tech-mobile text-zinc-400 text-xs font-mono mb-1 block">
+                        {project.tech}
                       </span>
                       {project.featured && (
                         <span class="px-2 py-0.5 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider w-fit">
@@ -685,6 +713,7 @@ const socials = {
         "/website/6pistons.png",
         "/website/sshealthcare.png",
         "/website/strive.png",
+        "/website/totso.png",
         "/website/adeon.png",
         "/website/neurotechh.png",
         "/website/tq.png",

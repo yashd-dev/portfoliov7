@@ -1,0 +1,50 @@
+---
+import MotionFadeIn from "../utils/MotionFadeIn";
+---
+<div class="w-full min-h-[50vh] md:min-h-screen bg-gradient overflow-clip">
+  <div
+    class="px-6 sm:px-10 md:px-20 lg:px-40 pt-16 sm:pt-20 pb-8 sm:pb-10 flex flex-col justify-between h-full min-h-[50vh] md:min-h-screen"
+    id="line"
+  >
+    <MotionFadeIn client:load>
+      <h1
+        class="text-6xl sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[8vw] 2xl:text-[9.5vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full"
+      >
+        <span class="md:hidden">I'm</span>
+        Yash Deshpande
+      </h1>
+    </MotionFadeIn>
+    <div class="h-full flex justify-end mb-8 sm:mb-0">
+      <MotionFadeIn client:load delay={0.5}>
+        <a
+          href="https://cal.com/yashd-dev/discussion"
+          target="_blank"
+          class="group border border-zinc-50 px-3 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg whitespace-nowrap uppercase font-semibold text-zinc-50"
+        >
+          Let's <span
+            class="font-serif font-thin italic normal-case text-white text-lg sm:text-2xl transition-colors duration-300 group-hover:text-black"
+            >Talk!</span
+          >
+        </a>
+      </MotionFadeIn>
+    </div>
+    <div
+      class="flex-1 max-h-[60%] flex flex-col justify-center md:justify-end pb-8 sm:pb-16"
+    >
+      <div class="px-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20">
+        <MotionFadeIn client:load delay={1}>
+          <h3
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tighter leading-tight"
+          >
+            <span class="md:hidden">A Developer,</span>
+            <span class="hidden md:block"> I'm a Developer </span>
+            Creative<br />
+            <span class="font-serif italic tracking-normal font-thin"
+              >Tinkerer</span
+            > and Perfectionist.
+          </h3>
+        </MotionFadeIn>
+      </div>
+    </div>
+  </div>
+</div>

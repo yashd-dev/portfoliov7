@@ -1,0 +1,84 @@
+---
+import MotionFadeIn from "../utils/MotionFadeIn";
+const { projects } = Astro.props;
+---
+
+<section
+  class="projects-section relative min-h-screen flex items-center justify-center px-6 sm:px-10 md:px-20 lg:px-40 py-12 sm:py-20"
+>
+  <div
+    class="project-preview-wrapper fixed inset-0 flex items-center justify-center pointer-events-none z-40"
+  >
+    <div
+      class="project-preview w-0 h-96 bg-cover bg-center transition-all duration-700 ease-out rounded-lg shadow-2xl"
+    >
+    </div>
+  </div>
+  <div class="max-w-[1920px] w-full mx-auto hidden md:block">
+    <h1
+      class="text-[12vw] sm:text-[10vw] md:text-[8.5vw] lg:text-[7.5vw] xl:text-[8vw] font-black leading-[0.9] mb-8 sm:mb-12 uppercase tracking-tighter w-full bg-gradient-to-br from-white to-zinc-500 text-transparent bg-clip-text"
+    >
+      Some Of My Works
+    </h1>
+    <div class="border-t border-white/20 py-3 mb-8">
+      <MotionFadeIn client:load>
+        <div class="flex items-center justify-between">
+          <div
+            class="flex-1 flex items-center justify-between gap-6 max-w-[50%]"
+          >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Project</span
+            >
+            <span
+              class="text-xs font-mono text-white/60 uppercase tracking-wide"
+              >Description</span
+            >
+          </div>
+          <span
+            class="text-xs font-mono text-white/60 uppercase tracking-wide ml-8"
+            >Image</span
+          >
+        </div>
+      </MotionFadeIn>
+      <ul class="projects-navigation list-none p-0 m-0 space-y-8">
+        {
+          projects.slice(0, 8).map((project, index) => (
+            <MotionFadeIn client:load delay={0.2 + index * 0.2}>
+              <li class="project-item group relative">
+                <a
+                  href={project.link || "#"}
+                  target="_blank"
+                  class="project-link flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors duration-500 cursor-pointer no-underline "
+                  data-project={index}
+                >
+                  <div class="flex-1 flex items-baseline gap-4 sm:gap-14">
+                    <div class="flex items-center gap-6">
+                      <span
+                        class="font-serif project-name block text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-zinc-50/70 hover:text-zinc-50 transition-colors duration-700 ease-out  tracking-tight"
+                        data-text={project.name}
+                      >
+                        {project.name}
+                      </span>
+                      {project.featured && (
+                        <span class="px-2 py-1 bg-gradient rounded-full text-sm font-mono text-white uppercase tracking-wider">
+                          My Client!
+                        </span>
+                      )}
+                    </div>
+                    <p class="project-description text-zinc-50/60 text-sm sm:text-lg md:text-xl leading-relaxed hidden sm:block">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div class="project-number text-white/40 text-sm font-mono ml-8">
+                    0{index + 1}
+                  </div>
+                </a>
+              </li>
+            </MotionFadeIn>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
