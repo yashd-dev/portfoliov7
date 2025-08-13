@@ -1,0 +1,144 @@
+---
+import TypographicTerms from "./typographic-terms.astro";
+import SerifTypes from "./serif-types.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography Series</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        font-family: Inter, sans-serif;
+        font-feature-settings:
+          "liga" 1,
+          "calt" 1;
+      }
+      @supports (font-variation-settings: normal) {
+        :root {
+          font-family: InterVariable, sans-serif;
+        }
+      }
+      html {
+        background-color: #111;
+        color: #fafafa;
+      }
+    </style>
+  </head>
+  <body class="p-6 md:p-16 space-y-16">
+    <!-- Hero Section -->
+    <div class="min-h-screen flex flex-col justify-around">
+      <h1
+        class="text-[calc(100vw/9)] md:text-[calc(100vw/9)] tracking-tight leading-[1] font-semibold"
+      >
+        Better Typography <span class="text-yellow-400">Starts Here.</span>
+      </h1>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-8 text-neutral-200 text-lg"
+      >
+        <!-- Mobile: full width button -->
+        <a
+          class="bg-white rounded-full px-6 py-3 font-medium h-fit w-fit text-black text-center"
+          href="#chapter-1"
+        >
+          Let's Start!
+        </a>
+
+        <p class="md:col-span-1">
+          Typography is the art and technique of arranging type to make written
+          language legible, readable, and visually appealing. It&apos;s one of
+          the most essential elements in design, whether you&apos;re working on
+          websites, apps, or print. Like it or not, typography plays a huge role
+          in the overall look and feel of your project. Sometimes it&apos;s the
+          star of the show, grabbing all the attention. Other times, it quietly
+          supports the design in the background. Let's explore it together and
+          see how we can better utilize it!
+        </p>
+        <p class="md:col-span-1">
+          This series is all about better understanding the world of typography.
+          As both a developer and a designer, I&apos;ve come across many
+          concepts that felt completely unfamiliar and honestly, some of the
+          terminology sounded like straight-up gibberish. So, this series is my
+          attempt to help you, my viewers, discover something new about
+          typography.
+        </p>
+      </div>
+    </div>
+
+    <hr class="opacity-30" />
+
+    <!-- Chapter Section -->
+    <section id="chapter-1" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Sticky Sidebar -->
+      <div class="md:col-span-1">
+        <div class="md:sticky md:top-6 space-y-2">
+          <p class="text-sm uppercase tracking-wider text-neutral-400">
+            Chapter 1
+          </p>
+          <h2 class="text-xl md:text-2xl font-semibold">
+            The Different Families
+          </h2>
+          <h3 class="text-neutral-300">The Serif Dynasty</h3>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="md:col-span-2 space-y-4 text-neutral-200 max-w-prose prose prose-invert"
+      >
+        <p>
+          In typography, broadly speaking, there are two main font families:
+          <strong>serif</strong> and <strong>sans serif</strong>.
+        </p>
+        <p>
+          Let&apos;s start with <strong>serif</strong>. A serif is simply a
+          small decorative line or stroke that&apos;s added to the ends of
+          letters. Think of it as a little “foot” or “hat” that finishes off the
+          letter&apos;s shape. Fonts with these little details are called serif
+          fonts.
+        </p>
+        <img src="/typography/serif.png" />
+        <p>
+          The image will give you a good idea of the little “hats” and “feet”
+          I&apos;m talking about. But how did we even end up with serifs in the
+          first place?
+        </p>
+        <p>
+          Well, way back in the day, before Figma, before Photoshop, people were
+          literally carving letters into stone. Roman stonecutters found that if
+          they finished each stroke with a tiny extra cut, it stopped the stone
+          from chipping and made the edges look cleaner. These little finishing
+          strokes eventually became what we now call serifs. So, fun fact: they
+          weren&apos;t even meant to be decorative at first they were just smart
+          engineering.
+        </p>
+        <p>
+          Later, people realized serifs actually help with reading too. They
+          guide your eyes along the line of text, make letters sit neatly on the
+          baseline, and even help distinguish characters from one another.
+          Basically, they&apos;re like tiny anchors for your text.
+        </p>
+        <p>
+          And when printing came along, serifs were still super useful. Old
+          printing presses and rough paper loved them because they kept the ink
+          from bleeding too much and made the letters sturdier on the page.
+        </p>
+        <TypographicTerms />
+        <p>
+          And, as creative as human minds are, we didn&apos;t just stop at <em
+            >serif</em
+          >. Over the years, designers and typographers spun off more
+          sub-categories of serif styles, each with its own vibe and purpose.
+        </p>
+        <SerifTypes />
+      </div>
+    </section>
+  </body>
+</html>
